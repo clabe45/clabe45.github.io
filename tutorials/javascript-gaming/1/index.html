@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../style.css" />
+	<title>JavaScript Gaming Tutorial | Lesson 1: Getting Started</title>
+</head>
+<body>
+	<h2>Error A97: This Webpage Hasn't Been Fully Developed Yet :(<br>Try Again Later.</h2><br><br>
+	<img id="error-image" src="../../../resources/code-snapshot-5.4.png" height=256 width=256></img>
+	<!--<h1>JavaScript Gaming Tutorial 
+		<span id="other-part-of-title">
+			<span id="pipe">|</span> 
+			Lesson <span id="lesson-number">1</span><span id="colon">:</span> <span id="lesson-description">Getting Started</span>
+		</span>
+	</h1><br>
+	<a href="../0"><div class="other-page-link">0</div></a><div class="other-page-link">1</div><br>
+	
+	<h3>Introduction</h3>
+	<p>Today, we will be starting to make our platformer-like game.
+	   First, we will start drawing things on the canvas. 
+	   Second, we will also create a basic player that can move around.
+	</p>
+	
+	<h3>Imagining the Game</h3>
+	<p>Before we start coding, it is a good idea to conceptualize what the game will look like, what the object will be, what will happen, and so forth.
+	   In this particular game, I want a character who can walk left or right, can jump up, and then will fall back down.
+	   I want items that he/she (you can choose) can collect to boost his/her ability. The player will have health that can decrease and increase.
+	   There will also be enemies, and other obstacles like fire and fall damage.
+	</p>
+	
+	<h3>Developing the <code>draw()</code> Function</h3>
+	<p>Before we start, let's review our current code.</p>
+	<pre class="prettyprint">
+  var canvas;
+  function keyDown(event) {
+  
+  }
+  function mouseDown(event) {
+  
+  }
+  function draw() {
+  	window.requestAnimationFrame(draw);	// continue the cycle
+  }
+  
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     canvas.addEventListener('mousedown', mouseDown);
+     
+     document.body.appendChild(canvas);
+     
+     // make sure method exists, and if not, use another one
+     window.requestAnimationFrame = 
+  	   window.requestAnimationFrame || 
+  	   window.mozRequestAnimationFrame || 
+  	   window.webkitRequestAnimationFrame ||
+  	   window.msRequestAnimationFrame ||
+  	   function(fn) { setTimeout(fn, 1000/60); }
+     window.requestAnimationFrame(draw);	// start the cycle
+  }
+ 
+  window.addEventListener('load', main);
+  window.addEventListener('keydown', keyDown);</pre>
+	
+	<p>As I said, first, we're going to focus on drawing.
+	The first step to that is going to be to pull the 2-dimensional context from our canvas, using the <code>getContext()</code> method.
+	We will update our <code>draw()</code> function to take that context in as a argument, so it can use it.
+	Once we have that we will draw our sky as a blue rectangle filling the entire canvas. Then we'll draw everything else over it.
+	For a more advanced tutorial on JavaScript drawing, check out 
+	   <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">this tutorial</a>. 
+	</p>
+	<pre class="prettyprint">
+  var canvas;
+  function keyDown(event) {
+  
+  }
+  function mouseDown(event) {
+  
+  }
+  function draw(ctx) {
+     // draw sky
+     ctx.fillStyle = '#8080ff';
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+     window.requestAnimationFrame(draw);	// continue the cycle
+  }
+  
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     canvas.addEventListener('mousedown', mouseDown);
+     var ctx = canvas.getContext('2d');
+     
+     document.body.appendChild(canvas);
+     
+     // make sure method exists, and if not, use another one
+     window.requestAnimationFrame = 
+       window.requestAnimationFrame ||
+       window.mozRequestAnimationFrame || 
+       window.webkitRequestAnimationFrame ||
+       window.msRequestAnimationFrame ||
+       function(fn) { setTimeout(fn, 1000/60); };
+     window.requestAnimationFrame(function() {
+       draw(ctx);
+     });	// start the cycle
+  }
+ 
+  window.addEventListener('load', main);
+  window.addEventListener('keydown', keyDown);</pre>
+	<p>Run that code and see what you get. It should fill the screen with light blue. Instead of using hexidecimal values (prefixed by the '<code>#</code>',
+	   you can also use the '<code>rgb</code>' notation for colors. I'll use them interchangeably.
+	</p>
+	<p>Next, we need some land. Now, there are many ways to do this, but I am going to use something called 
+	   <a href="http://flafla2.github.io/2014/08/09/perlinnoise.html"><em>Perlin Noise</em></a> to generate random, yet smooth hills.
+	   First, let's create a library script that contains outside methods that we don't want in the way of our specific code.
+	   Create a file called <code>lib.js</code> and add a <code>&lt;script&gt;</code> tag which points to it <strong>before the first one</strong>.
+	   Now, I've translated Ken Perlin's code from Java, which I got from 
+	   <a href="http://mrl.nyu.edu/~perlin/noise/http://mrl.nyu.edu/~perlin/noise/">this webpage</a>.
+	</p>
+	
+	<br>
+	<a href="../0" class="prev"><< Prev</a>											<span class="next">Next >></span>
+	<br>
+	
+	<br>
+	<hr>
+	<h4>Bibliography</h4>
+
+	<div id="references">
+	</div>-->
+</body>
+</html>

@@ -2,6 +2,7 @@ body {
 	font-family: lucida-grande, sans-serif, serif;
 	font-size: 18px;
 	margin-left: 50px;
+	margin-right: 50px;
 	background-color: #ececec;
 }
 
@@ -29,6 +30,41 @@ h3 {
 	background-color: #afaf99;
 }
 
+.other-page-link {
+	background-color: #90ff90;
+	display: inline-block;
+	margin-right: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+a {
+	text-decoration: none;
+}
+
+.note {
+	background-color: #cccccc;
+	padding: 8px;
+	margin-bottom: -20px;
+	border: 1px solid black;
+}
+.note-title {
+	text-decoration: underline;
+}
+
+.prev, .next {
+	background-color: #9090ff;
+	padding: 10px;
+}
+.prev {
+	float: left;
+	margin-left: 5px;
+}
+.next {
+	float: right;
+}
+
 #other-part-of-title {
 	font-weight: normal;
 }
@@ -48,4 +84,8 @@ h3 {
 
 #references {
 	font-size: 12px;
+}
+
+#error-image {
+	margin-left: 15%;
 }

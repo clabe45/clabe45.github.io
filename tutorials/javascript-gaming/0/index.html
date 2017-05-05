@@ -12,63 +12,68 @@
 			Lesson <span id="lesson-number">0</span><span id="colon">:</span> <span id="lesson-description">Setup</span>
 		</span>
 	</h1><br>
+	<div class="other-page-link">0</div><a href="../1"><div class="other-page-link">1</div></a><br>
 	<h3>Introduction</h3>
-	<p>The web is a huge part of most people's lives. Also gaming is a wonderful thing that many people do.</p>
-	<p>Many people have merged them together and made games for the web, and that's a powerful skill to learn.</p>
-	<p>JavaScript allows programmers to write games that run on websites, which is a great technology for the modern world</p>
+	<p>The web is a huge part of most people's lives. Also gaming is a wonderful thing that many people do.
+	   Many people have merged them together and made games for the web, and that's a powerful skill to learn.
+	   JavaScript allows programmers to write games that run on websites, which is a great technology for the modern world.
+	</p>
+	<p>In this tutorial series, we will be making a game sort of like a platformer. Our character will move around and obtain things in the world.
+	   There will be enemies, weather, and points to be earned.
+	</p>
 	<p>Enough talk. Now let's jump right into it.</p>
 	
 	<h3>The DOM</h3>
 	<p>We start by creating an HTML document (If you want to learn more about HTML, visit this <a href="https://www.w3schools.com/html/">tutorial</a>). 
-	   Let's create an empty directory, and name our file <code>index.html</code>. Next insert the following code:
+	   Let's create an empty directory, and create a file in it named <code>index.html</code>. Next insert the following code:
 	</p>
 	<pre class="prettyprint">
-	&lt;!DOCTYPE html&gt;
-	&lt;html&gt;
-	&lt;head&gt;
-
-	&lt;/head&gt;
-	&lt;body&gt;
-
-	&lt;/body&gt;
-	&lt;/html&gt;</pre>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
 	<p>Next we'll create a <code>&lt;script&gt;</code> element to run the JavaScript on this page. It will reference <code>script.js</code>. 
 	   Let's add the tag in the HTML header.
 	</p>
 	<pre class="prettyprint">
-	&lt;!DOCTYPE html&gt;
-	&lt;html&gt;
-	&lt;head&gt;
-	  &lt;script src="script.js"&gt;&lt;script&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-
-	&lt;/body&gt;
-	&lt;/html&gt;</pre>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="script.js"&gt;&lt;script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
 	<p>And now, obviously, the <code>script.js</code> needs to be created in our directory, so we'll do that now. 
 	   Next, we'll create a main function and set it to run with the window loads.</p>
 	<pre class="prettyprint">
-	function main() {
-	
-	}
-	
-	window.addEventListener('load', main);</pre>
+  function main() {
+  
+  }
+  
+  window.addEventListener('load', main);</pre>
 	
 	<h3>The Canvas Element</h3>
 	<p>Next we need something to draw on, so we'll create a <a href="https://www.w3schools.com/html/html5_canvas.asp">
 	   <code>&lt;canvas&gt;</code></a>. We'll declare a <code>canvas</code> variable as a global, and set it to a new <code>&lt;canvas&gt;</code> element 
        when the document is loaded.</p>
 	<pre class="prettyprint">
-	var canvas;
-	function main() {
-	   canvas = document.createElement('canvas');
-	   canvas.width = window.innerWidth;
-	   canvas.height= window.innerHeight;
-	   
-	   document.body.appendChild(canvas);
-	}
-	
-	window.addEventListener('load', main);</pre>
+  var canvas;
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     
+     document.body.appendChild(canvas);
+  }
+  
+  window.addEventListener('load', main);</pre>
 	<p>That piece of code initializes the <code>&lt;canvas&gt;</code>, sets the dimensions to the dimensions of the window, and adds it to the body.</p>
 	
 	<h3>User Events</h3>
@@ -77,24 +82,24 @@
 	   We need the event-handlers to bind to the events, so we'll define some new functions.
 	</p>
 	<pre class="prettyprint">
-	var canvas;
-	function keyDown(event) {
-	
-	}
-	function mouseDown(event) {
-	
-	}
-	
-	function main() {
-	   canvas = document.createElement('canvas');
-	   canvas.width = window.innerWidth;
-	   canvas.height= window.innerHeight;
-	   
-	   document.body.appendChild(canvas);
-	}
-	
-	window.addEventListener('load', main);
-	window.addEventListener('keydown', keyDown);</pre>
+  var canvas;
+  function keyDown(event) {
+  
+  }
+  function mouseDown(event) {
+  
+  }
+  
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     
+     document.body.appendChild(canvas);
+  }
+  
+  window.addEventListener('load', main);
+  window.addEventListener('keydown', keyDown);</pre>
 	<p>The <code>event</code> argument was added, because when JavaScript calls the event-handling functions, 
 	   an <em>event object</em> is passed as an argument. This object contains relevant information, such as the coordinates of the mouse 
 	   (if appropiate), a timestamp of when the event was triggered, and so on. Also, there are certain useful methods that can be called
@@ -102,39 +107,93 @@
 	   (like pressing the space bar and having the page move down). Also, <code>stopPropagation()</code> keeps the event from "bubbling" up
 	   to parent elements.
 	<p>Now, before we go any further, realize that user mouse clicks outside of the canvas probably shouldn't be processed, 
-	   so we'll attach the <code>mousePress()</code> function to the <em><code>canvas</code></em>, instead of the <code>window</code>.
+	   so we'll attach the <code>mouseDown()</code> function to the <em><code>canvas</code></em>, instead of the <code>window</code>.
 	</p>
 	<pre class="prettyprint">
-	var canvas;
-	function keyDown(event) {
+  var canvas;
+  function keyDown(event) {
+  
+  }
+  function mouseDown(event) {
+  
+  }
+  
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     canvas.addEventListener('mousedown', mouseDown);
+     
+     document.body.appendChild(canvas);
+  }
+  
+  window.addEventListener('load', main);
+  window.addEventListener('keydown', keyDown);</pre>
 	
-	}
-	function mouseDown(event) {
-	
-	}
-	
-	function main() {
-	   canvas = document.createElement('canvas');
-	   canvas.width = window.innerWidth;
-	   canvas.height= window.innerHeight;
-	   canvas.addEventListener('mousepress', mousePress);
-	   
-	   document.body.appendChild(canvas);
-	}
-	
-	window.addEventListener('load', main);
-	window.addEventListener('keydown', keyDown);</pre>
+	<h3>The <code>draw()</code> Function</h3>
+	<p>Before we start drawing things, we need a function that runs every frame of the game and draws things to the canvas. We'll call it <code>draw()</code>.
+	   Furthermore, we need to <em>make</em> <code>draw()</code> run every frame of the game. To do this, we will need to use the 
+	   <code>window.requestAnimationFrame()</code> method. This method takes in a function as an argument, waits for the next time the 
+	   screen refreshes, and <em>then</em> executes the function. To use it effectively, a type of recursion must be used.
+	   So, in the main function (that runs only once), we call the <code>requestAnimationFrame()</code> method with <code>draw</code> as the parameter.
+	   Then, at the end of our <code>draw()</code> function, that same line of code will add it, so it will run until the program is terminated.
+	</p>
+	<p class="note"><em><span class="note-title">Note 1:</span> If the browser does not support <code>requestAnimationFrame()</code>, we need to set 
+						<code>window.requestAnimationFrame</code> to another method.</em>
+	</p>
+	<p class="note"><em><span class="note-title">Note 2:</span> <code>requestAnimationFrame()</code> does not run when the tab in the browser is not being used.</em>
+	</p>
+	<br>
+	<pre class="prettyprint">
+  var canvas;
+  function keyDown(event) {
+  
+  }
+  function mouseDown(event) {
+  
+  }
+  function draw() {
+  	window.requestAnimationFrame(draw);	// continue the cycle
+  }
+  
+  function main() {
+     canvas = document.createElement('canvas');
+     canvas.width = window.innerWidth;
+     canvas.height= window.innerHeight;
+     canvas.addEventListener('mousedown', mouseDown);
+     
+     document.body.appendChild(canvas);
+     
+     // make sure method exists, and if not, use another one
+     window.requestAnimationFrame = 
+  	   window.requestAnimationFrame || 
+  	   window.mozRequestAnimationFrame || 
+  	   window.webkitRequestAnimationFrame ||
+  	   window.msRequestAnimationFrame ||
+  	   function(fn) { setTimeout(fn, 1000/60); }
+     window.requestAnimationFrame(draw);	// start the cycle
+  }
+ 
+  window.addEventListener('load', main);
+  window.addEventListener('keydown', keyDown);</pre>
 	
 	<h3>Conclusion</h3>
 	<p>Now, we're ready to actually get started making our game!</p>
+	<br>
+	
+	<span class="prev"><< Prev</span>											<a href="../1" class="next">Next >></a>
+	<br>
 	
 	<br>
 	<hr>
 	<h4>Bibliography</h4>
 	<div id="references">
-	<p>"Events And JavaScript: Part 3 - The Event Object." Htmlgoodies.com. N.p., n.d. Web. 03 May 2017. &lt;http://www.htmlgoodies.com/beyond/javascript/events-and-javascript-part-3-the-event-object.html&gt;.</p>
-	<p>"HTML DOM Events." HTML DOM Event Object. N.p., n.d. Web. 03 May 2017. &lt;https://www.w3schools.com/jsref/dom_obj_event.asp&gt;.</p>
-	<p>"What's the Difference between Event.stopPropagation and Event.preventDefault?" Javascript - What's the Difference between Event.stopPropagation and Event.preventDefault? - Stack Overflow. N.p., n.d. Web. 03 May 2017. &lt;http://stackoverflow.com/a/5963688/3783155&gt;.</p>
+		<p>"Events And JavaScript: Part 3 - The Event Object." Htmlgoodies.com. N.p., n.d. Web. 03 May 2017. &lt;http://www.htmlgoodies.com/beyond/javascript/events-and-javascript-part-3-the-event-object.html&gt;.</p>
+		<p>"HTML DOM Events." HTML DOM Event Object. N.p., n.d. Web. 03 May 2017. &lt;https://www.w3schools.com/jsref/dom_obj_event.asp&gt;.</p>
+		<p>"What's the Difference between Event.stopPropagation and Event.preventDefault?" Javascript - What's the Difference between Event.stopPropagation and Event.preventDefault? - Stack Overflow. N.p., n.d. Web. 03 May 2017. &lt;http://stackoverflow.com/a/5963688/3783155&gt;.</p>
+	https://john-dugan.com/javascript-functions-vs-methods/
+	https://css-tricks.com/using-requestanimationframe/ 
+	http://www.javascriptkit.com/javatutors/requestanimationframe.shtml
 	</div>
 </body>
 </html>
