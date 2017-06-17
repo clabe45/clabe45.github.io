@@ -18,12 +18,51 @@
 	   Many people have merged them together and made games for the web, and that's a powerful skill to learn.
 	   JavaScript allows programmers to write games that run on websites, which is a great technology for the modern world.
 	</p>
-	<p>In this tutorial series, we will be making a game sort of like a platformer. Our character will move around and obtain things in the world.
-	   There will be enemies, weather, and points to be earned.
+	<p>Bear in mind, that this tutorial is not a <a href="https://javascript.info/">JavaScript tutorial</a>, or an 
+	   <a href="https://www.w3schools.com/html/">HTML tutorial</a>. This is a tutorial on making games in JavaScript. 
+	   I assume that you already know JavaScript, as well as basic HTML.
+	</p>
+	<p>In this tutorial series, we will be making a sci-fi adventure game. I'll focus on three main aspects of the game
+	   (of course we can add more, though <code class="angry">>:)</code> ) 
+	   <ul>
+	    <li>World (Mechanics)
+		  <ul>
+		  <li>2D perspective
+		    <ul>
+			<li>from side view</li>
+			<li>the camera follows the player</li>
+			</ul>
+		  </li>
+		  <li>Gravity that applies to all moving entities</li>
+		  <li>A concept of time, including, but not limited to day-night cycles, and possibly, seasons.</li>
+		  <li>Tied in with time, we also have weather (simple rain)</li>
+		  <li>Natural Generation
+		    <ul>
+			<li>Procedural Terrain Generation</li>
+			<li>Scenery generation</li>
+			</ul>
+		  </li>
+		  </ul>
+		</li>
+		<li>Player
+		  <ul>
+		  <li>Can move</li>
+		  <li>Has health, inventory, and other properties.</li>
+		  <li>Functions according to his/her properties (i.e., dies if he/she has no more health)</li>
+		  </ul>
+		</li>
+		<li>Other Moving Entities</li>
+		  <ul>
+		  <li>Enemies (that have health, inventory, and function according to their properties)</li>
+		  <li>Neutral or peaceful entities (such as animals, or civilians).</li>
+		  <li>Natural AI</li>
+		  </ul>
+		</li>
+	   </ul>
 	</p>
 	<p>Enough talk. Now let's jump right into it.</p>
 	
-	<h3>The DOM</h3>
+	<h3>The HTML</h3>
 	<p>We start by creating an HTML document (If you want to learn more about HTML, visit this <a href="https://www.w3schools.com/html/">tutorial</a>). 
 	   Let's create an empty directory, and create a file in it named <code>index.html</code>. Next insert the following code:
 	</p>
@@ -77,13 +116,24 @@
 	<p>That piece of code initializes the <code>&lt;canvas&gt;</code>, sets the dimensions to the dimensions of the window, and adds it to the body.</p>
 	
 	<h3>User Events</h3>
-	<p>Without user interaction in a game, what good is a game anyway? In JavaScript, event handlers are defined by attaching <em>event listeners</em> to
+	<p>Without user interaction in a game, what good is a game anyway? Obvious. In JavaScript, event handlers are defined by attaching <em>event listeners</em> to
 	   DOM elements or objects like the <code>window</code> object. In this tutorial, we'll attach them to the <code>window</code> object.
 	   We need the event-handlers to bind to the events, so we'll define some new functions.
 	</p>
+	<p>The <code>event</code> argument is added, because when JavaScript calls the event-handling functions, 
+	   an <em>event object</em> is passed as an argument. This object contains relevant information, such as the coordinates of the mouse 
+	   (if appropiate), a timestamp of when the event was triggered, and so on. Also, there are certain useful methods that can be called
+	   on this object. For instance, <code>preventDefault()</code> stops the default command tied to the key in the browser 
+	   (like pressing the space bar and having the page move down). Also, <code>stopPropagation()</code> keeps the event from "bubbling" up
+	   to parent elements.
+	<p>Okay so, when the user presses on a key, if we use the <code>keydown</code> event alone, she has to hold it down for a moment before the event registers 
+	twice (remember when you're typing and when you hold down a key in a text editor it adds one character, and then pausesbefore adding the rest?). 
+	To counteract this problem, we need to create one a global map (object) that contains a boolean value for whether each key is pressed. We'll call it 
+	<code>keys</code>. Next, we need one event handler, <code>keyEvent()</code> and attach this to both the <code>keydown</code> event and the 
+	<code>keyup</code> event. Like this:
 	<pre class="prettyprint">
   var canvas;
-  function keyDown(event) {
+  function keyEvent(event) {
   
   }
   function mouseDown(event) {
@@ -99,20 +149,25 @@
   }
   
   window.addEventListener('load', main);
-  window.addEventListener('keydown', keyDown);</pre>
-	<p>The <code>event</code> argument was added, because when JavaScript calls the event-handling functions, 
-	   an <em>event object</em> is passed as an argument. This object contains relevant information, such as the coordinates of the mouse 
-	   (if appropiate), a timestamp of when the event was triggered, and so on. Also, there are certain useful methods that can be called
-	   on this object. For instance, <code>preventDefault()</code> stops the default command tied to the key in the browser 
-	   (like pressing the space bar and having the page move down). Also, <code>stopPropagation()</code> keeps the event from "bubbling" up
-	   to parent elements.
+  window.addEventListener('keydown', keyEvent);
+  window.addEventListener('keyup', keyEvent);</pre>
+	<p>Now, I'm implementing an idea that I stole from <a href="https://stackoverflow.com/a/12444641/3783155">a stackoverflow post</a>. In the 
+	<code>keyEvent()</code> function, we'll tell the interpreter to, when a key is pressed, set it to true, and when it's released, set it to false.
+	</p>
+	<pre class="prettyprint">
+  function keyEvent(event) {
+    event.preventDefault();
+    keys[event.key] = event.type == 'keydown';
+  }</pre>
 	<p>Now, before we go any further, realize that user mouse clicks outside of the canvas probably shouldn't be processed, 
 	   so we'll attach the <code>mouseDown()</code> function to the <em><code>canvas</code></em>, instead of the <code>window</code>.
 	</p>
 	<pre class="prettyprint">
   var canvas;
-  function keyDown(event) {
-  
+  var keys = {};
+  function keyEvent(event) {
+    event.preventDefault();
+    keys[event.key] = event.type == 'keydown';
   }
   function mouseDown(event) {
   
@@ -128,7 +183,8 @@
   }
   
   window.addEventListener('load', main);
-  window.addEventListener('keydown', keyDown);</pre>
+  window.addEventListener('keydown', keyEvent);
+  window.addEventListener('keyup', keyEvent);</pre>
 	
 	<h3>The <code>draw()</code> Function</h3>
 	<p>Before we start drawing things, we need a function that runs every frame of the game and draws things to the canvas. We'll call it <code>draw()</code>.
@@ -146,8 +202,10 @@
 	<br>
 	<pre class="prettyprint">
   var canvas;
-  function keyDown(event) {
-  
+  var keys = {};
+  function keyEvent(event) {
+    event.preventDefault();
+    keys[event.key] = event.type == 'keydown';
   }
   function mouseDown(event) {
   
@@ -169,31 +227,59 @@
   	   window.requestAnimationFrame || 
   	   window.mozRequestAnimationFrame || 
   	   window.webkitRequestAnimationFrame ||
-  	   window.msRequestAnimationFrame ||
-  	   function(fn) { setTimeout(fn, 1000/60); }
+  	   window.msRequestAnimationFrame;
      window.requestAnimationFrame(draw);	// start the cycle
   }
  
   window.addEventListener('load', main);
-  window.addEventListener('keydown', keyDown);</pre>
+  window.addEventListener('keydown', keyEvent);
+  window.addEventListener('keyup', keyEvent);</pre>
+  
+    <h3>Pseudo-Randomness</h3>
+	<p>In our game, we will need random numbers, obviously. Some random numbers should be consistent (i.e., the sequence should be the same every frame
+	   of the game), while other's shouldn't be (i.e. entity spawning). Consistent random numbers will be generated using a pseudo-random number generator.
+	   Of the pseudo-random numbers, some will be smooth (i.e., creating a smooth graph; cannot be truly random), while others won't be. 
+	   JavaScript does not let us change the "seed" or starting point of its random number generator to produce expected 
+	   results. First, let's create some library scripts that will contain outside methods that we don't want in the way of our specific code.
+	</p>
+	<p>Download <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">Mersenne Twister</a> (or any other PRNG that you can find). 
+	   This will allow us to not have to store arbitrary data produced by <code>Math.random()</code> in memory. Instead, we can just rely on the consistency of 
+	   pseudo-random number generator to produce the same results every frame of the game. To get the source code for this algorithm, head over to 
+	   <a href="">this website</a>. Download the <code>.zip</code> or <code>.tar</code>, and extract <code>MersenneTwister*****class.js</code> to your
+	   project directory. Then, make another <code>&lt;script&gt;</code> tag that points to that file before the one pointing to your 
+	   <code>script.js</code> file.
+	   To learn more aboutpseudo-random number generate, check out 
+	   <a href="https://www.khanacademy.org/computing/computer-science/cryptography/crypt/v/random-vs-pseudorandom-number-generators">this Khan Academy video</a>
+	</p>
+	
+	<p>There is another type of number generator that generates consistent, arbitrary numbers. Only this one will create smooth sets of numbers 
+	   (creating a smooth graph). This method will be used for a lot of smooth random-looking generation, like hills, clouds, whether it's raining or not, animal movement; 
+	   the list goes on. What it does is that it takes <code>x</code>, <code>y</code>, and <code>z</code> paremters; and it generates an arbitrary value 
+	   (that will be similar to its neighbor in 3D space, if that makes sense); if it's use properly. 
+	   <!-- download here --> I randomly generate a number from with a very 
+	   wide range of possibilities (using <code>Math.random()</code>), and then I use that as an input, so that every time the game runs, 
+	   things will work differently.
+	</p>
+	<p>Declare a global <code>seed</code> variable, and in your <code>main()</code> function, add the following line of code (so every game will be unique):</p>
+	<pre class="prettyprint">seed = Math.floor(Math.random()*1000000);</pre>
+	</p>
 	
 	<h3>Conclusion</h3>
 	<p>Now, we're ready to actually get started making our game!</p>
 	<br>
-	
-	<span class="prev"><< Prev</span>											<a href="../1" class="next">Next >></a>
+																				<a href="../1" class="next">Next >></a>
 	<br>
 	
 	<br>
 	<hr>
 	<h4>Bibliography</h4>
 	<div id="references">
-		<p>"Events And JavaScript: Part 3 - The Event Object." Htmlgoodies.com. N.p., n.d. Web. 03 May 2017. &lt;http://www.htmlgoodies.com/beyond/javascript/events-and-javascript-part-3-the-event-object.html&gt;.</p>
-		<p>"HTML DOM Events." HTML DOM Event Object. N.p., n.d. Web. 03 May 2017. &lt;https://www.w3schools.com/jsref/dom_obj_event.asp&gt;.</p>
-		<p>"What's the Difference between Event.stopPropagation and Event.preventDefault?" Javascript - What's the Difference between Event.stopPropagation and Event.preventDefault? - Stack Overflow. N.p., n.d. Web. 03 May 2017. &lt;http://stackoverflow.com/a/5963688/3783155&gt;.</p>
-	https://john-dugan.com/javascript-functions-vs-methods/
-	https://css-tricks.com/using-requestanimationframe/ 
-	http://www.javascriptkit.com/javatutors/requestanimationframe.shtml
+		<a href="http://www.htmlgoodies.com/beyond/javascript/events-and-javascript-part-3-the-event-object.html">http://www.htmlgoodies.com/beyond/javascript/events-and-javascript-part-3-the-event-object.html</a>
+	<br><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">https://www.w3schools.com/jsref/dom_obj_event.asp</a>
+	<br><a href="http://stackoverflow.com/a/5963688/3783155">http://stackoverflow.com/a/5963688/3783155</a>
+	<br><a href="https://john-dugan.com/javascript-functions-vs-methods/">https://john-dugan.com/javascript-functions-vs-methods/</a>
+	<br><a href="https://css-tricks.com/using-requestanimationframe/">https://css-tricks.com/using-requestanimationframe/</a>
+	<br><a href="http://www.javascriptkit.com/javatutors/requestanimationframe.shtml">http://www.javascriptkit.com/javatutors/requestanimationframe.shtml</a>
 	</div>
 </body>
 </html>

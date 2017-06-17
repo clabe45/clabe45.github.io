@@ -6,9 +6,9 @@
 	<title>JavaScript Gaming Tutorial | Lesson 1: Getting Started</title>
 </head>
 <body>
-	<h2>Error A97: This Webpage Hasn't Been Fully Developed Yet :(<br>Try Again Later.</h2><br><br>
-	<img id="error-image" src="../../../resources/code-snapshot-5.4.png" height=256 width=256></img>
-	<!--<h1>JavaScript Gaming Tutorial 
+	<!--<h2>Error A97: This Webpage Hasn't Been Fully Developed Yet :(<br>Try Again Later.</h2><br><br>
+	<img id="error-image" src="../../../resources/code-snapshot-5.4.png" height=256 width=256></img>-->
+	<h1>JavaScript Gaming Tutorial 
 		<span id="other-part-of-title">
 			<span id="pipe">|</span> 
 			Lesson <span id="lesson-number">1</span><span id="colon">:</span> <span id="lesson-description">Getting Started</span>
@@ -17,24 +17,40 @@
 	<a href="../0"><div class="other-page-link">0</div></a><div class="other-page-link">1</div><br>
 	
 	<h3>Introduction</h3>
-	<p>Today, we will be starting to make our platformer-like game.
-	   First, we will start drawing things on the canvas. 
-	   Second, we will also create a basic player that can move around.
-	</p>
-	
-	<h3>Imagining the Game</h3>
-	<p>Before we start coding, it is a good idea to conceptualize what the game will look like, what the object will be, what will happen, and so forth.
-	   In this particular game, I want a character who can walk left or right, can jump up, and then will fall back down.
-	   I want items that he/she (you can choose) can collect to boost his/her ability. The player will have health that can decrease and increase.
-	   There will also be enemies, and other obstacles like fire and fall damage.
+	<p>Today we will begin the actual content of our game. We will do the following:
+	  <ul>
+	    <li>World (Mechanics)
+		  <ul>
+		  <li>2D perspective
+		    <ul>
+			<li>from side view</li>
+			</ul>
+		  </li>
+		  <li>Gravity that applies to all moving entities</li>
+		  <li>Natural Generation
+		    <ul>
+			<li>Procedural Terrain Generation</li>
+			</ul>
+		  </li>
+		  </ul>
+		</li>
+		<li>Player
+		  <ul>
+		  <li>Can move</li>
+		  </ul>
+		</li>
+	   </ul>
 	</p>
 	
 	<h3>Developing the <code>draw()</code> Function</h3>
 	<p>Before we start, let's review our current code.</p>
 	<pre class="prettyprint">
   var canvas;
-  function keyDown(event) {
-  
+  var keys = {};
+  var seed = Math.floor(Math.random()*1000000);
+  function keyEvent(event) {
+    event.preventDefault();
+    keys[event.key] = event.type == 'keydown';
   }
   function mouseDown(event) {
   
@@ -56,30 +72,32 @@
   	   window.requestAnimationFrame || 
   	   window.mozRequestAnimationFrame || 
   	   window.webkitRequestAnimationFrame ||
-  	   window.msRequestAnimationFrame ||
-  	   function(fn) { setTimeout(fn, 1000/60); }
+  	   window.msRequestAnimationFrame;
      window.requestAnimationFrame(draw);	// start the cycle
   }
  
   window.addEventListener('load', main);
-  window.addEventListener('keydown', keyDown);</pre>
+  window.addEventListener('keydown', keyEvent);
+  window.addEventListener('keyup', keyEvent);</pre>
 	
-	<p>As I said, first, we're going to focus on drawing.
-	The first step to that is going to be to pull the 2-dimensional context from our canvas, using the <code>getContext()</code> method.
-	We will update our <code>draw()</code> function to take that context in as a argument, so it can use it.
+	<p>The first thing we need to do for drawing is going to be to pull the 2-dimensional context from our canvas, using the <code>getContext()</code> method.
+	Let's declare a global variable called <code>ctx</code> that references this 2D context.
 	Once we have that we will draw our sky as a blue rectangle filling the entire canvas. Then we'll draw everything else over it.
 	For a more advanced tutorial on JavaScript drawing, check out 
 	   <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">this tutorial</a>. 
 	</p>
 	<pre class="prettyprint">
-  var canvas;
-  function keyDown(event) {
-  
+  var canvas, ctx;
+  var keys = {};
+  var seed = Math.floor(Math.random()*1000000);
+  function keyEvent(event) {
+    event.preventDefault();
+    keys[event.key] = event.type == 'keydown';
   }
   function mouseDown(event) {
   
   }
-  function draw(ctx) {
+  function draw() {
      // draw sky
      ctx.fillStyle = '#8080ff';
      ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -88,11 +106,12 @@
   }
   
   function main() {
+     
      canvas = document.createElement('canvas');
      canvas.width = window.innerWidth;
      canvas.height= window.innerHeight;
      canvas.addEventListener('mousedown', mouseDown);
-     var ctx = canvas.getContext('2d');
+     ctx = canvas.getContext('2d');
      
      document.body.appendChild(canvas);
      
@@ -104,32 +123,144 @@
        window.msRequestAnimationFrame ||
        function(fn) { setTimeout(fn, 1000/60); };
      window.requestAnimationFrame(function() {
-       draw(ctx);
+       draw();
      });	// start the cycle
   }
  
   window.addEventListener('load', main);
-  window.addEventListener('keydown', keyDown);</pre>
+  window.addEventListener('keydown', keyEvent);
+  window.addEventListener('keyup', keyEvent);</pre>
 	<p>Run that code and see what you get. It should fill the screen with light blue. Instead of using hexidecimal values (prefixed by the '<code>#</code>',
 	   you can also use the '<code>rgb</code>' notation for colors. I'll use them interchangeably.
 	</p>
+	
+	<h3>Land Generation</h3>
 	<p>Next, we need some land. Now, there are many ways to do this, but I am going to use something called 
 	   <a href="http://flafla2.github.io/2014/08/09/perlinnoise.html"><em>Perlin Noise</em></a> to generate random, yet smooth hills.
-	   First, let's create a library script that contains outside methods that we don't want in the way of our specific code.
-	   Create a file called <code>lib.js</code> and add a <code>&lt;script&gt;</code> tag which points to it <strong>before the first one</strong>.
-	   Now, I've translated Ken Perlin's code from Java, which I got from 
-	   <a href="http://mrl.nyu.edu/~perlin/noise/http://mrl.nyu.edu/~perlin/noise/">this webpage</a>.
+
+	<p>To implement this in land generation, we will draw many uniformly-wide columns of land, with each columns's max height being determined by this Perlin Noise.
+	   Each column will be drawn as one polygon.
 	</p>
+	<p>To start, let's define a global constant called <code>PX_SZ</code>, which holds the size of an in-game pixel, as four. 
+	   (I don't want the graphics having really high resolution; you can change this to your liking.)
+	</p>
+	<p><code class="prettyprint">const PX_SZ = 4;</code> or <code class="prettyprint">var PX_SZ = 4;</code> if you're using an older version of javascript.
+	</p>
+	<p>Next, we'll define a function called <code>drawLand()</code> and call it in our <code>draw()</code> function.
+	</p>
+	<p>Remember, this is a sci-fi game that takes place on a different planet than Earth, so its ground may be a different color (you can choose any color).
+	</p>
+	<pre class="prettyprint">
+  function drawLand() {
+     ctx.fillStyle = 'darkred';
+     for (var x=0; x&lt;canvas.width; x+=PX_SZ) {
+        var level = getGroundHeightAt(x);
+
+        ctx.beginPath();
+        ctx.moveTo(x, level);
+        ctx.lineTo(x, canvas.height);
+        ctx.lineTo(x+PX_SZ, canvas.height);
+        ctx.lineTo(x+PX_SZ, level);
+        ctx.lineTo(x, level);
+        ctx.fill();
+     }
+  }
+  function draw(ctx) {
+     // draw sky
+     ctx.fillStyle = '#8080ff';
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+	 
+     drawLand(ctx);
+     
+     window.requestAnimationFrame(draw);	// continue the cycle
+  }
+	</pre>
+	<p>Lastly, let's define a function called <code>getGroundHeightAt()</code>
+  <pre class="prettyprint">
+  function getGroundHeightAt(x) {
+     var noiseVal = noise(0.001*x, seed);
+     var level = noiseVal * (MAX_HEIGHT-MIN_HEIGHT) + MIN_HEIGHT;
+     return level;
+  }</pre>
+	<h3>The Player</h3>
+	<p>For the player, we will start by defining a class called <code>Player</code>.
+	</p>
+	<pre class="prettyprint">
+  function Player() {
+     
+  }</pre>
+	<p>Now let's define some properties and methods!
+	</p>
+	<pre class="prettyprint">
+  function Player() {
+     this.x = 0;
+     this.y = 0;
+     this.speed = 4;
+     this.jumpSpeed = 7;
+     this.vspeed = 0;
+     this.sprite = new Image();
+     this.sprite.src = "player.png";
+	 var self = this;
+	 this.sprite.onload = function() {
+	    self.width = this.width * PX_SZ;
+	    self.height = this.height * PX_SZ;
+	 }
+     
+     this.draw = function() {
+        ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
+     };
+     this.move = function() {
+        if (keys['ArrowLeft']) this.x -= this.speed;
+        if (keys['ArrowRight']) this.x += this.speed;
+        
+        var level = getGroundHeightAt(this.x+this.width/2);
+        if (this.y + this.height < level) {
+            this.vspeed -= gravity;
+        } else if (this.y + this.height > level) {
+            this.y = level - this.height;
+            this.vspeed = 0;
+        }
+		if (keys[' '] && this.y+this.height == getGroundHeightAt(this.x+this.width/2)) this.vspeed += this.jumpSpeed;
+        
+        this.y -= this.vspeed;
+     };
+  }</pre>
+	<p>Here's the explanation. In the <code>draw()</code> method, we flip the player if he's facing left (opposite of original image) and bring him backwards 
+	   in that direction to prevent him from looking like he's jumping around. 
+	</p>
+	<p>In the <code>move()</code> method, I defined a <code>speed</code> property that is added/subtacted to <code>x</code> each frame the player moves. 
+	   Next, I defined a <code>draw()</code> method. I made a <a href="../resources/player.png">sprite</a> that you can download, but you can make 
+	   your own (just make sure that it's in a common image format like PNG or JPEG). The purpose of the <code>self</code> private property is to be able to 
+	   access <code>this</code> after we're in a new scope in the <code>onload()</code> method definition (with a new <code>this</code>). The <code>onload()</code>
+	   method ensures that the <code>width</code> and <code>height</code> properties are set properly. The logic behind the code in the <code>move()</code>
+	   method is that if the player's <code>y</code> position, along with its <code>height</code> (in total, its feet) are above the ground, apply gravity. 
+	   Otherwise, if the player's feet are below the ground, then bring them to the ground (this gets rid of the player glitching through the ground).
+	</p>
+	<p>Now, all we have to do is create a <code>Player</code> instance and call the methods in the respective event handlers. Declare a global variable called
+	   <code>player</code>.
+	</p>
+	<p>First, in the <code>main()</code> function, insert the following code:
+	</p>
+	<pre class="prettyprint">
+     player = new Player();
+     player.x = canvas.width/2 - player.sprite.width/2;  // in the exact center of the screen</pre>
+	<p>Second, in the <code>draw()</code> function after <code>drawLand()</code>:
+	</p>
+	<pre class="prettyprint">
+     player.draw();
+     player.move();</pre>
 	
+	<h3>Conclusion</h3>
+	<p>During this lesson, we made a land-generator and a player that moves. In the next lesson, we will add more.
+	</p>
 	<br>
-	<a href="../0" class="prev"><< Prev</a>											<span class="next">Next >></span>
+	<a href="../0" class="prev"><< Prev</a>											<a href="../2" class="next">Next >></a>
 	<br>
-	
 	<br>
 	<hr>
 	<h4>Bibliography</h4>
-
+		<a href="http://stackoverflow.com/questions/584566/pseudo-random-number-generator">http://stackoverflow.com/questions/584566/pseudo-random-number-generator</a>
 	<div id="references">
-	</div>-->
+	</div>
 </body>
 </html>
