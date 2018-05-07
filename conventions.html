@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>Conventions | clabe45 @ Github</title>
+  <!-- <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> -->
+  <style>
+    ol > li {
+      border-left: 4px solid darkgrey;
+      padding-left: 16px;
+    }
+  </style>
+</head>
+<body>
+  <a href='index.html'>(home)</a><br>
+  <h1>My Conventions</h1>
+  <ol>
+    <li>
+      <pre style="color:green">
+void hello() {
+
+}</pre>
+      <strong><em>not</em></strong>
+      <pre style="color:red">
+void hello()
+{
+
+}</pre>
+    </li>
+    <li>
+      <strong>One line per statement,</strong> with the following exception:
+      <ul><li>The first is an <em>if</em> statement or a loop, and there is only one statement following it.</li></ul>
+      <pre>
+      System.out.println("Hello, world");
+      System.out.println("Good bye, world");</pre>
+      <pre>
+      if (useless) System.exit(-1);</pre>
+      <pre>
+      if (aFailure) {
+        System.out.println("cricri");
+        System.exit(-1);
+      }
+    </li>
+    <li>
+      Leave documentation, following the language's documentation conventions.
+    </li><br>
+    <li>
+      Follow the language. If it's Python, be Pythonic, and so forth.
+    </li>
+  </ol>
+</body>

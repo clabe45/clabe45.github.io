@@ -1,98 +1,25 @@
 body {
-	font-family: lucida-grande, sans-serif, serif;
-	font-size: 18px;
-	margin-left: 50px;
-	margin-right: 50px;
-	background-color: #ececec;
+  font-family: lucida-grande, sans-serif, serif;
+  font-size: 14px;
+  background-color: #ddddee;
+  margin: 50px;
 }
 
-/* any detailed content */
-p, pre, li {
-	margin-left: 35px;
-}
-h1, h2, h3{
-	display: inline-block;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-a {
-	text-decoration: none;
-	color: blue;
-}
-p > a {
-	background-color: #ccccee;
-	margin-left: 1px;
-	margin-right: 1px;
-	padding: 2px;
-}
 h1 {
-	font-size: 36px;
-	background-color: #9090af;
+  display: inline-block;
+  padding: 10px;
+  background-color: #aa9999;
 }
 h2 {
-	background-color: #90af90;
-	font-size: 27px;
-	margin-left: 25px;
-}
-h3 {
-	background-color: #afaf99;
+  display: inline-block;
+  padding: 5px;
+  background-color: #aabbaa;
 }
 
-.other-page-link {
-	background-color: #90ff90;
-	display: inline-block;
-	margin-right: 20px;
-	padding-left: 40px;
-	padding-right: 40px;
-	padding-bottom: 10px;
-	padding-top: 10px;
+a {
+  text-decoration: underline;
+  color: #330055;
 }
-
-.note {
-	background-color: #cccccc;
-	padding: 8px;
-	margin-bottom: -20px;
-	border: 1px solid black;
-}
-.note-title {
-	text-decoration: underline;
-}
-
-.prev, .next {
-	background-color: #9090ff;
-	padding: 10px;
-}
-.prev {
-	float: left;
-	margin-left: 5px;
-}
-.next {
-	float: right;
-}
-
-.angry {
-	color: red;
-}
-
-#other-part-of-title {
-	font-weight: normal;
-}
-#pipe {
-	color: #4f4f4f;
-	font-size: 50px;
-}
-#lesson-number {
-	color: #cc5555;
-}
-#colon {
-	color: #2a2a2a;
-}
-#lesson-description {
-	color: #4f4f4f;
-}
-
-#error-image {
-	margin-left: 15%;
+a:hover {
+  color: blue;
 }
