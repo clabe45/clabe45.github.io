@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Getting Started | Achievacity Docs</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div id="top-bar"><a id="home" href="../..">Achievacity</a></div>
+  <div class="centered"><h1 id="creating-a-php-ajax-file-for-achievacity">Creating a PHP AJAX File for Achievacity</h1></div>
+  <h2 id="intro">Intro</h2>
+  <div class="h2-container">
+    <p>Every AJAX file should...</p>
+    <ul>
+    <li>check if the request is valid. See the example for how to do this.</li>
+    <li>use UserSpice's backend API. Include <code>users/init.php</code> for this.</li>
+    <li>return an array as JSON. If the file is meant for querying data from the database, the array will be the response. Otherwise, it should have a boolean <code>success</code> attribute, along with a <code>message</code>, describing the error or success. Even if the file is meant for querying data, and it fails, it should return <code>success =&gt; false</code> along with an error message. <strong>Note: the error message shouldn't be too specific, as that could be a security vulnerability. Instead, use something like <code>An internal error occurred</code>.</strong></li>
+    </ul>
+  </div>
+  <h2 id="example">Example</h2>
+  <div class="h2-container">
+    <pre><code>/*
+ * Foos up the database. User must be logged in, and the database must not be foo&#39;d already.
+ */
+if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;POST&#39;) {
+    header(&#39;Content-Type: application/json&#39;);
+    require_once &quot;../../../users/init.php&quot;; // ew TODO: figure absolute/relative paths out
+
+    $db = DB::getInstance();
+
+    $db-&gt;foo();
+
+    if ($db-&gt;error()) {
+        $return = [
+            &#39;success&#39; =&gt; false,
+            &#39;message&#39; =&gt; &#39;An internal error occurred while fooing the database.&#39;
+        ];
+    } else {
+        $return = [
+            &#39;success&#39; =&gt; true,
+            &#39;message&#39; =&gt; &#39;Database foo\&#39;d up successfully!&#39;&#39;
+        ];
+    }
+    echo json_encode($return);
+    }</code></pre>
+  </div>
+</body>
+</html>

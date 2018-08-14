@@ -1,0 +1,14 @@
+/*
+  Dark / Saturated
+*/
+h1 { color: #481c7c; border: 1px solid #000; padding: 20px 40px; }
+a:hover { color: #481c7c; }
+#home:hover { background-color: #481c7c; }
+::selection { background: #481c7c; /*regular background-color*/color: #e7ecef; }
+::-moz-selection { background: #481c7c; /*regular background-color*/color: #e7ecef; }
+
+/*
+  Light / Dull
+*/
+/* h2 content div (holds content for h2) */
+.h2-container { border-left-color: #cbbdda; }

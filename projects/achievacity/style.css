@@ -8,23 +8,6 @@ body { font-family: 'Ubuntu', sans-serif; color: #1b1c19; background-color: #e7e
 
 h1 { color: #274c77; }
 h2 { color: #4b4c49; }
-/* h3 { color: #8b8c89; } */
-
-#block-top a { color: #007ee6; }
-#block-left a { color: #00e67e; }
-#block-right a { color: #e67e00; }
-#block-bottom a { color: #e6007e; }
-a { text-decoration: none; }
+h3 { color: #2b2c29; }
 
 .centered { text-align: center; }
-
-.row { display: block; margin: 20px 0; }
-.cell { display: inline-block; }
-#middle .cell { width: 40%; }
-#bottom .cell { width: 55%; }
-.block { display: inline-block; padding: 30px 60px; }
-
-#block-top { background-color: #a3cef1ff; color: #e7ecef; }
-#block-left { /*stick to center*/ float: right; margin-right: 10px; background-color: #a3f1ce7f; }
-#block-right { /*stick to center*/ float: left; margin-left: 10px; background-color: #f1cea37f; }
-#block-bottom { background-color: #f1a3ce7f; }

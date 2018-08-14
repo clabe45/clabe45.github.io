@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Creating an ES6 Module | Achievacity Docs</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div id="top-bar"><a id="home" href="../..">Achievacity</a></div>
+  <div class="centered"><h1 id="creating-an-es6-module-for-achievacity">Creating an ES6 Module for Achievacity</h1></div>
+  <h2 id="intro">Intro</h2>
+  <div class="h2-container">
+    <p>Every JavaScript module should have...</p>
+    <ul>
+      <li>an <code>init</code> function, which can be called in <code>app/js/index.js</code>.</li>
+      <li>very good <a href="http://usejsdoc.org">jsdoc</a> documentation, usually in the comments. That must include a <a href="http://usejsdoc.org/tags-module.html"><code>@module</code></a> tag in the beginning of the file, and appropriate tags for the contents of the file.</li>
+    </ul>
+  </div>
+  <h2 id="example">Example</h2>
+  <div class="h2-container">
+    <pre><code>/**
+ * Foos the world up a little.
+ * @module foo-world
+ */
+
+import foo from &#39;./util/foo.js&#39;;
+
+export default function fooWorld(world) {
+    foo(world);
+}</code></pre>
+  </div>
+  <h2 id="things-to-consider">Things to Consider</h2>
+  <div class="h2-container">
+    <ul>
+      <li>Is (or will) this be common functionality? Consider putting it in <code>app/js/util/</code>.</li>
+    </ul>
+  </div>
+</body>
+</html>

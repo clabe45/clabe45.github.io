@@ -1,0 +1,77 @@
+<!-- edited by clabe45 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Getting Started | Achievacity Docs</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div id="top-bar"><a id="home" href="../..">Achievacity</a></div>
+  <div class="centered"><h1 id="getting-started">Getting Started</h1></div>
+  <h2 id="getting-your-feet-wet">Getting Your Feet Wet</h2>
+  <div class="h2-container">
+    <p>Welcome to the Achievacity development team! This page assumes you know nothing about the project's code and would like to get started.</p>
+  </div>
+  <h2 id="tasks">Tasks</h2>
+  <div class="h2-container">
+    <p>A <em>task</em> is defined as an action that the user wants to do; either a <em>routine</em> or a <em>goal</em>. A routine is done on a regular basis. Chores are a good example of routines - you do them every week or day usually. There don't have a definitive end. Goals, on the other hand, are <em>not</em> done on a regular basis. They usually do have a definitive end. Here are some examples of goals: <em>plant watermelon</em>, <em>schedule visit with chiropractor</em>, <em>complete outline for school project</em>.</p>
+  </div>
+  <h2 id="users-vs.-app">Users vs. App</h2>
+  <div class="h2-container">
+    <p>Before we get into the code, you have to know the two core components of this project:</p>
+    <ul>
+    <li><strong>The users</strong> - This refers to the project's dependency <a href="https://userspice.com">UserSpice</a>. This dependency (mainly located in the <code>users</code> directory) handles user login, registration, messaging, and more.</li>
+    <li><strong>The app</strong> - This refers to the main functionality of the web app. This is where the lists of goals are created and used.</li>
+    </ul>
+  </div>
+  <h2 id="structure-of-the-app">Structure of the App</h2>
+  <div class="h2-container">
+    <h3 id="frontend">Frontend</h3>
+    <p>The app's client-side is divided into several files, each representing one core task action:</p>
+    <ul>
+    <li><code>create.js</code> - front-end functionality for creating new tasks</li>
+    <li><code>edit.js</code> - front-end functionality for modifying single values of existing tasks</li>
+    <li>(No delete)* - this might change later on; but since it's so simple, this functionality included in the loading functionality.</li>
+    <li><code>load/</code> - reloading or loading data from backend after changes have been made; this component has three tasks:</li>
+    <ul>
+      <li><code>list.js</code> - loading an entire list of goals/routines (after creation or deletion)</li>
+      <li><code>item.js</code> - loading a single task (after an edit has been made)</li>
+      <li><code>new-item.js</code> - generating a form to create a new task</li>
+    </ul>
+    </ul>
+    <h3 id="backend">Backend</h3>
+    <p>The app's server-side is divided into <em>goals</em> and <em>routines</em>. For each subset, there is a similar list of actions:</p>
+    <ul>
+    <li><code>create.php</code> - used by <code>create.js</code> to insert a task into the database</li>
+    <li><code>edit.php</code> - used by <code>edit.js</code> to update a single column's value</li>
+    <li><code>delete.php</code> - used to delete a task (woah!)</li>
+    <li><code>list.php</code> - used by <code>load/list.js</code> to reload all tasks</li>
+    <li><code>item.php</code> - used by <code>load/item.js</code> to reload one task</li>
+    </ul>
+  </div>
+  <h2 id="getting-your-hands-dirty">Getting Your Hands Dirty</h2>
+  <div class="h2-container">
+    <h3 id="finding-things-to-code">Finding things to code</h3>
+    <ul>
+    <li><a href="https://github.com/clabe45/achievacity/issues">github.com/clabe45/achievacity/issues</a></li>
+    </ul>
+    <h3 id="reference">Reference</h3>
+    <ul>
+    <li><a href="reference/js/index.html">JavaScript reference</a></li>
+    <li>PHP reference coming soon.</li>
+    </ul>
+    <h3 id="tutorials">Tutorials</h3>
+    <p>Creating files for Achievacity:</p>
+    <ul>
+    <li><a href="../es6-module/">Creating ES6 Modules</a></li>
+    <li><a href="../php-ajax/">Creating PHP AJAX Files</a></li>
+    </ul>
+  </div>
+</body>
+</html>

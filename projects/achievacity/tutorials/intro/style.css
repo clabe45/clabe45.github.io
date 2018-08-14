@@ -1,0 +1,26 @@
+/*
+  Pro tip:
+  To change the hue of the page,
+    1. Head over to http://hslpicker.com
+    2. Copy the dark/saturated hex into hslpicker
+    3. Change the hue, and save that value.
+    4. Copy hex and paste into users of the dark/saturated color (h1->color, a:hover->color)
+    5. Copy the light/dull hex into hslpicker
+    6. Revert hue to previous value
+    7. Copy hex from hslpicker and past into users of light/dull color (.h2-container->border-left-color)
+*/
+
+/*
+  Dark / Saturated
+*/
+h1 { color: #7d1c43; border: 1px solid #000; padding: 20px 40px; }
+a:hover { color: #7d1c43; }
+#home:hover { background-color: #7d1c43; }
+::selection { background: #7d1c43; /*regular background-color*/color: #e7ecef; }
+::-moz-selection { background: #7d1c43; /*regular background-color*/color: #e7ecef; }
+
+/*
+  Light / Dull
+*/
+/* h2 content div (holds content for h2) */
+.h2-container { border-left-color: #dabec9; }

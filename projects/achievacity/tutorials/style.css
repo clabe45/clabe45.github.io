@@ -1,0 +1,9 @@
+a { color: black; }
+
+#top-bar { position: fixed; display: block; width: 100%; top: 0; left: 0; padding: 10px /*aligns nice with the borders*/20px; background-color: #ffffff7f; }
+#home { float: left; text-decoration: none; /*regular background-color*/color: #e7ecef; /*regular color*/background-color: #1b1c19; padding: 10px; }
+h1 { margin-top: 60px; margin-bottom: 0; display: inline-block; padding: 20px 40px; }
+
+/* h2 content div (holds content for h2) */
+/* .h2-container { padding-left: 10px; border-left: 10px solid #ccc; } */
+.h2-container { padding-left: 10px; border-left-style: solid; border-left-width: 10px; }
