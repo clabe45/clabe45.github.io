@@ -17,13 +17,13 @@ console.log(programmingClub);
 ## Classes
 Eventually, every team member will fall into _at least_ one of the following categories. There can be more than one of each, depending on the class, but there will be only one leader of each (if there's even one person).
 
-- A **writer** creates the story.
-- A **designer** decides on aspects to the interface from the user to the story.
-- A **developer** makes the game work.
-- An **artist** creates graphics for the game.
-- A **musician** or **sound engineer** creates audio for the game.
+- A **writer** creates the story (if necessary).
+- A **designer** decides on aspects to the interface from the user to the story (if necessary).
+- A **developer** makes the app or game work.
+- An **artist** creates graphics for the app or game.
+- A **musician** or **sound engineer** creates audio for the app or game.
 - A **project manager** plans the making of the project in the real world.
-- A **quality tester** makes sure the game is good.
+- A **quality tester** makes sure the app or game is good.
 
 ## Ranks
 Sometimes, there are multiple levels of difficulty within a class.
