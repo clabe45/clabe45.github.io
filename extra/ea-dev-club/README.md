@@ -33,23 +33,24 @@ Sometimes, there are multiple levels of difficulty within a class.
   - Beginners
   - Need programming experience in order to contribute
   - Will spend time learning on various websites
-  - When passed the ranking test, will advance to *Contributors*
+  - When passed the developer test, will advance to *Contributors*
 
 - Contributors
   - Experienced
   - Work on projects
 
-## Test
+#### Developer Test
 - You can take the test [here](https://www.testdome.com/tests/python-online-test/45).
 - Proves that member...
   - Has basic understanding of core programming concepts, such as variables, functions, statements, scope, memory, types, OOP, etc.
   - Is willing to try to think through a problem.
 
-## Projects
+## Project Guidelines
 - [No limits]
 
 ## Contributing
-- Push to the git repo. We'll use [GitHub](https://github.com) for most if not all open-source projects.
+- For developers, push to the git repo. We'll use [GitHub](https://github.com) for most if not all open-source projects.
+- For other classes, we can play it by ear.
 
 ## Code of Conduct
 See [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md).
