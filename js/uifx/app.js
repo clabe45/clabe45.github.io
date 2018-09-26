@@ -2,7 +2,7 @@
  * @file Performs cool effects on the screen using screen2canvas
  * @author clabe45
  */
-// BUG: html2canvas bug? <ul>s are not rendered properly
+// BUG: html2canvas bug? <ul>s are not rendered properly... on localhost but not online?
 // BUG: bottom of source's background is white when rendered
 //      with html2canvas
 
@@ -15,13 +15,14 @@ const game = new Game();
 setGame(game);
 scenes.forEach(scene => { game.appendScene(scene); });
 
-const START = 12 * 1000;
+const START = 2 * 1000;
 let gameHappening = false;
 let htmlCache = null;
 let styleCache = null;
 
 setTimeout(() => {
     html2canvas(document.body, {
+        backgroundColor: window.getComputedStyle(document.body).backgroundColor,    // for below the body
         width: window.innerWidth,
         height: window.innerHeight
     }).then(canvas => {
@@ -56,8 +57,10 @@ function endRendering() {
 document.addEventListener('keyup', event => {
     if (!gameHappening) return;
     let key = event.which || event.keyCode || 0;
-    if (event.keyCode === 27) game.cancel();
-    document.body.innerHTML = htmlCache;
-    document.body.style.cssText = styleCache;
-    gameHappening = false;
+    if (event.keyCode === 27) {
+        game.cancel();
+        document.body.innerHTML = htmlCache;
+        document.body.style.cssText = styleCache;
+        gameHappening = false;
+    }
 });

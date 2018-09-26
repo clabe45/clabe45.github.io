@@ -53,7 +53,7 @@ const text = new Scene(null, function(progress) {   // `function` to use `this`
     this.textIndex = 0;
     this.background = function(progress) {
         getRenderer().renderSource();
-        let flicker = Math.floor(Math.random()*30) === 0;
+        let flicker = Math.floor(Math.random()*60) === 0;
         getRenderer().renderOverlay('black', flicker ? 0.75 : 1);
     }
     this.renderText = function(progress) {
@@ -79,7 +79,7 @@ const text = new Scene(null, function(progress) {   // `function` to use `this`
 const tempOutro = new Scene(3 * 1000, progress => {
     let effectFactor = Math.pow(1 - progress, 3);   // cubic inteprolate out
     getRenderer().renderSource();
-    let flicker = Math.floor(Math.random()*30) === 0;
+    let flicker = Math.floor(Math.random()*60) === 0;
     // flicker is an effect for our purposes
     getRenderer().renderOverlay('black', flicker ? effectFactor*1 + (1-effectFactor)*0.75 : 1);
 

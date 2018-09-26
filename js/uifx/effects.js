@@ -7,7 +7,7 @@ import {getRenderer} from './constants.js';
 export function redBlue(factor=0.5) {
     let ctx = getRenderer().ctx;
     // effect of increasing red or blue
-    let doEffect = Math.floor(Math.random()*36) === 0;
+    let doEffect = Math.floor(Math.random()*60) === 0;
     if (!doEffect) return;
     let effectAmount = factor * Math.random(),   // obv [0, 1)
         oneMinusAmount = 1 - effectAmount;
@@ -42,7 +42,7 @@ export function randomNoise(factor=0.5) {
         noiseCache.push(imageData);
     }
 
-    let doEffect = Math.floor(Math.random()*20) === 0;
+    let doEffect = Math.floor(Math.random()*30) === 0;
     if (!doEffect) return;
 
     let amount = factor * Math.random(),
@@ -70,14 +70,16 @@ export function blur(factor) {
     // render the canvas onto itself a few times for "blur"
     ctx.save();
     ctx.globalAlpha = 0.2;
-    let variance = 4,            // text displacement factor
-        min = -variance, max = +variance;
-    let numbRenders = 1 + Math.floor(Math.random()*2);
+    let varianceX = 8,            // text displacement factors
+        minX = -varianceX, maxX = +varianceX,
+        varianceY = 4,
+        minY = -varianceY, maxY = +varianceY;
+    let numbRenders = 1 + Math.floor(Math.random()*3);
     for (let i=0; i<numbRenders; i++)
         ctx.drawImage(
             getRenderer().target,
-            min + Math.random() * (max-min),
-            min + Math.random() * (max-min)
+            minX + Math.random() * (maxX-minX),
+            minY + Math.random() * (maxY-minY)
         );
     ctx.restore();
 }
