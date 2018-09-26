@@ -3,11 +3,12 @@
  * 	This is a JavaScript library for manipulating DOM elements with ease, while still staying close to
  *  native JavaScript.
  */
+// TODO: convert entire file to es6? (lol like that's going to happen)
 /**
  *  For private methods / classes
  *  @namespace
  */
-var magic$ = new Object();
+export let magic$ = new Object();
 // instance methods
 magic$.style$ = function(self, name, value, operator) {
 	if (value === undefined) {
@@ -355,7 +356,7 @@ magic$.M = function(element, isDummy=false) {
  *	@return the modified <code>element</code>
  */
 
-var m = function(element) {
+export let m = function(element) {
 	var elem;
 	if (element instanceof HTMLElement) {
 		elem = element;
@@ -415,7 +416,7 @@ var m = function(element) {
 /**
  *	@namespace
  */
-var cookie$ = new Object();
+export let cookie$ = new Object();
 /**	Returns the value of the specified cookie.
  *	@param name {string} the name of the cookie to be retrieved
  *	@return the value of the cookie or undefined if not found

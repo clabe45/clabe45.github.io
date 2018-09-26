@@ -1,0 +1,39 @@
+body {
+  font-family: lucida-grande, sans-serif, serif;
+  font-size: 14px;
+  background-color: #dde;
+  /* background-color: #445; */
+
+  /* Use padding instead of margin for html2canvas */
+  /* margin: 50px; */
+  margin: 0;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  background-color: #a99;
+}
+h2 {
+  display: inline-block;
+  padding: 5px;
+  background-color: #aba;
+}
+
+a {
+  text-decoration: underline;
+  color: #305;
+}
+a:hover {
+  color: red;
+}
+
+/* For js/uifx.js */
+.rendered-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
