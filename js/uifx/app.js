@@ -15,7 +15,7 @@ const game = new Game();
 setGame(game);
 scenes.forEach(scene => { game.appendScene(scene); });
 
-const START = 2 * 1000;
+const START = 8 * 1000;
 let gameHappening = false;
 let htmlCache = null;
 let styleCache = null;

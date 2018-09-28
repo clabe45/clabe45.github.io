@@ -1,0 +1,102 @@
+/* see https://material.io/design/color/the-color-system.html#color-theme-creation */
+html {
+  --primary: #ccc;
+  --primary-variant: #81ccef;
+  --secondary: #ffc9fc;
+  --secondary-variant: #eee;
+  /* idk about ternary lol */
+  --ternary: #c3d5c3;
+  /* --ternary-variant: TODO  */
+  --background: #444;
+  --surface: #222;
+  --surface2: #bbb; /* lol idk if this is good or not */
+  --surface3: #333;
+
+  --on-primary: #222;
+  --on-secondary: #224; /* ? */
+  --on-surface: #ccc;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  font-family: lucida-grande, sans-serif, serif;
+  font-size: 14px;
+
+  /* Use padding instead of margin for html2canvas */
+  margin: 0;
+}
+body, html {
+  height: 100%;
+}
+
+h1 {
+  color: var(--primary-variant);
+  display: inline-block;
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--primary);
+}
+h2 {
+  color: var(--ternary);
+  display: inline-block;
+}
+h3 {
+  color: var(--ternary);
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--secondary-variant);
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol > li {
+  border-left: 4px solid darkgrey;
+  padding-left: 16px;
+}
+
+#home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  line-height: normal;  /* undo vertical align effect for this element */
+}
+
+#top {
+  background-color: var(--surface);
+  /* padding: 45px; */
+  height: 100px;
+  line-height: 100px; /* vertically center */
+  /* padding-left: 100px; */
+  text-align: center;
+}
+
+#bottom {
+  display: table;
+  width: 100%;
+  border-top: 4px solid #0009;
+  height: calc(100% - 100px);
+}
+#bottom > div {
+  display: table-cell;
+}
+#left {
+  background-color: var(--surface2);
+  width: 150px;
+}
+#content {
+  padding: 40px 240px 120px 80px;   /* `bottom` = 3 * `top`, `right` = 3 * `left`, it doens't really matter */
+  width: calc(100% - 150px - 200px);
+}
+#right {
+  background-color: var(--surface3);
+  width: 200px;
+}
