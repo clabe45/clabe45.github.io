@@ -42,7 +42,7 @@ class Project extends Component {
 
     render() {
         return (
-            <Card style={{ /* can't add classes to react-bootstrap components.. */backgroundColor: '#141414' }}>
+            <Card className="project">
                 <Card.Body>
                     <Card.Title>
                         <a href={this.getLink()}>{this.props.name}</a>
