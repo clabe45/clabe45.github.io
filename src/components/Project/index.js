@@ -24,7 +24,7 @@ class Project extends Component {
     }
 
     getLink() {
-        switch (this.host) {
+        switch (this.props.host) {
             case 'github': {
                 return `https://github.com/${this.props.owner}/${this.props.name}`
             }
