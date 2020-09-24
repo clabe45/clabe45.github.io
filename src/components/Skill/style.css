@@ -1,12 +1,25 @@
 .skill {
     display: inline-block;
     margin-right: .2em;
+    cursor: pointer;
+}
+
+.skill > *:hover {
+    outline: none;
 }
 
 .skill-advanced > * {
     background-color: #71547e !important;
 }
 
+.skill-advanced > *:hover {
+    background-color: #584163 !important;
+}
+
 .skill-proficient > * {
     background-color: #545e7e !important;
+}
+
+.skill-proficient > *:hover {
+    background-color: #3e455e !important;
 }

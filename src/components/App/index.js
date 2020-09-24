@@ -56,24 +56,16 @@ class App extends Component {
                             <Tools /> Skills
                         </h3>
                         <div>
-                            <Skill name="git" strength="advanced" />
-                            <Skill name="javascript" strength="advanced" />
-                            <Skill name="python" strength="advanced" />
-                            <Skill name="java" strength="advanced" />
-                            <Skill name="react" strength="advanced" />
-                            <Skill name="node" strength="advanced" />
-                            <Skill name="sql" strength="advanced" />
-                            <Skill name="web audio api" strength="advanced" />
-                            <Skill name="unity3d" strength="advanced" />
+                            {
+                                ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
+                                    .map((name, i) => <Skill name={name} strength="advanced" />)
+                            }
                         </div>
                         <div>
-                            <Skill name="c#" strength="proficient" />
-                            <Skill name="c++" strength="proficient" />
-                            <Skill name="c" strength="proficient" />
-                            <Skill name="react-native" strength="proficient" />
-                            <Skill name="socket.io" strength="proficient" />
-                            <Skill name="bootstrap" strength="proficient" />
-                            <Skill name="opengl" strength="proficient" />
+                            {
+                                ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
+                                    .map((name, i) => <Skill name={name} strength="proficient" />)
+                            }
                         </div>
                     </Container>
                 </div>
