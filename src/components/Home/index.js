@@ -33,6 +33,11 @@ class Home extends Component {
                                 <Project host="github" owner="ved-editor" name="ved" />
                             </Col>
                         </Row>
+                        <Row className="project-row">
+                            <Col md={{ span: 4, offset: 4}}>
+                                <Project host="itch" owner="erstelgames" name="morakk" description="A unity survival game that takes place on a planet only inhabited by robots" />
+                            </Col>
+                        </Row>
                     </div>
                 </div>
                 <div className="home-section">
