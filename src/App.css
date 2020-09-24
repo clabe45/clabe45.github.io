@@ -3,3 +3,18 @@ body {
   color: white;
   background-color: #050505;
 }
+
+.app-wrapper {
+  margin-top: 50px;
+}
+
+.navbar-column {
+  -ms-flex: 0 0 400px;
+  flex: 0 0 400px;
+}
+
+@media (max-width: 1000px) {
+  .navbar-column {
+    display: none;
+  }
+}
