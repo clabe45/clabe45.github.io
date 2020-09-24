@@ -13,6 +13,15 @@ class Home extends Component {
             <Container>
                 <div className="home-section">
                     <h3 className="home-section-title">
+                        Hello, I am Caleb Sacks
+                    </h3>
+                    <div className="home-section-subtitle">
+                        I am a full stack developer who loves to create quality code that helps other humans.
+                        I have worked on games and video-editing software extensively, but I also like developing websites and CLIs.
+                    </div>
+                </div>
+                <div className="home-section">
+                    <h3 className="home-section-title">
                         <Box /> Projects
                     </h3>
                     <div>
