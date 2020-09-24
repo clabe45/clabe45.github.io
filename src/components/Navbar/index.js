@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Plus } from 'react-bootstrap-icons'
 import './style.css'
 
 class AppNavbar extends Component {
@@ -13,7 +14,7 @@ class AppNavbar extends Component {
                         </h3>
                     </div>
                     <ul className="list-unstyled">
-                        <Link to="/about">About</Link>
+                        <Plus /> <Link to="/about">About</Link>
                     </ul>
                 </nav>
             </div>
