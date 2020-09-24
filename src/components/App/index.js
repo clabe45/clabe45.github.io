@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Box, Tools } from 'react-bootstrap-icons'
@@ -13,17 +14,19 @@ class App extends Component {
         return (
             <div>
                 <Social />
-                <div className="container app-wrapper text-center">
-                    <div className="home-section">
-                        <h3 className="home-section-title">
-                            Hello, I am Caleb Sacks
-                        </h3>
-                        <div className="home-section-subtitle">
-                            I am a full stack developer who loves to create quality code that helps other humans.
-                            I have worked on games and video-editing software extensively, but I also like developing websites and CLIs.
-                        </div>
+                <div className="text-center">
+                    <div className="mx-0 home-section home-intro">
+                        <Container>
+                            <h3 className="home-section-title">
+                                Hello, I am Caleb Sacks
+                            </h3>
+                            <em className="home-section-subtitle">
+                                I am a full stack developer who loves to create quality code that helps other humans.
+                                I have worked on games and video-editing software extensively, but I also like developing websites and CLIs.
+                            </em>
+                        </Container>
                     </div>
-                    <div className="home-section">
+                    <Container className="home-section">
                         <h3 className="home-section-title">
                             <Box /> Projects
                         </h3>
@@ -47,8 +50,8 @@ class App extends Component {
                                 </Col>
                             </Row>
                         </div>
-                    </div>
-                    <div className="home-section">
+                    </Container>
+                    <Container className="home-section">
                         <h3 className="home-section-title">
                             <Tools /> Skills
                         </h3>
@@ -72,7 +75,7 @@ class App extends Component {
                             <Skill name="bootstrap" strength="proficient" />
                             <Skill name="opengl" strength="proficient" />
                         </div>
-                    </div>
+                    </Container>
                 </div>
             </div>
         )

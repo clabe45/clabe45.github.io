@@ -1,11 +1,7 @@
 body {
   font-family: 'muli';
   color: white;
-  background-color: #050505;
-}
-
-.app-wrapper {
-  margin-top: 50px;
+  background-color: #131313;
 }
 
 .navbar-column {
@@ -19,8 +15,8 @@ body {
   }
 }
 
-.home-section {
-    margin-bottom: 4em;
+.home-section:not(:nth-child(1)) {
+    margin-top: 50px;
 }
 
 .home-section-title {
@@ -29,7 +25,14 @@ body {
 
 .home-section-subtitle {
     font-size: 18px;
-    color: lightgrey;
+    color: rgb(61, 61, 61);
+}
+
+.home-intro {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #222;
+  background-color: rgb(170, 170, 170);
 }
 
 .project-row {
