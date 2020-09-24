@@ -2,6 +2,7 @@
   "name": "clabe45.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://clabe45.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -20,6 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && mv build docs",
+    "prepublish": "npm run build",
+    "publish": "gh-pages -d docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
