@@ -42,11 +42,9 @@ class Project extends Component {
 
     render() {
         return (
-            <Card className="project">
+            <Card as="a" href={this.getLink()} className="project">
                 <Card.Body>
-                    <Card.Title>
-                        <a href={this.getLink()}>{this.props.name}</a>
-                    </Card.Title>
+                    <Card.Title>{this.props.name}</Card.Title>
                     <Card.Text>{this.state.description}</Card.Text>
                 </Card.Body>
             </Card>
