@@ -1,0 +1,12 @@
+.skill {
+    display: inline-block;
+    margin-right: .2em;
+}
+
+.skill-advanced > * {
+    background-color: #4a285a !important;
+}
+
+.skill-proficient > * {
+    background-color: #28385a !important;
+}
