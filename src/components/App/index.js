@@ -20,7 +20,7 @@ class App extends Component {
                                 Hello, I am Caleb Sacks
                             </h3>
                             <em className="home-section-subtitle">
-                                I am a full stack developer who loves to create quality code that helps other humans.
+                                I am a full stack developer who loves to create quality code that helps other people.
                                 I have worked on games and frameworks extensively, but I also can develop websites and CLIs.
                             </em>
                         </Container>
