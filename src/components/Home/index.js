@@ -17,10 +17,10 @@ class Home extends Component {
                     </h3>
                     <div>
                         <Row>
-                            <Col>
+                            <Col md="4">
                                 <Project host="github" owner="clabe45" name="vidar" />
                             </Col>
-                            <Col>
+                            <Col md="4">
                                 <Project host="github" owner="ved-editor" name="ved" />
                             </Col>
                         </Row>
