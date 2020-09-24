@@ -7,7 +7,19 @@ class Project extends Component {
         super(props)
 
         this.state = {
-            description: 'repo description'
+            description: ''
+        }
+        if (props.host === 'github') {
+            fetch(`https://api.github.com/repos/${this.props.owner}/${this.props.name}`)
+                .then(resp => resp.json())
+                .then(resp => {
+                    this.setState({ description: resp.description })
+                })
+        } else {
+            if (props.description)
+                this.setState({ description: props.description })
+            else
+                throw new Error('must provide a description for projects that are not hosted on github')
         }
     }
 
