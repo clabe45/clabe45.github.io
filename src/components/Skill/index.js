@@ -16,7 +16,7 @@ class Skill extends Component {
 
         return (
             <Tag className={`skill skill-${this.props.strength}`}>
-                <Badge variant="secondary">{this.props.name}</Badge>
+                <Badge>{this.props.name}</Badge>
             </Tag>
         )
     }

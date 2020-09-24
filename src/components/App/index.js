@@ -12,9 +12,8 @@ import './style.css'
 class App extends Component {
     render() {
         return (
-            <div>
-                <Social />
-                <div className="text-center">
+            <div className="wrapper">
+                <div className="text-center ">
                     <div className="mx-0 home-section home-intro">
                         <Container>
                             <h3 className="home-section-title">
@@ -26,49 +25,54 @@ class App extends Component {
                             </em>
                         </Container>
                     </div>
-                    <Container className="home-section">
-                        <h3 className="home-section-title">
-                            <Box /> Projects
-                        </h3>
-                        <div>
-                            <Row className="project-row">
-                                <Col md={{ span: 4, offset: 2 }}>
-                                    <Project host="github" owner="clabe45" name="vidar" />
-                                </Col>
-                                <Col md="4">
-                                    <Project host="github" owner="ved-editor" name="ved" />
-                                </Col>
-                            </Row>
-                            <Row className="project-row">
-                                <Col md={{ span: 4, offset: 4}}>
-                                    <Project
-                                        host="itch"
-                                        owner="erstelgames"
-                                        name="morakk"
-                                        description="A unity survival game that takes place on a planet only inhabited by robots"
-                                        />
-                                </Col>
-                            </Row>
-                        </div>
-                    </Container>
-                    <Container className="home-section">
-                        <h3 className="home-section-title">
-                            <Tools /> Skills
-                        </h3>
-                        <div>
-                            {
-                                ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
-                                    .map((name, i) => <Skill name={name} strength="advanced" />)
-                            }
-                        </div>
-                        <div>
-                            {
-                                ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
-                                    .map((name, i) => <Skill name={name} strength="proficient" />)
-                            }
-                        </div>
-                    </Container>
+                    <div className="home-after-intro">
+                        <Container>
+                            <div className="home-section">
+                                <h3 className="home-section-title">
+                                    <Box /> Projects
+                                </h3>
+                                <div>
+                                    <Row className="project-row">
+                                        <Col md={{ span: 4, offset: 2 }}>
+                                            <Project host="github" owner="clabe45" name="vidar" />
+                                        </Col>
+                                        <Col md="4">
+                                            <Project host="github" owner="ved-editor" name="ved" />
+                                        </Col>
+                                    </Row>
+                                    <Row className="project-row">
+                                        <Col md={{ span: 4, offset: 4}}>
+                                            <Project
+                                                host="itch"
+                                                owner="erstelgames"
+                                                name="morakk"
+                                                description="A unity survival game that takes place on a planet only inhabited by robots"
+                                                />
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </div >
+                            <div className="home-section">
+                                <h3 className="home-section-title">
+                                    <Tools /> Skills
+                                </h3>
+                                <div>
+                                    {
+                                        ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
+                                            .map((name, i) => <Skill name={name} strength="advanced" />)
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
+                                            .map((name, i) => <Skill name={name} strength="proficient" />)
+                                    }
+                                </div>
+                            </div>
+                        </Container>
+                    </div>
                 </div>
+                <Social />
             </div>
         )
     }
