@@ -9,9 +9,9 @@ class AppNavbar extends Component {
             <div className="navbar-wrapper">
                 <nav>
                     <div>
-                        <h3>
+                        <h4>
                             <Link to="/">Caleb Sacks</Link>
-                        </h3>
+                        </h4>
                     </div>
                     <ul className="list-unstyled">
                         <Plus /> <Link to="/about">About</Link>
