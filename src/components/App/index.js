@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Box, Tools } from 'react-bootstrap-icons'
 import Social from '../Social'
+import Source from '../Source'
 import Project from '../Project'
 import Skill from '../Skill'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -73,6 +74,7 @@ class App extends Component {
                     </div>
                 </div>
                 <Social />
+                <Source />
             </div>
         )
     }
