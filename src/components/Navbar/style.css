@@ -1,4 +1,4 @@
-.wrapper {
+.navbar-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -7,5 +7,5 @@
 nav {
     flex: 1;
     width: 400px;
-    padding: 50px;
+    padding-left: 50px;
 }
