@@ -22,7 +22,7 @@ class App extends Component {
                             </h3>
                             <em className="home-section-subtitle">
                                 I am a full stack developer who loves to create quality code that helps other humans.
-                                I have worked on games and video-editing software extensively, but I also like developing websites and CLIs.
+                                I have worked on games and frameworks extensively, but I also can develop websites and CLIs.
                             </em>
                         </Container>
                     </div>
