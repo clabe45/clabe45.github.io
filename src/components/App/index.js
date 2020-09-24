@@ -29,6 +29,23 @@ class App extends Component {
                         <Container>
                             <div className="home-section">
                                 <h3 className="home-section-title">
+                                    <Tools /> Skills
+                                </h3>
+                                <div>
+                                    {
+                                        ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
+                                            .map((name, i) => <Skill name={name} strength="advanced" />)
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
+                                            .map((name, i) => <Skill name={name} strength="proficient" />)
+                                    }
+                                </div>
+                            </div>
+                            <div className="home-section">
+                                <h3 className="home-section-title">
                                     <Box /> Projects
                                 </h3>
                                 <div>
@@ -52,23 +69,6 @@ class App extends Component {
                                     </Row>
                                 </div>
                             </div >
-                            <div className="home-section">
-                                <h3 className="home-section-title">
-                                    <Tools /> Skills
-                                </h3>
-                                <div>
-                                    {
-                                        ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
-                                            .map((name, i) => <Skill name={name} strength="advanced" />)
-                                    }
-                                </div>
-                                <div>
-                                    {
-                                        ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
-                                            .map((name, i) => <Skill name={name} strength="proficient" />)
-                                    }
-                                </div>
-                            </div>
                         </Container>
                     </div>
                 </div>
