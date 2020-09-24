@@ -25,8 +25,8 @@ class Home extends Component {
                         <Box /> Projects
                     </h3>
                     <div>
-                        <Row>
-                            <Col md="4">
+                        <Row className="project-row">
+                            <Col md={{ span: 4, offset: 2 }}>
                                 <Project host="github" owner="clabe45" name="vidar" />
                             </Col>
                             <Col md="4">

@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Navbar from '../Navbar/index.js'
 import Home from '../Home/index.js'
+import About from '../About/index.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -18,9 +19,14 @@ function App() {
 
           <Col>
             <Switch>
-              <Route path="/">
-                <Home />
-              </Route>
+              <div className="text-center">
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </div>
             </Switch>
           </Col>
         </Row>
