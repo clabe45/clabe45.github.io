@@ -1,5 +1,11 @@
 body {
-  font-family: 'muli';
+  font-family:
+    muli,
+    'Segoe UI',
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
   color: white;
   background-image: url('https://images.pexels.com/photos/2763927/pexels-photo-2763927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   display: flex;
@@ -8,7 +14,9 @@ body {
   overflow-y: hidden; /* workaround for .home-after-intro taking extra space */
 }
 
-#root, .wrapper, .content {
+#root,
+.wrapper,
+.content {
   min-height: 100vh;
 }
 
@@ -24,16 +32,16 @@ body {
 }
 
 .home-section:not(:nth-child(1)) {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .home-section-title {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .home-section-subtitle {
-    font-size: 18px;
-    color: #2c2c2c;
+  font-size: 18px;
+  color: #2c2c2c;
 }
 
 .home-intro {

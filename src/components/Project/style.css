@@ -1,14 +1,14 @@
 .project {
-    border: 2px solid rgba(141, 141, 141, 0.4) !important;
-    background-color: inherit !important;
-    text-decoration: none !important;
+  border: 2px solid rgba(141, 141, 141, 0.4) !important;
+  background-color: inherit !important;
+  text-decoration: none !important;
 }
 
 .project:hover {
-    border: 2px solid transparent !important;
-    background-color: rgba(141, 141, 141, 0.4) !important;
+  border: 2px solid transparent !important;
+  background-color: rgba(141, 141, 141, 0.4) !important;
 }
 
 .project .card-text {
-    color: white !important;
+  color: white !important;
 }

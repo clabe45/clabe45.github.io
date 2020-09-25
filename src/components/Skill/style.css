@@ -1,22 +1,22 @@
 .skill {
-    display: inline-block;
-    margin-right: .2em;
-    cursor: pointer;
-    background-color: transparent !important;
+  display: inline-block;
+  margin-right: 0.2em;
+  cursor: pointer;
+  background-color: transparent !important;
 }
 
 .skill-advanced > * {
-    border: 1px solid rgba(170, 102, 201, 0.75) !important;
-}
-
-.skill-advanced > *:hover {
-    background-color: rgba(170, 102, 201, 0.75) !important;
+  border: 1px solid rgba(170, 102, 201, 0.75) !important;
 }
 
 .skill-proficient > * {
-    border: 1px solid rgba(63, 104, 218, 0.75) !important;
+  border: 1px solid rgba(63, 104, 218, 0.75) !important;
+}
+
+.skill-advanced > *:hover {
+  background-color: rgba(170, 102, 201, 0.75) !important;
 }
 
 .skill-proficient > *:hover {
-    background-color: rgba(63, 104, 218, 0.75) !important;
+  background-color: rgba(63, 104, 218, 0.75) !important;
 }

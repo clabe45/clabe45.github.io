@@ -1,9 +1,9 @@
 .social {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
 }
 
 .social a {
-    margin-left: 10px;
+  margin-left: 10px;
 }
