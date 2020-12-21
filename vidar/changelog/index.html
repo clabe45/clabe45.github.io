@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog | Vidar - edit videos with JavaScript </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+    :root {
+        --front-color: #d7fffc;
+        /* Primary theme color */
+        --primary-color: #00cab9;
+        /* Primary theme text color */
+        --primary-text-color: #4d4d4d;
+        /* Primary theme link color */
+        --primary-link-color: #00cab9;
+        /* Secondary color: the background body color */
+        --secondary-color: #ffffff;
+        --secondary-text-color: #a8a8a8;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #00cab9;
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    
+<!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="stylesheet" type="text/css" href="/juice-modified.css" />
+<link rel="shortcut icon" type="image/x-icon" href="logo.svg" />
+
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
+    <div class="logo">
+        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        Vidar
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;clabe45&#x2F;vidar">Github</a>
+        
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+
+
+
+
+<div class="toc">
+    <div class="toc-sticky">
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#unreleased">Unreleased</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed"><small>- Changed</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-7-0-2020-12-17">0.7.0 - 2020-12-17</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-1"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed-1"><small>- Changed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#removed"><small>- Removed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#fixed"><small>- Fixed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#security"><small>- Security</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-6-0-2019-12-26">0.6.0 - 2019-12-26</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-2"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed-2"><small>- Changed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#fixed-1"><small>- Fixed</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-5-0-2019-10-09">0.5.0 - 2019-10-09</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-3"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed-3"><small>- Changed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#fixed-2"><small>- Fixed</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-4-0-2019-08-18">0.4.0 - 2019-08-18</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-4"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed-4"><small>- Changed</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-3-0-2018-12-11">0.3.0 - 2018-12-11</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-5"><small>- Added</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#changed-5"><small>- Changed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#fixed-3"><small>- Fixed</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#removed-1"><small>- Removed</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-2-0-2018-10-14">0.2.0 - 2018-10-14</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-6"><small>- Added</small></a>
+        </div>
+        
+         -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#0-1-0-2018-10-06">0.1.0 - 2018-10-06</a>
+        </div>
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="https://clabe45.github.io/vidar/changelog/#added-7"><small>- Added</small></a>
+        </div>
+        
+         -->
+        
+    </div>
+</div>
+
+
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="heading-text">Changelog</div>
+<h1 id="unreleased"><a href="https://github.com/clabe45/vidar/compare/v0.7...HEAD">Unreleased</a></h1>
+<h2 id="added">Added</h2>
+<ul>
+<li>Grayscale effect.</li>
+</ul>
+<h2 id="changed">Changed</h2>
+<ul>
+<li>Rename <code>cctx</code> ('canvas context') to <code>vctx</code> ('visual context').</li>
+</ul>
+<h1 id="0-7-0-2020-12-17"><a href="https://github.com/clabe45/vidar/compare/v0.6...v0.7">0.7.0</a> - 2020-12-17</h1>
+<h2 id="added-1">Added</h2>
+<ul>
+<li>Importing with CommonJS syntax.</li>
+<li>MIME type option for <code>record</code>.</li>
+</ul>
+<h2 id="changed-1">Changed</h2>
+<ul>
+<li>Movies are no longer hidden and silent when exporting.</li>
+<li>Media layers' audio nodes can now be reconnected to other audio nodes.</li>
+<li><code>refresh</code> can be called when the movie is playing or recording to force render.</li>
+</ul>
+<h2 id="removed">Removed</h2>
+<ul>
+<li>Image layers' <code>imageX</code>, <code>imageY</code>, <code>imageWidth</code> and <code>imageHeight</code> properties. Every image is now rendered over its entire layer.</li>
+<li>Video layers' <code>mediaX</code>, <code>mediaY</code>, <code>mediaWidth</code> and <code>mediaHeight</code> properties. Every video is now rendered over its entire layer.</li>
+</ul>
+<h2 id="fixed">Fixed</h2>
+<ul>
+<li>Fix recording with only video or only audio.</li>
+<li>Video layers' <code>clipWidth</code> and <code>clipHeight</code> are no longer treated as invalid options.</li>
+<li>Image layers' <code>clipWidth</code> and <code>clipHeight</code> are no longer set in the constructor, so if the <code>clipWidth</code> option is not supplied and the layer's <code>width</code> changes <code>clipWidth</code> uses the new <code>width</code>.</li>
+<li>Video and image layers' <code>width</code> and <code>height</code> default to their <code>clipWidth</code> and <code>clipHeight</code> respectively.</li>
+<li>Elliptical mask effect throwing <code>TypeError: path.split is not a function</code>.</li>
+<li>In shader effects, textures whose dimensions are not powers of two accept interpolation filters.</li>
+<li>No longer ignore video layers' <code>mediaWidth</code> option.</li>
+<li>Treat layers' <code>enabled</code> property as dynamic (allowing for keyframes and functions).</li>
+<li>Make each media layer's duration depend on its playback rate.</li>
+</ul>
+<h2 id="security">Security</h2>
+<ul>
+<li>Update vulnerable dependencies.</li>
+</ul>
+<h1 id="0-6-0-2019-12-26"><a href="https://github.com/clabe45/vidar/compare/v0.5...v0.6">0.6.0</a> - 2019-12-26</h1>
+<h2 id="added-2">Added</h2>
+<ul>
+<li>Add <a href="https://clabe45.github.io/vidar/">API documentation</a>.</li>
+<li>Support enabling and disabling layers and effects.</li>
+<li>Implement more movie events (<em>movie.play</em>, <em>movie.record</em>, <em>movie.pause</em>, <em>movie.change.duration</em>).</li>
+<li>Implement <a href="https://github.com/clabe45/vidar/wiki/Property-Filters">property filters</a>.</li>
+<li>Implement property caching.</li>
+<li>Media layer supports media whose duration changes.</li>
+<li>Add unimplemented <code>vd.Font</code> properties.</li>
+<li>Add example that uses a live stream (the webcam).</li>
+</ul>
+<h2 id="changed-2">Changed</h2>
+<ul>
+<li>Add layer <code>start</code> and <code>stop</code> methods.</li>
+<li>Add layer and effect <code>attach</code> and <code>detach</code> methods.</li>
+<li>Make some properties public (<code>_getDefaultOptions</code>, <code>_publicExcludes</code>, <code>layer.Base#_render</code>, <code>event._publish</code>, <code>layer.Base#_render</code>, <code>event._publish</code>, <code>layer.Visual#_doRender</code>).</li>
+<li>Change <code>vd.val(property, element, time)</code> → <code>vd.val(element, path, time)</code>.</li>
+<li>Make event properties specific to event type
+<ul>
+<li><em>layer.attach|detach</em>: <code>source</code> → <code>effectTarget</code></li>
+<li><em>effect.attach|detach</em>: <code>source</code> → <code>effectTarget</code></li>
+<li><em>movie.change.layer.add|remove</em>: <code>source</code> → <code>layer</code></li>
+<li><em>movie.change.effect.add|remove</em>: <code>source</code> → <code>effect</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="fixed-1">Fixed</h2>
+<ul>
+<li>Media current time is no longer reset every time it's played.</li>
+<li>Fix Gaussian blur effect throwing error.</li>
+<li>Custom textures work for shader effects.</li>
+<li>Fix undefined behavior with shader effects that output transparency.</li>
+<li>Use <code>sourceTextureOptions</code> in shader effects.</li>
+<li>Recursive property changes now emit events with <code>vd.watchPublic</code>.</li>
+<li>Public properties set to keyframes are treated as keyframes.</li>
+<li>Update event names in examples.</li>
+</ul>
+<h1 id="0-5-0-2019-10-09"><a href="https://github.com/clabe45/vidar/compare/v0.4...v0.5">0.5.0</a> - 2019-10-09</h1>
+<h2 id="added-3">Added</h2>
+<ul>
+<li>Movies and layers auto-refresh.</li>
+</ul>
+<h2 id="changed-3">Changed</h2>
+<ul>
+<li>Rewrite event system.
+<ul>
+<li>Events propogate up.</li>
+<li>Event names are organized into groups.</li>
+</ul>
+</li>
+</ul>
+<h2 id="fixed-2">Fixed</h2>
+<ul>
+<li>Update IIFE global export from <code>mv</code> to <code>vd</code>.</li>
+<li>Fix recording audio.</li>
+<li>Fix recording movies without audio in Chrome.</li>
+<li>Fix effects for movies.</li>
+</ul>
+<h1 id="0-4-0-2019-08-18"><a href="https://github.com/clabe45/vidar/compare/v0.3...v0.4">0.4.0</a> - 2019-08-18</h1>
+<h2 id="added-4">Added</h2>
+<ul>
+<li>WebGL fragment shader effects, with which you can re-render a layer or movie with a GLSL fragment shader.</li>
+<li>New <code>initialRefresh</code> movie option that can prevent rendering on init.</li>
+</ul>
+<h2 id="changed-4">Changed</h2>
+<ul>
+<li>Most visual effects now use GLSL.</li>
+<li>New <code>element</code> argument passed to function properties to see which Vidar object the property belongs to.</li>
+</ul>
+<h1 id="0-3-0-2018-12-11"><a href="https://github.com/clabe45/vidar/compare/v0.2...v0.3">0.3.0</a> - 2018-12-11</h1>
+<h2 id="added-5">Added</h2>
+<ul>
+<li>Function properties.
+<ul>
+<li>Dynamic properties that call a function every time they're queried.</li>
+</ul>
+</li>
+</ul>
+<h2 id="changed-5">Changed</h2>
+<ul>
+<li>Null or undefined layer dimensions default to the width or height of the movie.</li>
+<li>Movie &quot;end&quot; event is now called &quot;ended&quot;.</li>
+</ul>
+<h2 id="fixed-3">Fixed</h2>
+<ul>
+<li>Bug with layer options</li>
+</ul>
+<h2 id="removed-1">Removed</h2>
+<ul>
+<li>Volume, speed and muted properties. These will most likely be added as separate audio effects in the future.</li>
+</ul>
+<h1 id="0-2-0-2018-10-14"><a href="https://github.com/clabe45/vidar/compare/v0.1...v0.2">0.2.0</a> - 2018-10-14</h1>
+<h2 id="added-6">Added</h2>
+<ul>
+<li>Keyframes
+<ul>
+<li>Works with any value type in pretty much every built-in component property.</li>
+<li>Number and objects, including colors and fonts, can interpolate.</li>
+<li>Custom interpolation option.</li>
+</ul>
+</li>
+<li>Elliptical mask effect.</li>
+<li>Many small improvements.</li>
+</ul>
+<h1 id="0-1-0-2018-10-06"><a href="https://github.com/clabe45/vidar/releases/tag/v0.1">0.1.0</a> - 2018-10-06</h1>
+<h2 id="added-7">Added</h2>
+<ul>
+<li>Movies
+<ul>
+<li>Timeline</li>
+<li>Playing</li>
+<li>Exporting</li>
+</ul>
+</li>
+<li>Layers
+<ul>
+<li>Base layers</li>
+<li>Text layers</li>
+<li>Image layers</li>
+<li>Audio layers</li>
+<li>Video layers</li>
+</ul>
+</li>
+<li>Effects
+<ul>
+<li>Transparency</li>
+<li>Brightness</li>
+<li>Contrast</li>
+<li>Channels</li>
+<li>Gaussian blur</li>
+<li>Transform</li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+
+    </main>
+
+    
+<!-- <footer>
+    <small class="subtext">
+        <a href="https://huhu.io">Huhu.io</a> © 2020
+    </small>
+</footer> -->
+
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
