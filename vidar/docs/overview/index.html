@@ -28,10 +28,10 @@
     <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
-<link rel="stylesheet" href="normalize.css">
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<link rel="stylesheet" type="text/css" href="/juice-modified.css" />
-<link rel="shortcut icon" type="image/x-icon" href="logo.svg" />
+<link rel="stylesheet" href="/vidar/normalize.css">
+<link rel="stylesheet" type="text/css" href="/vidar/style.css" />
+<link rel="stylesheet" type="text/css" href="/vidar/juice-modified.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/vidar/logo.svg" />
 
 </head>
 
@@ -105,7 +105,8 @@ with a list of effects.</p>
 <code><span style="color:#b48ead;">var </span><span style="color:#bf616a;">movie </span><span style="color:#c0c5ce;">= new </span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Movie</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">outputCanvas</span><span style="color:#c0c5ce;">)
 </span></code></pre>
 <p>You can provide an object of options to specify the audio context that will be
-used, as well as other properties. See the <a href="https://clabe45.github.io/vidar/docs/overview/todo"><code>Movie</code> documentation</a>.</p>
+used, as well as other properties. See the <a href="api/module-movie.Movie.html"><code>Movie</code>
+documentation</a>.</p>
 <p>The movie can then be played or recorded. Playing renders the movie to the
 canvas and audio context and can be interrupted with <code>pause</code>. Recording
 renders the movie and saves the result as a video blob.</p>
@@ -124,7 +125,7 @@ titles:</p>
 </span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.layers.</span><span style="color:#bf616a;">push</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">layer2</span><span style="color:#c0c5ce;">)  </span><span style="color:#65737e;">// the same as movie.addLayer
 </span></code></pre><h1 id="effects">Effects</h1>
 <p>Effects alter a layer or movie's output. Currently, only visual effects are
-supported. Audio can be manipulated using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> (see docs; todo).
+supported. Audio can be manipulated using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a>.
 Vidar offers a set of built-in effects:</p>
 <pre style="background-color:#2b303b;">
 <code><span style="color:#b48ead;">var </span><span style="color:#bf616a;">effect </span><span style="color:#c0c5ce;">= new </span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.effect.</span><span style="color:#bf616a;">Contrast</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">2.0</span><span style="color:#c0c5ce;">)
