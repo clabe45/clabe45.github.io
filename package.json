@@ -25,8 +25,8 @@
     "test": "react-scripts test",
     "lint": "npx eslint src && npx stylelint src",
     "update": "git submodule foreach --recursive git pull origin master",
-    "build": "npm run update && react-scripts build && cd vidar-site && npm i && npm run build && cp -r public ../build/vidar",
-    "prepublish": "npm run build",
+    "build": "react-scripts build && cd vidar-site && npm i && npm run build && cp -r public ../build/vidar",
+    "prepublish": "npm update && npm run build",
     "publish": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
