@@ -4,12 +4,30 @@
         <loc>https://clabe45.github.io/vidar/</loc>
     </url>
     <url>
+        <loc>https://clabe45.github.io/vidar/blog/</loc>
+    </url>
+    <url>
+        <loc>https://clabe45.github.io/vidar/blog/introducing-v0-8-0/</loc>
+    </url>
+    <url>
         <loc>https://clabe45.github.io/vidar/changelog/</loc>
     </url>
     <url>
         <loc>https://clabe45.github.io/vidar/docs/</loc>
     </url>
     <url>
+        <loc>https://clabe45.github.io/vidar/docs/custom-effects/</loc>
+    </url>
+    <url>
+        <loc>https://clabe45.github.io/vidar/docs/dynamic-properties/</loc>
+    </url>
+    <url>
+        <loc>https://clabe45.github.io/vidar/docs/migrating-v0-8-0/</loc>
+    </url>
+    <url>
         <loc>https://clabe45.github.io/vidar/docs/overview/</loc>
+    </url>
+    <url>
+        <loc>https://clabe45.github.io/vidar/docs/property-filters/</loc>
     </url>
 </urlset>

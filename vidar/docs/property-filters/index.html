@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Property Filters | Vidar - edit videos with JavaScript </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+    :root {
+        --front-color: #d7fffc;
+        /* Primary theme color */
+        --primary-color: #00cab9;
+        /* Primary theme text color */
+        --primary-text-color: #4d4d4d;
+        /* Primary theme link color */
+        --primary-link-color: #00cab9;
+        /* Secondary color: the background body color */
+        --secondary-color: #ffffff;
+        --secondary-text-color: #a8a8a8;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #00cab9;
+    }
+</style>
+
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    
+<!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
+<link rel="stylesheet" type="text/css" href="/vidar/style.css" />
+<link rel="stylesheet" type="text/css" href="/vidar/juice-modified.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/vidar/logo.svg" />
+
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
+    <div class="logo">
+        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        Vidar
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;clabe45&#x2F;vidar">Github</a>
+        
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+
+
+
+
+<div class="toc">
+    <div class="toc-sticky">
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/docs/property-filters/#usage">Usage</a>
+        </div>
+        <!--  -->
+        
+    </div>
+</div>
+
+
+
+        <div class="content text">
+            
+<div class="heading-text"></div>
+<div class="heading-text">Property Filters</div>
+<p>Property filters map the per-frame value (<code>vd.val</code> output) of a property to a
+new value. They are useful for applying custom logic to the output of a key
+frame set or function at a given time.</p>
+<h1 id="usage">Usage</h1>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomLayer </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.layer.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
+  </span><span style="color:#b48ead;">constructor</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">options</span><span style="color:#c0c5ce;">) </span><span style="color:#eff1f5;">{
+    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">)
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo
+  </span><span style="color:#eff1f5;">}
+}
+
+</span><span style="color:#ebcb8b;">CustomLayer</span><span style="color:#c0c5ce;">.prototype.</span><span style="color:#bf616a;">propertyFilters </span><span style="color:#c0c5ce;">= {
+  </span><span style="color:#65737e;">// Inherit superclass&#39;s property filters
+  </span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Base</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">propertyFilters</span><span style="color:#c0c5ce;">,
+  </span><span style="color:#65737e;">// Define `foo` property filter
+  </span><span style="color:#8fa1b3;">foo</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">foo </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">Math.</span><span style="color:#96b5b4;">max</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, Math.</span><span style="color:#96b5b4;">min</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">foo</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)) </span><span style="color:#65737e;">// clamp between 0 and 1
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
+<p>Now, you can evaluate the value as usual, and <code>val</code> will apply the property
+filter (after evaluating the key frame or function):</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">layer </span><span style="color:#c0c5ce;">= new CustomLayer({ startTime: </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, duration: </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, foo: </span><span style="color:#d08770;">2 </span><span style="color:#c0c5ce;">})
+</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">foo</span><span style="color:#c0c5ce;">)  </span><span style="color:#65737e;">// prints &#39;2&#39;, no property filter applied
+</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">val</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">foo</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">currentTime</span><span style="color:#c0c5ce;">))  </span><span style="color:#65737e;">// prints &#39;1&#39;, property filter applied
+</span></code></pre>
+
+        </div>
+
+        
+        
+    </main>
+
+    
+<!-- <footer>
+    <small class="subtext">
+        <a href="https://huhu.io">Huhu.io</a> © 2020
+    </small>
+</footer> -->
+
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
