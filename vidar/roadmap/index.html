@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Docs | Vidar - edit videos with JavaScript </title>
+    <title>Roadmap | Vidar - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
     :root {
@@ -72,18 +72,89 @@
 
 
 
+<div class="toc">
+    <div class="toc-sticky">
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#true-node-support">True Node Support</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#audio-system">Audio System</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#layer-inheritance">Layer Inheritance</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#transitions">Transitions</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#3d-system">3D System</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#other">Other</a>
+        </div>
+        <!--  -->
+        
+    </div>
+</div>
+
+
+
         <div class="content text">
             
 <div class="heading-text"></div>
-<p><strong>Guides:</strong></p>
+<div class="heading-text">Roadmap</div>
+<p>Vidar has several epics planned for the next phase of development. These will
+most likely continue for multiple minor releases. If any of them interest you,
+feel free to <a href="https://github.com/clabe45/vidar/blob/master/CONTRIBUTING.md">contribute</a>!</p>
+<h1 id="true-node-support">True Node Support</h1>
+<p>We are currently working on a vidar-node rewrite. The rewrite will use Node
+implementations of browser technologies to create a seamless Node integration
+without running in a headless browser.</p>
+<h1 id="audio-system">Audio System</h1>
+<p>A <a href="https://github.com/clabe45/vidar/projects/1">new audio system</a>, with more audio layers and the introduction of audio
+effects is on its way!</p>
+<p>Some of the highlights:</p>
 <ul>
-<li><a href="https://clabe45.github.io/vidar/docs/overview">Overview</a> (covers the fundamentals of Vidar)</li>
-<li><a href="https://clabe45.github.io/vidar/docs/dynamic-properties">Dynamic Properties</a></li>
-<li><a href="https://clabe45.github.io/vidar/docs/custom-effects">Custom Effects</a></li>
-<li><a href="https://clabe45.github.io/vidar/docs/property-filters">Property Filters</a></li>
-<li><a href="https://clabe45.github.io/vidar/docs/migrating-v0-8-0">Migrating to v0.8.0</a></li>
+<li>Panner effect</li>
+<li>Equalizer effect</li>
+<li>Compressor effect</li>
+<li>Echo effect</li>
+<li>Reverb effect</li>
+<li>Pitch shift effect</li>
 </ul>
-<p><a href="https://clabe45.github.io/vidar/docs/api"><strong>API Reference</strong></a></p>
+<h1 id="layer-inheritance">Layer Inheritance</h1>
+<p>A new <a href="https://github.com/clabe45/vidar/issues/65">group layer</a> will be introduced. A group layer will have both audio and
+visual support, along with multiple children.</p>
+<h1 id="transitions">Transitions</h1>
+<p>A <a href="https://github.com/clabe45/vidar/projects/3">transition system</a> is also on its way! You will be able to attach any
+built-in or custom transition to two layers. The transition will then
+interpolate the audio and/or visual output of both layers.</p>
+<h1 id="3d-system">3D System</h1>
+<p>Although still in early planning, we could use three.js to add a 3D mode to
+movies, where every visual and audio layer has a 3D position. Alternatively, we
+could get rid of the concept of a &quot;3D movie&quot; and allow both 2D and 3D layers to
+be added to any movie. Feel free to post on the <a href="https://github.com/clabe45/vidar/discussions/78">GitHub
+discussion</a> if you have any
+ideas!</p>
+<h1 id="other">Other</h1>
+<p>Other planned changes:</p>
+<ul>
+<li><a href="https://github.com/clabe45/vidar/issues/61">Creating sources directly from path / url</a></li>
+<li><a href="https://github.com/clabe45/vidar/issues/60">Duplicating layers</a></li>
+<li><a href="https://github.com/clabe45/vidar/issues/44">Improved gaussian blur</a></li>
+<li><a href="https://github.com/clabe45/vidar/issues/10">More visual effects</a></li>
+</ul>
 
 
         </div>
