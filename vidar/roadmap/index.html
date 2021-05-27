@@ -118,29 +118,63 @@
 most likely continue for multiple minor releases. If any of them interest you,
 feel free to <a href="https://github.com/clabe45/vidar/blob/master/CONTRIBUTING.md">contribute</a>!</p>
 <h1 id="true-node-support">True Node Support</h1>
-<p>We are currently working on a vidar-node rewrite. The rewrite will use Node
-implementations of browser technologies to create a seamless Node integration
-without running in a headless browser.</p>
+<p>We are currently working on a vidar-node rewrite with a focus on usability. Our
+goal is to make the API virtually identical to vidar's API. More details coming
+soon!</p>
 <h1 id="audio-system">Audio System</h1>
 <p>A <a href="https://github.com/clabe45/vidar/projects/1">new audio system</a>, with more audio layers and the introduction of audio
-effects is on its way!</p>
+effects is on its way! This will be a built-in way to manipulate audio.</p>
 <p>Some of the highlights:</p>
 <ul>
-<li>Panner effect</li>
-<li>Equalizer effect</li>
+<li>User-defined audio layers (from any audio source node)</li>
+<li>Panner effect
+<ul>
+<li>Changes the balance of an audio layer, moving the output to the left or
+right speaker</li>
+</ul>
+</li>
+<li>Equalizer effect
+<ul>
+<li>Makes certain frequencies louder than others.</li>
+</ul>
+</li>
 <li>Compressor effect</li>
 <li>Echo effect</li>
 <li>Reverb effect</li>
 <li>Pitch shift effect</li>
+<li>User-defined effects</li>
 </ul>
-<h1 id="layer-inheritance">Layer Inheritance</h1>
+<p>Example custom effect (API may change):</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Audio </span><span style="color:#eff1f5;">{
+  </span><span style="color:#8fa1b3;">attach </span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">) </span><span style="color:#eff1f5;">{
+    </span><span style="color:#65737e;">// Create any intermediary node
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">movie</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">actx</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">createGain</span><span style="color:#eff1f5;">()
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">volume</span><span style="color:#eff1f5;">.value </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">2
+    </span><span style="color:#65737e;">// `inputNode` and `outputNode` are populated by the target (they will
+    // point to audio nodes of the target, the next/previous effect or
+    // movie.actx)
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">inputNode</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">connect</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">)
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">connect</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">outputNode</span><span style="color:#eff1f5;">)
+  }
+
+  </span><span style="color:#8fa1b3;">detach</span><span style="color:#c0c5ce;">() </span><span style="color:#eff1f5;">{
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">inputNode</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">disconnect</span><span style="color:#eff1f5;">()
+    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">disconnect</span><span style="color:#eff1f5;">()
+  }
+}
+</span></code></pre><h1 id="layer-inheritance">Layer Inheritance</h1>
 <p>A new <a href="https://github.com/clabe45/vidar/issues/65">group layer</a> will be introduced. A group layer will have both audio and
-visual support, along with multiple children.</p>
+visual support, along with multiple children. Then, you will be able to apply an
+effect to a group of layers.</p>
 <h1 id="transitions">Transitions</h1>
 <p>A <a href="https://github.com/clabe45/vidar/projects/3">transition system</a> is also on its way! You will be able to attach any
 built-in or custom transition to two layers. The transition will then
-interpolate the audio and/or visual output of both layers.</p>
-<h1 id="3d-system">3D System</h1>
+interpolate the audio and/or visual output of both layers. It will look
+something like this:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#bf616a;">transition</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addTo</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">layer2</span><span style="color:#c0c5ce;">)
+</span></code></pre><h1 id="3d-system">3D System</h1>
 <p>Although still in early planning, we could use three.js to add a 3D mode to
 movies, where every visual and audio layer has a 3D position. Alternatively, we
 could get rid of the concept of a &quot;3D movie&quot; and allow both 2D and 3D layers to
