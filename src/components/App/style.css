@@ -40,7 +40,9 @@ body {
 }
 
 .home-section-subtitle {
+  display: inline-block;
   font-size: 18px;
+  max-width: 70%;
   color: #2c2c2c;
 }
 
@@ -48,7 +50,7 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   color: #000;
-  background-color: rgba(145, 145, 145, 0.85);
+  background-color: #e4e4e4;
 }
 
 .content {
