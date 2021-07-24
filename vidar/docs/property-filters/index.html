@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -41,7 +41,7 @@
 
 <a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
@@ -93,28 +93,27 @@
 new value. They are useful for applying custom logic to the output of a key
 frame set or function at a given time.</p>
 <h1 id="usage">Usage</h1>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomLayer </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.layer.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
-  </span><span style="color:#b48ead;">constructor</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">options</span><span style="color:#c0c5ce;">) </span><span style="color:#eff1f5;">{
-    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">)
-    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo
-  </span><span style="color:#eff1f5;">}
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class CustomLayer extends vd.layer.Base {
+  constructor(options) {
+    super(options)
+    this.foo = options.foo
+  }
 }
 
-</span><span style="color:#ebcb8b;">CustomLayer</span><span style="color:#c0c5ce;">.prototype.</span><span style="color:#bf616a;">propertyFilters </span><span style="color:#c0c5ce;">= {
-  </span><span style="color:#65737e;">// Inherit superclass&#39;s property filters
-  </span><span style="color:#c0c5ce;">...</span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">Base</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">propertyFilters</span><span style="color:#c0c5ce;">,
-  </span><span style="color:#65737e;">// Define `foo` property filter
-  </span><span style="color:#8fa1b3;">foo</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">foo </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">Math.</span><span style="color:#96b5b4;">max</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, Math.</span><span style="color:#96b5b4;">min</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">foo</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)) </span><span style="color:#65737e;">// clamp between 0 and 1
-</span><span style="color:#c0c5ce;">}
-</span></code></pre>
+CustomLayer.prototype.propertyFilters = {
+  // Inherit superclass's property filters
+  ...vd.layer.Base.propertyFilters,
+  // Define `foo` property filter
+  foo: foo => Math.max(0, Math.min(foo, 1)) // clamp between 0 and 1
+}
+</code></pre>
 <p>Now, you can evaluate the value as usual, and <code>val</code> will apply the property
 filter (after evaluating the key frame or function):</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">layer </span><span style="color:#c0c5ce;">= new CustomLayer({ startTime: </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, duration: </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, foo: </span><span style="color:#d08770;">2 </span><span style="color:#c0c5ce;">})
-</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">foo</span><span style="color:#c0c5ce;">)  </span><span style="color:#65737e;">// prints &#39;2&#39;, no property filter applied
-</span><span style="color:#ebcb8b;">console</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">vd</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">val</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">, &#39;</span><span style="color:#a3be8c;">foo</span><span style="color:#c0c5ce;">&#39;, </span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">currentTime</span><span style="color:#c0c5ce;">))  </span><span style="color:#65737e;">// prints &#39;1&#39;, property filter applied
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">const layer = new CustomLayer({ startTime: 0, duration: 3, foo: 2 })
+console.log(layer.foo)  // prints '2', no property filter applied
+console.log(vd.val(layer, 'foo', layer.currentTime))  // prints '1', property filter applied
+</code></pre>
+
 
         </div>
 

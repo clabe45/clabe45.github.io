@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -42,7 +42,7 @@
 
 <a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
@@ -83,7 +83,7 @@
            data-show-count="true" aria-label="Fork clabe45/vidar on GitHub">Fork</a>
     </div>
 </section>
-<img class="hero-image" style="width: 50%" src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg">
+<img class="hero-image" style="width: 50%" src="https://clabe45.github.io/vidar/logo.svg">
 
 <div class="explore-more text"
     onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
@@ -160,46 +160,43 @@
 <li>Export to a blob or file</li>
 </ul>
 <h1 id="installation">Installation</h1>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">npm install vidar
-</span></code></pre><h1 id="usage">Usage</h1>
+<pre><code>npm install vidar
+</code></pre>
+<h1 id="usage">Usage</h1>
 <p>Include it with</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">&lt;</span><span style="color:#bf616a;">script src</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">node_modules/vidar/dist/vidar-iife.js</span><span style="color:#c0c5ce;">&quot;&gt;&lt;/script&gt;
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js"><script src="node_modules/vidar/dist/vidar-iife.js"></script>
+</code></pre>
 <p>Let's look at an example:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">movie </span><span style="color:#c0c5ce;">= new vd.Movie({ canvas: </span><span style="color:#bf616a;">outputCanvas </span><span style="color:#c0c5ce;">})
-</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer </span><span style="color:#c0c5ce;">= new vd.layer.Video({ startTime: </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, source: </span><span style="color:#bf616a;">videoElement </span><span style="color:#c0c5ce;">})  </span><span style="color:#65737e;">// the layer starts at 0s
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addLayer</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">)
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">record</span><span style="color:#c0c5ce;">({ frameRate: </span><span style="color:#d08770;">24 </span><span style="color:#c0c5ce;">})  </span><span style="color:#65737e;">// or just `play` if you don&#39;t need to save it
-    </span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">then</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">blob </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">...)
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var movie = new vd.Movie({ canvas: outputCanvas })
+var layer = new vd.layer.Video({ startTime: 0, source: videoElement })  // the layer starts at 0s
+movie.addLayer(layer)
+movie.record({ frameRate: 24 })  // or just `play` if you don't need to save it
+    .then(blob => ...)
+</code></pre>
 <p>This renders <code>videoElement</code> to a blob at 24 fps. This blob can then be
 downloaded as a video file.</p>
 <p>Effects can transform the output of a layer or movie:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer </span><span style="color:#c0c5ce;">= new vd.layer.Video({ startTime: </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, source: </span><span style="color:#bf616a;">videoElement </span><span style="color:#c0c5ce;">})
-    .</span><span style="color:#8fa1b3;">addEffect</span><span style="color:#c0c5ce;">(new vd.effect.Brightness({ brightness: +</span><span style="color:#d08770;">100 </span><span style="color:#c0c5ce;">}))
-</span></code></pre><h1 id="using-in-node">Using in Node</h1>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var layer = new vd.layer.Video({ startTime: 0, source: videoElement })
+    .addEffect(new vd.effect.Brightness({ brightness: +100 }))
+</code></pre>
+<h1 id="using-in-node">Using in Node</h1>
 <p>To use Vidar in Node, use the <a href="https://github.com/clabe45/vidar-node">wrapper</a>:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">npm i vidar-node
-</span></code></pre><pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">vidarNode </span><span style="color:#c0c5ce;">= </span><span style="color:#96b5b4;">require</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">vidar-node</span><span style="color:#c0c5ce;">&#39;)
+<pre><code>npm i vidar-node
+</code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var vidarNode = require('vidar-node')
 
-</span><span style="color:#8fa1b3;">vidarNode</span><span style="color:#c0c5ce;">(() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#c0c5ce;">{
-  </span><span style="color:#65737e;">// You can access inputs as html elements and pass them to Vidar as usual.
-  </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">image </span><span style="color:#c0c5ce;">= document.</span><span style="color:#96b5b4;">getElementById</span><span style="color:#c0c5ce;">(&#39;</span><span style="color:#a3be8c;">input1</span><span style="color:#c0c5ce;">&#39;) </span><span style="color:#65737e;">// &lt;img&gt; element
+vidarNode(() => {
+  // You can access inputs as html elements and pass them to Vidar as usual.
+  var image = document.getElementById('input1') // <img> element
 
   // Use vidar normally ...
 
-  </span><span style="color:#bf616a;">movie
-    </span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">exportRaw</span><span style="color:#c0c5ce;">()
-    .</span><span style="color:#96b5b4;">then</span><span style="color:#c0c5ce;">(window.</span><span style="color:#bf616a;">done</span><span style="color:#c0c5ce;">)
-</span><span style="color:#65737e;">// Tell Vidar Node what inputs to load with { id: path }
-</span><span style="color:#c0c5ce;">}, { input1: &#39;</span><span style="color:#a3be8c;">image.png</span><span style="color:#c0c5ce;">&#39; }, &#39;</span><span style="color:#a3be8c;">output.mp4</span><span style="color:#c0c5ce;">&#39;)
-</span></code></pre>
+  movie
+    .exportRaw()
+    .then(window.done)
+// Tell Vidar Node what inputs to load with { id: path }
+}, { input1: 'image.png' }, 'output.mp4')
+</code></pre>
 <p><code>vidarNode()</code> takes an optional Puppeteer page argument, so you can run
 multiple Vidar scripts on the same movie (useful for servers). See <a href="https://github.com/clabe45/vidar-node#documentation">the
 docs</a>.</p>

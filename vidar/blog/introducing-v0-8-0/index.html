@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -41,7 +41,7 @@
 
 <a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
@@ -134,20 +134,18 @@ extra steps are required to use the framework in your TypeScript project.</p>
 <p><a href="../../docs/api/classes/movie.html#record"><code>Movie#record</code></a> now accepts a <code>duration</code> option that controls how long to record
 for. By setting the movie's <code>startTime</code> and then recording with a duration, you
 can record a part of the movie:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#65737e;">// Record from 5s to 8s
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#bf616a;">startTime </span><span style="color:#c0c5ce;">= </span><span style="color:#d08770;">5
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">record</span><span style="color:#c0c5ce;">({ frameRate: </span><span style="color:#d08770;">29</span><span style="color:#c0c5ce;">, duration: </span><span style="color:#d08770;">3 </span><span style="color:#c0c5ce;">})
-</span></code></pre><h1 id="new-keyframe-syntax">New Keyframe Syntax</h1>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">// Record from 5s to 8s
+movie.startTime = 5
+movie.record({ frameRate: 29, duration: 3 })
+</code></pre>
+<h1 id="new-keyframe-syntax">New Keyframe Syntax</h1>
 <p>You can now set the interpolation for a specific point in a keyframe set.</p>
 <p><strong>Before:</strong></p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">{ time1: </span><span style="color:#bf616a;">value1</span><span style="color:#c0c5ce;">, time2: </span><span style="color:#bf616a;">value2 </span><span style="color:#c0c5ce;">}
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">{ time1: value1, time2: value2 }
+</code></pre>
 <p><strong>After:</strong></p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">new vd.KeyFrame([</span><span style="color:#bf616a;">time1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">value1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">interpolationBetween1And2</span><span style="color:#c0c5ce;">], [</span><span style="color:#bf616a;">time2</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">value2</span><span style="color:#c0c5ce;">])
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">new vd.KeyFrame([time1, value1, interpolationBetween1And2], [time2, value2])
+</code></pre>
 <p>The interpolation item is optional.</p>
 <p><em>See also: <a href="../../docs/dynamic-properties">Dynamic Properties</a></em></p>
 <h1 id="unsubscribing-from-events">Unsubscribing from Events</h1>

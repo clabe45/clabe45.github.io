@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -41,7 +41,7 @@
 
 <a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
@@ -129,20 +129,18 @@ your project to reflect these changes.</p>
 behind this decision was to avoid having to remember the order of all the
 arguments, and to create a more streamline JavaScript API.</p>
 <p><strong>Before</strong>:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">new Movie(</span><span style="color:#bf616a;">canvas</span><span style="color:#c0c5ce;">, { repeat: </span><span style="color:#d08770;">true </span><span style="color:#c0c5ce;">})
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">new Movie(canvas, { repeat: true })
+</code></pre>
 <p><strong>After</strong>:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">new Movie({ canvas: </span><span style="color:#bf616a;">canvas</span><span style="color:#c0c5ce;">, repeat: </span><span style="color:#d08770;">true </span><span style="color:#c0c5ce;">})
-</span></code></pre><h1 id="audiocontext-actx"><code>audioContext</code> → <code>actx</code></h1>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">new Movie({ canvas: canvas, repeat: true })
+</code></pre>
+<h1 id="audiocontext-actx"><code>audioContext</code> → <code>actx</code></h1>
 <p>The <code>audioContext</code> option for <code>Movie</code> was renamed to <code>actx</code>, to match
 <code>Movie#actx</code>.</p>
 <h1 id="keyframes">Keyframes</h1>
 <p>Keyframes now take the form</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#c0c5ce;">new vd.KeyFrame([</span><span style="color:#bf616a;">time1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">val1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">interpolation</span><span style="color:#c0c5ce;">], [</span><span style="color:#bf616a;">time2</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">val2</span><span style="color:#c0c5ce;">])
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">new vd.KeyFrame([time1, val1, interpolation], [time2, val2])
+</code></pre>
 <p>The interpolation function receives three arguments, <code>startValue</code>, <code>endValue</code>
 and <code>t</code> (the percent progress between the start and end values). It returns the
 interpolated value (with <code>startValue</code> if <code>t</code> is 0 and <code>endValue</code> if <code>t</code> is 1).</p>

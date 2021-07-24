@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;juice.css">
+    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -41,7 +41,7 @@
 
 <a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;logo.svg" alt="logo">
+        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
@@ -104,28 +104,25 @@ list of layers and effects. A layer is a piece of video and/or audio content
 with a list of effects.</p>
 <h1 id="movie">Movie</h1>
 <p>To create a movie that will render to the <canvas> <code>outputCanvas</code>:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">movie </span><span style="color:#c0c5ce;">= new vd.Movie({ canvas: </span><span style="color:#bf616a;">outputCanvas </span><span style="color:#c0c5ce;">})
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var movie = new vd.Movie({ canvas: outputCanvas })
+</code></pre>
 <p>The movie can then be played or recorded. Playing renders the movie to the
 canvas and audio context, and it can be interrupted with <code>pause</code>. Recording
 renders the movie and saves the result to a video blob.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">play</span><span style="color:#c0c5ce;">()
-</span><span style="color:#65737e;">// or
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">record</span><span style="color:#c0c5ce;">({ frameRate: </span><span style="color:#d08770;">30 </span><span style="color:#c0c5ce;">}).</span><span style="color:#96b5b4;">then</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">blob </span><span style="color:#b48ead;">=&gt; </span><span style="color:#65737e;">/*do something with `blob`*/</span><span style="color:#c0c5ce;">)
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">movie.play()
+// or
+movie.record({ frameRate: 30 }).then(blob => /*do something with `blob`*/)
+</code></pre>
 <p>See the <a href="../api/classes/movie.html"><code>Movie</code> documentation</a>.</p>
 <h1 id="layers">Layers</h1>
 <p>Layers are pieces of content for the movie, such as video and audio clips and
 titles:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#65737e;">// The base visual layer renders a solid rectangle filling its bounds
-</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer1 </span><span style="color:#c0c5ce;">= new vd.layer.Visual({ startTime: </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">, duration: </span><span style="color:#d08770;">3 </span><span style="color:#c0c5ce;">})
-</span><span style="color:#65737e;">// The video layer extends the visual layer and renders an html video element
-</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer2 </span><span style="color:#c0c5ce;">= new vd.layer.Video({ startTime: </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, source: </span><span style="color:#bf616a;">htmlVideoEl </span><span style="color:#c0c5ce;">})
-</span><span style="color:#bf616a;">movie</span><span style="color:#c0c5ce;">.layers.</span><span style="color:#96b5b4;">push</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">layer1</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">layer2</span><span style="color:#c0c5ce;">)  </span><span style="color:#65737e;">// the same as calling movie.addLayer
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">// The base visual layer renders a solid rectangle filling its bounds
+var layer1 = new vd.layer.Visual({ startTime: 0, duration: 3 })
+// The video layer extends the visual layer and renders an html video element
+var layer2 = new vd.layer.Video({ startTime: 3, source: htmlVideoEl })
+movie.layers.push(layer1, layer2)  // the same as calling movie.addLayer
+</code></pre>
 <p>There are a number of <a href="../api/modules/layer.html">built-in layers</a>, but you can
 also subclass any of them and create your own.</p>
 <h1 id="effects">Effects</h1>
@@ -133,33 +130,32 @@ also subclass any of them and create your own.</p>
 supported. Audio can be manipulated using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> (see
 <a href="../api/classes/layer.audio.html"><code>Audio</code></a>). Vidar offers a set of <a href="../api/modules/effect.html">built-in
 effects</a> that can be used like this:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">effect </span><span style="color:#c0c5ce;">= new vd.effect.Contrast(</span><span style="color:#d08770;">2.0</span><span style="color:#c0c5ce;">)
-</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addEffect</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">effect</span><span style="color:#c0c5ce;">)
-</span></code></pre>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var effect = new vd.effect.Contrast(2.0)
+layer.addEffect(effect)
+</code></pre>
 <p>You can also create your own visual effects by subclassing a base effect class.
 If you want to make a hardware-acclerated effect that uses GLSL, subclass
 <code>vd.effect.Shader</code>. If you want to make any other type of visual effect,
 subclass <code>vd.effect.Base</code> directly.</p>
 <p>Example of a custom effect:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyEffect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
-    </span><span style="color:#b48ead;">constructor</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">width</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">height</span><span style="color:#c0c5ce;">) </span><span style="color:#eff1f5;">{
-        </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">()
-        </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.width </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">width
-        this</span><span style="color:#eff1f5;">.height </span><span style="color:#c0c5ce;">= </span><span style="color:#bf616a;">height
-    </span><span style="color:#eff1f5;">}
-    </span><span style="color:#65737e;">/**
-     * </span><span style="color:#b48ead;">@param </span><span style="color:#65737e;">{(vd.Movie|vd.layer.Visual)} </span><span style="color:#bf616a;">target
-     </span><span style="color:#65737e;">*/
-    </span><span style="color:#8fa1b3;">apply</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">target</span><span style="color:#c0c5ce;">) </span><span style="color:#eff1f5;">{
-        </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">vctx</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">fillStyle </span><span style="color:#c0c5ce;">= &#39;</span><span style="color:#a3be8c;">red</span><span style="color:#c0c5ce;">&#39;
-        </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">vctx</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">fillRect</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.width, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.height)
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class MyEffect extends vd.effect.Base {
+    constructor(width, height) {
+        super()
+        this.width = width
+        this.height = height
+    }
+    /**
+     * @param {(vd.Movie|vd.layer.Visual)} target
+     */
+    apply(target) {
+        target.vctx.fillStyle = 'red'
+        target.vctx.fillRect(0, 0, this.width, this.height)
     }
 }
 
-</span><span style="color:#bf616a;">layer</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">addEffect</span><span style="color:#c0c5ce;">(new MyEffect(</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">))
-</span></code></pre>
+layer.addEffect(new MyEffect(100, 100))
+</code></pre>
+
 
         </div>
 
