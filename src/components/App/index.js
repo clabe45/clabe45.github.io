@@ -18,11 +18,10 @@ class App extends Component {
                     <div className="mx-0 home-section home-intro">
                         <Container>
                             <h3 className="home-section-title">
-                                Hello, I am Caleb Sacks
+                                Hello, my name is Caleb Sacks
                             </h3>
                             <em className="home-section-subtitle">
-                                I am a full stack developer who loves to create quality code that helps other people.
-                                I have worked on games and frameworks extensively, but I can also develop websites and CLIs.
+                                I am a full stack developer who loves to create games, multimedia tools and any other software that enhances other people's lives
                             </em>
                         </Container>
                     </div>
@@ -34,13 +33,13 @@ class App extends Component {
                                 </h3>
                                 <div>
                                     {
-                                        ['git', 'javascript', 'python', 'java', 'react', 'node', 'sql', 'web audio api', 'unity3d']
+                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'opengl']
                                             .map((name, i) => <Skill name={name} strength="advanced" />)
                                     }
                                 </div>
                                 <div>
                                     {
-                                        ['c#', 'c', 'c++', 'react-native', 'socket.io', 'bootstrap', 'opengl']
+                                        ['java', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions']
                                             .map((name, i) => <Skill name={name} strength="proficient" />)
                                     }
                                 </div>
@@ -54,12 +53,7 @@ class App extends Component {
                                         <Col md={{ span: 4, offset: 2 }}>
                                             <Project host="github" owner="clabe45" name="vidar" />
                                         </Col>
-                                        <Col md="4">
-                                            <Project host="github" owner="ved-editor" name="ved" />
-                                        </Col>
-                                    </Row>
-                                    <Row className="project-row">
-                                        <Col md={{ span: 4, offset: 4}}>
+                                        <Col md={{ span: 4, offset: 0}}>
                                             <Project
                                                 host="itch"
                                                 owner="erstelgames"
