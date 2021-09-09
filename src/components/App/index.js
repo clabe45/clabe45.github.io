@@ -21,7 +21,7 @@ class App extends Component {
                                 Hello, my name is Caleb Sacks
                             </h3>
                             <em className="home-section-subtitle">
-                                I am a full stack developer. I love to create games, multimedia tools and any other software that enhances people's lives!
+                                I am a full stack developer. I love to create games, multimedia tools and any other software that enhances people's lives
                             </em>
                         </Container>
                     </div>
@@ -51,14 +51,14 @@ class App extends Component {
                                 <div>
                                     <Row className="project-row">
                                         <Col md={{ span: 4, offset: 2 }}>
-                                            <Project host="github" owner="clabe45" name="vidar" />
+                                            <Project host="github" owner="clabe45" name="vidar" url="/vidar" />
                                         </Col>
                                         <Col md={{ span: 4, offset: 0}}>
                                             <Project
                                                 host="itch"
-                                                owner="erstelgames"
                                                 name="morakk"
                                                 description="A unity survival game that takes place on a planet only inhabited by robots"
+                                                url="https://erstelgames.itch.io/morakk"
                                                 />
                                         </Col>
                                     </Row>

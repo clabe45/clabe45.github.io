@@ -26,23 +26,9 @@ class Project extends Component {
         }
     }
 
-    getLink() {
-        switch (this.props.host) {
-            case 'github': {
-                return `https://github.com/${this.props.owner}/${this.props.name}`
-            }
-            case 'itch': {
-                return `https://${this.props.owner}.itch.io/${this.props.name}`
-            }
-            default: {
-                return '#'
-            }
-        }
-    }
-
     render() {
         return (
-            <Card as="a" href={this.getLink()} className="project">
+            <Card as="a" href={this.props.url} className="project">
                 <Card.Body>
                     <Card.Title>{this.props.name}</Card.Title>
                     <Card.Text>{this.state.description}</Card.Text>
