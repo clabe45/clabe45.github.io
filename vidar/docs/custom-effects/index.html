@@ -48,9 +48,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -105,15 +105,15 @@ can be manipulated with the <a href="https://developer.mozilla.org/en-US/docs/We
 <a href="../api/classes/layer.audio.html"><code>Audio</code></a> layer, as shown below.</p>
 <h1 id="simple-visual-effect">Simple Visual Effect</h1>
 <pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class Effect extends vd.effect.Base {
-  /**
+  &#x2F;**
    * @param {(vd.Movie | vd.layer.Visual)} target - what to apply the effect to
-   */
+   *&#x2F;
   apply(target) {
-    // 'cctx' stands for 'canvas context'; it's the 2d rendering context of the
-    // target's `canvas`
-    target.cctx.fillStyle = 'blue'
+    &#x2F;&#x2F; &#x27;cctx&#x27; stands for &#x27;canvas context&#x27;; it&#x27;s the 2d rendering context of the
+    &#x2F;&#x2F; target&#x27;s `canvas`
+    target.cctx.fillStyle = &#x27;blue&#x27;
     target.cctx.fillRect(
-      0, 0, target.canvas.width / 2, target.canvas.height / 2
+      0, 0, target.canvas.width &#x2F; 2, target.canvas.height &#x2F; 2
     )
   }
 }
@@ -132,18 +132,18 @@ code is written in GLSL.</p>
       fragmentSource: `
         precision mediump float;
 
-        uniform sampler2D u_Source;  // the original texture (updated every frame)
-        uniform float u_X;  // the value of 'x' back in JavaScript (updated every frame)
+        uniform sampler2D u_Source;  &#x2F;&#x2F; the original texture (updated every frame)
+        uniform float u_X;  &#x2F;&#x2F; the value of &#x27;x&#x27; back in JavaScript (updated every frame)
 
         varying highp vec2 v_TextureCoord;
 
         void main() {
           vec4 color = texture2D(u_Source, v_TextureCoord);
-          gl_FragColor = vec4(u_X / color.rgb, color.a);
+          gl_FragColor = vec4(u_X &#x2F; color.rgb, color.a);
         }
       `,
       uniforms: {
-        x: '1f'
+        x: &#x27;1f&#x27;
       }
 
       this.x = x
@@ -159,9 +159,9 @@ of a layer or movie using the web audio API. Every audio layer has an
 <code>audioNode</code> property, and the movie has an <code>actx</code> (&quot;audio context&quot;) property. By
 default, each <code>audioNode</code> is connected to <code>actx.destination</code>, but you can also connect to an
 intermediary node that connects to <code>actx.destination</code>:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">// Disconnect layer from actx.destination
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">&#x2F;&#x2F; Disconnect layer from actx.destination
 audioLayer.audioNode.disconnect(movie.actx.destination)
-// Rewire
+&#x2F;&#x2F; Rewire
 audioLayer.audioNode.connect(someAudioNode).connect(movie.actx.destination)
 </code></pre>
 

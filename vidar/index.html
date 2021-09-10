@@ -49,9 +49,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -164,14 +164,14 @@
 </code></pre>
 <h1 id="usage">Usage</h1>
 <p>Include it with</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js"><script src="node_modules/vidar/dist/vidar-iife.js"></script>
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">&lt;script src=&quot;node_modules&#x2F;vidar&#x2F;dist&#x2F;vidar-iife.js&quot;&gt;&lt;&#x2F;script&gt;
 </code></pre>
 <p>Let's look at an example:</p>
 <pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var movie = new vd.Movie({ canvas: outputCanvas })
-var layer = new vd.layer.Video({ startTime: 0, source: videoElement })  // the layer starts at 0s
+var layer = new vd.layer.Video({ startTime: 0, source: videoElement })  &#x2F;&#x2F; the layer starts at 0s
 movie.addLayer(layer)
-movie.record({ frameRate: 24 })  // or just `play` if you don't need to save it
-    .then(blob => ...)
+movie.record({ frameRate: 24 })  &#x2F;&#x2F; or just `play` if you don&#x27;t need to save it
+    .then(blob =&gt; ...)
 </code></pre>
 <p>This renders <code>videoElement</code> to a blob at 24 fps. This blob can then be
 downloaded as a video file.</p>
@@ -183,19 +183,19 @@ downloaded as a video file.</p>
 <p>To use Vidar in Node, use the <a href="https://github.com/clabe45/vidar-node">wrapper</a>:</p>
 <pre><code>npm i vidar-node
 </code></pre>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var vidarNode = require('vidar-node')
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">var vidarNode = require(&#x27;vidar-node&#x27;)
 
-vidarNode(() => {
-  // You can access inputs as html elements and pass them to Vidar as usual.
-  var image = document.getElementById('input1') // <img> element
+vidarNode(() =&gt; {
+  &#x2F;&#x2F; You can access inputs as html elements and pass them to Vidar as usual.
+  var image = document.getElementById(&#x27;input1&#x27;) &#x2F;&#x2F; &lt;img&gt; element
 
-  // Use vidar normally ...
+  &#x2F;&#x2F; Use vidar normally ...
 
   movie
     .exportRaw()
     .then(window.done)
-// Tell Vidar Node what inputs to load with { id: path }
-}, { input1: 'image.png' }, 'output.mp4')
+&#x2F;&#x2F; Tell Vidar Node what inputs to load with { id: path }
+}, { input1: &#x27;image.png&#x27; }, &#x27;output.mp4&#x27;)
 </code></pre>
 <p><code>vidarNode()</code> takes an optional Puppeteer page argument, so you can run
 multiple Vidar scripts on the same movie (useful for servers). See <a href="https://github.com/clabe45/vidar-node#documentation">the

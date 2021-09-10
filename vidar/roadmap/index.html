@@ -48,9 +48,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -147,12 +147,12 @@ right speaker</li>
 <p>Example custom effect (API may change):</p>
 <pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class Effect extends vd.effect.Audio {
   attach (target) {
-    // Create any intermediary node
+    &#x2F;&#x2F; Create any intermediary node
     this.node = target.movie.actx.createGain()
     this.node.volume.value = 2
-    // `inputNode` and `outputNode` are populated by the target (they will
-    // point to audio nodes of the target, the next/previous effect or
-    // movie.actx)
+    &#x2F;&#x2F; `inputNode` and `outputNode` are populated by the target (they will
+    &#x2F;&#x2F; point to audio nodes of the target, the next&#x2F;previous effect or
+    &#x2F;&#x2F; movie.actx)
     this.inputNode.connect(node)
     this.node.connect(this.outputNode)
   }

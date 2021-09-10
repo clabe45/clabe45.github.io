@@ -48,9 +48,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -101,17 +101,17 @@ frame set or function at a given time.</p>
 }
 
 CustomLayer.prototype.propertyFilters = {
-  // Inherit superclass's property filters
+  &#x2F;&#x2F; Inherit superclass&#x27;s property filters
   ...vd.layer.Base.propertyFilters,
-  // Define `foo` property filter
-  foo: foo => Math.max(0, Math.min(foo, 1)) // clamp between 0 and 1
+  &#x2F;&#x2F; Define `foo` property filter
+  foo: foo =&gt; Math.max(0, Math.min(foo, 1)) &#x2F;&#x2F; clamp between 0 and 1
 }
 </code></pre>
 <p>Now, you can evaluate the value as usual, and <code>val</code> will apply the property
 filter (after evaluating the key frame or function):</p>
 <pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">const layer = new CustomLayer({ startTime: 0, duration: 3, foo: 2 })
-console.log(layer.foo)  // prints '2', no property filter applied
-console.log(vd.val(layer, 'foo', layer.currentTime))  // prints '1', property filter applied
+console.log(layer.foo)  &#x2F;&#x2F; prints &#x27;2&#x27;, no property filter applied
+console.log(vd.val(layer, &#x27;foo&#x27;, layer.currentTime))  &#x2F;&#x2F; prints &#x27;1&#x27;, property filter applied
 </code></pre>
 
 

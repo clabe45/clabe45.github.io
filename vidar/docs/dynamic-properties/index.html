@@ -48,9 +48,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -113,12 +113,12 @@
 <p>Most values in Vidar are <em>dynamic</em>, meaning they can either be constant values,
 key frames or functions. These properties have the type <code>Dynamic&lt;T&gt;</code>, which is
 defined as</p>
-<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts">T | KeyFrame<T> | ((element: VidarObject, time: number) => T)
+<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts">T | KeyFrame&lt;T&gt; | ((element: VidarObject, time: number) =&gt; T)
 </code></pre>
 <p>which means <em>constant value</em>, <em>key frame set</em>, or <em>function</em>.</p>
 <h1 id="constant-values">Constant Values</h1>
 <p>Constant values are expressions that are treated literally, i.e.:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">movie.background = 'blue'
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">movie.background = &#x27;blue&#x27;
 </code></pre>
 <p>Here, the movie's background color will always be blue (that is, until it is
 reassigned).</p>
@@ -142,20 +142,20 @@ seconds.</p>
 <p>Only numbers and objects are accepted by these functions. For all other types,
 the first value is used and the second value is ignored.</p>
 <p>You can also define your own interpolation functions. They must take the form:</p>
-<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts">(val1: number | object, val2: number | object, t: number, objectKeys?: string[]) => number | object
+<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts">(val1: number | object, val2: number | object, t: number, objectKeys?: string[]) =&gt; number | object
 </code></pre>
 <p>where <code>objectKeys</code> contains the names of the object properties to interpolate
 (<code>undefined</code> means &quot;all properties&quot;).</p>
 <h1 id="functions">Functions</h1>
 <p>You can also pass a function that returns a value per-frame. It must take the
 following form:</p>
-<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts"><T>(element: VidarObject, time: number) => T
+<pre data-lang="ts" class="language-ts "><code class="language-ts" data-lang="ts">&lt;T&gt;(element: VidarObject, time: number) =&gt; T
 </code></pre>
 <p>Example:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">// Make a new visual layer that lasts forever
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">&#x2F;&#x2F; Make a new visual layer that lasts forever
 var layer = new VisualLayer({ startTime: 0, duration: Infinity })
-// Give it a new random background color each frame
-layer.background = () => new vd.Color(Math.random(), Math.random(), Math.random())
+&#x2F;&#x2F; Give it a new random background color each frame
+layer.background = () =&gt; new vd.Color(Math.random(), Math.random(), Math.random())
 </code></pre>
 <h1 id="val"><code>val</code></h1>
 <p>If you're making a custom layer or effect, you'll need to evaluate dynamic

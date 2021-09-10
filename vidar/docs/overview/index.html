@@ -48,9 +48,9 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
-    
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
@@ -110,18 +110,18 @@ with a list of effects.</p>
 canvas and audio context, and it can be interrupted with <code>pause</code>. Recording
 renders the movie and saves the result to a video blob.</p>
 <pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">movie.play()
-// or
-movie.record({ frameRate: 30 }).then(blob => /*do something with `blob`*/)
+&#x2F;&#x2F; or
+movie.record({ frameRate: 30 }).then(blob =&gt; &#x2F;*do something with `blob`*&#x2F;)
 </code></pre>
 <p>See the <a href="../api/classes/movie.html"><code>Movie</code> documentation</a>.</p>
 <h1 id="layers">Layers</h1>
 <p>Layers are pieces of content for the movie, such as video and audio clips and
 titles:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">// The base visual layer renders a solid rectangle filling its bounds
+<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">&#x2F;&#x2F; The base visual layer renders a solid rectangle filling its bounds
 var layer1 = new vd.layer.Visual({ startTime: 0, duration: 3 })
-// The video layer extends the visual layer and renders an html video element
+&#x2F;&#x2F; The video layer extends the visual layer and renders an html video element
 var layer2 = new vd.layer.Video({ startTime: 3, source: htmlVideoEl })
-movie.layers.push(layer1, layer2)  // the same as calling movie.addLayer
+movie.layers.push(layer1, layer2)  &#x2F;&#x2F; the same as calling movie.addLayer
 </code></pre>
 <p>There are a number of <a href="../api/modules/layer.html">built-in layers</a>, but you can
 also subclass any of them and create your own.</p>
@@ -144,11 +144,11 @@ subclass <code>vd.effect.Base</code> directly.</p>
         this.width = width
         this.height = height
     }
-    /**
+    &#x2F;**
      * @param {(vd.Movie|vd.layer.Visual)} target
-     */
+     *&#x2F;
     apply(target) {
-        target.vctx.fillStyle = 'red'
+        target.vctx.fillStyle = &#x27;red&#x27;
         target.vctx.fillRect(0, 0, this.width, this.height)
     }
 }
