@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Custom Effects | Vidar - edit videos with JavaScript </title>
+    <title>Effects | Vidar - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link rel="icon" type="image/png" href="/favicon.ico">
@@ -79,17 +79,27 @@
     <div class="toc-sticky">
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/custom-effects/#simple-visual-effect">Simple Visual Effect</a>
+            <a class="subtext" href="/vidar/docs/tutorial/effects/#built-in-visual-effects">Built-in Visual Effects</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/custom-effects/#hardware-accelerated-pixel-mapping">Hardware-Accelerated Pixel Mapping</a>
+            <a class="subtext" href="/vidar/docs/tutorial/effects/#custom-visual-effects">Custom Visual Effects</a>
         </div>
-        <!--  -->
+        <!-- 
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="/vidar/docs/tutorial/effects/#simple-visual-effect"><small>- Simple Visual Effect</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+            <a class="subtext" href="/vidar/docs/tutorial/effects/#hardware-accelerated-filters"><small>- Hardware-Accelerated Filters</small></a>
+        </div>
+        
+         -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/custom-effects/#audio-manipulation">Audio Manipulation</a>
+            <a class="subtext" href="/vidar/docs/tutorial/effects/#audio-manipulation">Audio Manipulation</a>
         </div>
         <!--  -->
         
@@ -101,12 +111,32 @@
         <div class="content text">
             
 <div class="heading-text"></div>
-<div class="heading-text">Custom Effects</div>
+<div class="heading-text">Effects</div>
+<p>Effects (or filters) can be used to modify a layer or a movie. Right now, only
+visual effects are supported.</p>
+<h1 id="built-in-visual-effects">Built-in Visual Effects</h1>
+<p>GLSL effects (<code>vd.effect.Shader</code>):</p>
+<ul>
+<li><code>vd.effect.Brightness</code></li>
+<li><code>vd.effect.Channels</code></li>
+<li><code>vd.effect.ChromaKey</code></li>
+<li><code>vd.effect.Contrast</code></li>
+<li><code>vd.effect.GaussianBlur</code></li>
+<li><code>vd.effect.Grayscale</code></li>
+<li><code>vd.effect.Pixelate</code></li>
+</ul>
+<p>Other visual effects:</p>
+<ul>
+<li><code>vd.effect.EllipticalMask</code></li>
+<li><code>vd.effect.Stack</code></li>
+<li><code>vd.effect.Transform</code> - 2D transformations</li>
+</ul>
+<h1 id="custom-visual-effects">Custom Visual Effects</h1>
 <p>Vidar provides many built-in effects, but you can subclass any of them to create
-your own. Note that the term 'effects' refers to 'visual effects' only. Audio
-can be manipulated with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> and the <code>audioNode</code> property of an
+your own. Note that, for now, Vidar only supports visual effects. Audio can be
+manipulated with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> and the <code>audioNode</code> property of an
 <a href="../api/classes/layer.audio.html"><code>Audio</code></a> layer, as shown below.</p>
-<h1 id="simple-visual-effect">Simple Visual Effect</h1>
+<h2 id="simple-visual-effect">Simple Visual Effect</h2>
 <pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">Effect </span><span style="color:#7c4dff;">extends </span><span>vd</span><span style="color:#39adb5;">.</span><span>effect</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Base </span><span style="color:#39adb5;">{
 </span><span>  </span><span style="font-style:italic;color:#7c4dff;">constructor</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">color</span><span style="color:#39adb5;">) {
 </span><span>    </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>color </span><span style="color:#39adb5;">= </span><span>color
@@ -126,10 +156,10 @@ can be manipulated with the <a href="https://developer.mozilla.org/en-US/docs/We
 </span><span style="color:#39adb5;">}
 </span></code></pre>
 <p>This draws a rectangle over <code>target</code>, which can either be a movie or a visual
-layer. <a href="../api/index.html#val"><code>vd.val()</code></a> evaluates <code>this.color</code> at the current
+layer. <a href="/docs/api/index.html#val"><code>vd.val()</code></a> evaluates <code>this.color</code> at the current
 frame, in case it is a <a href="../dynamic-properties.md">dynamic property</a>.</p>
-<h1 id="hardware-accelerated-pixel-mapping">Hardware-Accelerated Pixel Mapping</h1>
-<p>You can subclass <a href="../api/classes/effect.shader.html"><code>vd.effect.Shader</code></a> to make
+<h2 id="hardware-accelerated-filters">Hardware-Accelerated Filters</h2>
+<p>You can subclass <a href="/docs/api/classes/effect.shader.html"><code>vd.effect.Shader</code></a> to make
 an effect that maps each pixel to a new value using the GPU. The following
 example sets each color's red, green and blue channels to <code>x</code> divided by the
 value of the channel before the effect is applied. The fragment shader source

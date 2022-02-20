@@ -16,19 +16,28 @@
         <loc>/vidar/docs/</loc>
     </url>
     <url>
-        <loc>/vidar/docs/custom-effects/</loc>
-    </url>
-    <url>
-        <loc>/vidar/docs/dynamic-properties/</loc>
-    </url>
-    <url>
         <loc>/vidar/docs/migrating-v0-8-0/</loc>
     </url>
     <url>
-        <loc>/vidar/docs/overview/</loc>
+        <loc>/vidar/docs/tutorial/</loc>
     </url>
     <url>
-        <loc>/vidar/docs/property-filters/</loc>
+        <loc>/vidar/docs/tutorial/dynamic-properties/</loc>
+    </url>
+    <url>
+        <loc>/vidar/docs/tutorial/effects/</loc>
+    </url>
+    <url>
+        <loc>/vidar/docs/tutorial/layers/</loc>
+    </url>
+    <url>
+        <loc>/vidar/docs/tutorial/movies/</loc>
+    </url>
+    <url>
+        <loc>/vidar/docs/tutorial/overview/</loc>
+    </url>
+    <url>
+        <loc>/vidar/docs/tutorial/property-filters/</loc>
     </url>
     <url>
         <loc>/vidar/roadmap/</loc>
