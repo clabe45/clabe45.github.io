@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Roadmap | Vidar - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
     <style>
     :root {
         --front-color: #d7fffc;
@@ -25,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
+    <link rel="stylesheet" href="/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -39,22 +42,22 @@
 <header class="box-shadow">
     
 
-<a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
+<a href="&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
+        <img src="/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     
         
@@ -76,32 +79,37 @@
     <div class="toc-sticky">
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#better-node-support">Better Node Support</a>
+            <a class="subtext" href="/vidar/roadmap/#offline-rendering">Offline Rendering</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#audio-system">Audio System</a>
+            <a class="subtext" href="/vidar/roadmap/#audio-system">Audio System</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#layer-inheritance">Layer Inheritance</a>
+            <a class="subtext" href="/vidar/roadmap/#layer-inheritance">Layer Inheritance</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#transitions">Transitions</a>
+            <a class="subtext" href="/vidar/roadmap/#transitions">Transitions</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#3d-system">3D System</a>
+            <a class="subtext" href="/vidar/roadmap/#better-node-support">Better Node Support</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/roadmap/#other">Other</a>
+            <a class="subtext" href="/vidar/roadmap/#3d-system">3D System</a>
+        </div>
+        <!--  -->
+        
+        <div class="toc-item">
+            <a class="subtext" href="/vidar/roadmap/#other">Other</a>
         </div>
         <!--  -->
         
@@ -117,13 +125,13 @@
 <p>Vidar has several epics planned for the next phase of development. These will
 most likely continue for multiple minor releases. If any of them interest you,
 feel free to <a href="https://github.com/clabe45/vidar/blob/master/CONTRIBUTING.md">contribute</a>!</p>
-<h1 id="better-node-support">Better Node Support</h1>
-<p>We are currently working on a vidar-node rewrite with a focus on usability. Our
-goal is to make the API virtually identical to vidar's API. More details coming
-soon!</p>
+<h1 id="offline-rendering">Offline Rendering</h1>
+<p><a href="https://github.com/clabe45/vidar/issues/115">Offline recording</a> with <a href="https://github.com/Kagami/ffmpeg.js">ffmpeg.js</a> is the focus right now. This will get rid
+of frame drops in the render, and it should also improve render speed.</p>
 <h1 id="audio-system">Audio System</h1>
 <p>A <a href="https://github.com/clabe45/vidar/projects/1">new audio system</a>, with more audio layers and the introduction of audio
-effects is on its way! This will be a built-in way to manipulate audio.</p>
+effects is close to being done! It will provide a built-in API to manipulate
+audio.</p>
 <p>Some of the highlights:</p>
 <ul>
 <li>User-defined audio layers (from any audio source node)</li>
@@ -145,24 +153,26 @@ right speaker</li>
 <li>User-defined effects</li>
 </ul>
 <p>Example custom effect (API may change):</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class Effect extends vd.effect.Audio {
-  attach (target) {
-    &#x2F;&#x2F; Create any intermediary node
-    this.node = target.movie.actx.createGain()
-    this.node.volume.value = 2
-    &#x2F;&#x2F; `inputNode` and `outputNode` are populated by the target (they will
-    &#x2F;&#x2F; point to audio nodes of the target, the next&#x2F;previous effect or
-    &#x2F;&#x2F; movie.actx)
-    this.inputNode.connect(node)
-    this.node.connect(this.outputNode)
-  }
-
-  detach() {
-    this.inputNode.disconnect()
-    this.node.disconnect()
-  }
-}
-</code></pre>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Audio </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#8fa1b3;">attach </span><span>(</span><span style="color:#bf616a;">target</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// Create any intermediary node
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node </span><span>= </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">movie</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">actx</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">createGain</span><span style="color:#eff1f5;">()
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">volume</span><span style="color:#eff1f5;">.value </span><span>= </span><span style="color:#d08770;">2
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// `inputNode` and `outputNode` are populated by the target (they will
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// point to audio nodes of the target, the next/previous effect or
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// movie.actx)
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">inputNode</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">connect</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">)
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">connect</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">outputNode</span><span style="color:#eff1f5;">)
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#8fa1b3;">detach</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">inputNode</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">disconnect</span><span style="color:#eff1f5;">()
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">node</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">disconnect</span><span style="color:#eff1f5;">()
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>An <a href="https://github.com/clabe45/vidar/issues/100">issue with recording audio in our functional tests</a> is preventing real
+progress on this. Help with investigating the problem is welcome!</p>
 <h1 id="layer-inheritance">Layer Inheritance</h1>
 <p>A new <a href="https://github.com/clabe45/vidar/issues/65">group layer</a> will be introduced. A group layer will have both audio and
 visual support, along with multiple children. Then, you will be able to apply an
@@ -172,8 +182,12 @@ effect to a group of layers.</p>
 built-in or custom transition to two layers. The transition will then
 interpolate the audio and/or visual output of both layers. It will look
 something like this:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">transition.addTo(layer1, layer2)
-</code></pre>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#bf616a;">transition</span><span>.</span><span style="color:#8fa1b3;">addTo</span><span>(</span><span style="color:#bf616a;">layer1</span><span>, </span><span style="color:#bf616a;">layer2</span><span>)
+</span></code></pre>
+<h1 id="better-node-support">Better Node Support</h1>
+<p>We are currently working on a vidar-node rewrite with a focus on better
+usability. Our goal is to make the API virtually identical to vidar's API. More
+details coming soon!</p>
 <h1 id="3d-system">3D System</h1>
 <p>Although still in early planning, we could use three.js to add a 3D mode to
 movies, where every visual and audio layer has a 3D position. Alternatively, we
@@ -185,10 +199,12 @@ ideas!</p>
 <p>Other planned changes:</p>
 <ul>
 <li><a href="https://github.com/clabe45/vidar/issues/61">Creating sources directly from path / url</a></li>
+<li><a href="https://github.com/clabe45/vidar/issues/109">Integration with canvas libraries</a> (such as fabric.js)</li>
 <li><a href="https://github.com/clabe45/vidar/issues/60">Layer duplication</a></li>
 <li><a href="https://github.com/clabe45/vidar/issues/44">Improved gaussian blur</a></li>
 <li><a href="https://github.com/clabe45/vidar/issues/10">More visual effects</a> (exposure, glow, random noise and more)</li>
 </ul>
+<p>If you would like to make a feature request, please <a href="https://github.com/clabe45/vidar/issues">open an issue</a> on GitHub!</p>
 
 
         </div>

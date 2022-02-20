@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://clabe45.github.io/vidar/</loc>
+        <loc>/vidar/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/blog/</loc>
+        <loc>/vidar/blog/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/blog/introducing-v0-8-0/</loc>
+        <loc>/vidar/blog/introducing-v0-8-0/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/changelog/</loc>
+        <loc>/vidar/changelog/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/</loc>
+        <loc>/vidar/docs/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/custom-effects/</loc>
+        <loc>/vidar/docs/custom-effects/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/dynamic-properties/</loc>
+        <loc>/vidar/docs/dynamic-properties/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/migrating-v0-8-0/</loc>
+        <loc>/vidar/docs/migrating-v0-8-0/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/overview/</loc>
+        <loc>/vidar/docs/overview/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/docs/property-filters/</loc>
+        <loc>/vidar/docs/property-filters/</loc>
     </url>
     <url>
-        <loc>https://clabe45.github.io/vidar/roadmap/</loc>
+        <loc>/vidar/roadmap/</loc>
     </url>
 </urlset>

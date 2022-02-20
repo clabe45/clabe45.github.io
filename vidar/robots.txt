@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://clabe45.github.io/vidar/sitemap.xml
+Sitemap: /vidar/sitemap.xml

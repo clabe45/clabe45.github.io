@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Custom Effects | Vidar - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
     <style>
     :root {
         --front-color: #d7fffc;
@@ -25,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="https://clabe45.github.io/vidar/juice.css">
+    <link rel="stylesheet" href="/vidar/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
 <link rel="stylesheet" type="text/css" href="/vidar/style.css" />
@@ -39,22 +42,22 @@
 <header class="box-shadow">
     
 
-<a href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;">
+<a href="&#x2F;vidar&#x2F;">
     <div class="logo">
-        <img src="https://clabe45.github.io/vidar/logo.svg" alt="logo">
+        <img src="/vidar/logo.svg" alt="logo">
         Vidar
     </div>
 </a>
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
     
-    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;clabe45.github.io&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
     
     
         
@@ -76,17 +79,17 @@
     <div class="toc-sticky">
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/docs/custom-effects/#simple-visual-effect">Simple Visual Effect</a>
+            <a class="subtext" href="/vidar/docs/custom-effects/#simple-visual-effect">Simple Visual Effect</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/docs/custom-effects/#hardware-accelerated-pixel-mapping">Hardware-Accelerated Pixel Mapping</a>
+            <a class="subtext" href="/vidar/docs/custom-effects/#hardware-accelerated-pixel-mapping">Hardware-Accelerated Pixel Mapping</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="https://clabe45.github.io/vidar/docs/custom-effects/#audio-manipulation">Audio Manipulation</a>
+            <a class="subtext" href="/vidar/docs/custom-effects/#audio-manipulation">Audio Manipulation</a>
         </div>
         <!--  -->
         
@@ -104,53 +107,58 @@ your own. Note that the term 'effects' refers to 'visual effects' only. Audio
 can be manipulated with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> and the <code>audioNode</code> property of an
 <a href="../api/classes/layer.audio.html"><code>Audio</code></a> layer, as shown below.</p>
 <h1 id="simple-visual-effect">Simple Visual Effect</h1>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class Effect extends vd.effect.Base {
-  &#x2F;**
-   * @param {(vd.Movie | vd.layer.Visual)} target - what to apply the effect to
-   *&#x2F;
-  apply(target) {
-    &#x2F;&#x2F; &#x27;cctx&#x27; stands for &#x27;canvas context&#x27;; it&#x27;s the 2d rendering context of the
-    &#x2F;&#x2F; target&#x27;s `canvas`
-    target.cctx.fillStyle = &#x27;blue&#x27;
-    target.cctx.fillRect(
-      0, 0, target.canvas.width &#x2F; 2, target.canvas.height &#x2F; 2
-    )
-  }
-}
-</code></pre>
-<p>This draws a blue rectangle over the target. <code>target</code> can either be a movie or
-a visual layer.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">color</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.color </span><span>= </span><span style="color:#bf616a;">color
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#65737e;">/**
+</span><span style="color:#65737e;">   * </span><span style="color:#b48ead;">@param </span><span style="color:#65737e;">{(vd.Movie | vd.layer.Visual)} </span><span style="color:#bf616a;">target</span><span style="color:#65737e;"> - what to apply the effect to
+</span><span style="color:#65737e;">   */
+</span><span style="color:#eff1f5;">  </span><span style="color:#8fa1b3;">apply</span><span>(</span><span style="color:#bf616a;">target</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// &#39;cctx&#39; stands for &#39;canvas context&#39;; it&#39;s the 2d rendering context of the
+</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// target&#39;s `canvas`
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">cctx</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">fillStyle </span><span>= </span><span style="color:#bf616a;">vd</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">val</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">, </span><span>&#39;</span><span style="color:#a3be8c;">color</span><span>&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">currentTime</span><span style="color:#eff1f5;">)
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">cctx</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">fillRect</span><span style="color:#eff1f5;">(
+</span><span style="color:#eff1f5;">      </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">canvas</span><span style="color:#eff1f5;">.width </span><span>/ </span><span style="color:#d08770;">2</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">canvas</span><span style="color:#eff1f5;">.height </span><span>/ </span><span style="color:#d08770;">2
+</span><span style="color:#eff1f5;">    )
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>This draws a rectangle over <code>target</code>, which can either be a movie or a visual
+layer. <a href="../api/index.html#val"><code>vd.val()</code></a> evaluates <code>this.color</code> at the current
+frame, in case it is a <a href="../dynamic-properties.md">dynamic property</a>.</p>
 <h1 id="hardware-accelerated-pixel-mapping">Hardware-Accelerated Pixel Mapping</h1>
 <p>You can subclass <a href="../api/classes/effect.shader.html"><code>vd.effect.Shader</code></a> to make
 an effect that maps each pixel to a new value using the GPU. The following
 example sets each color's red, green and blue channels to <code>x</code> divided by the
 value of the channel before the effect is applied. The fragment shader source
 code is written in GLSL.</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">class Effect extends vd.effect.Shader {
-  constructor(x = 1) {
-    super({
-      fragmentSource: `
-        precision mediump float;
-
-        uniform sampler2D u_Source;  &#x2F;&#x2F; the original texture (updated every frame)
-        uniform float u_X;  &#x2F;&#x2F; the value of &#x27;x&#x27; back in JavaScript (updated every frame)
-
-        varying highp vec2 v_TextureCoord;
-
-        void main() {
-          vec4 color = texture2D(u_Source, v_TextureCoord);
-          gl_FragColor = vec4(u_X &#x2F; color.rgb, color.a);
-        }
-      `,
-      uniforms: {
-        x: &#x27;1f&#x27;
-      }
-
-      this.x = x
-    })
-  }
-}
-</code></pre>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Shader </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">x </span><span>= </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">({
+</span><span style="color:#eff1f5;">      fragmentSource: </span><span>`
+</span><span style="color:#a3be8c;">        precision mediump float;
+</span><span style="color:#a3be8c;">
+</span><span style="color:#a3be8c;">        uniform sampler2D u_Source;  // the original texture (updated every frame)
+</span><span style="color:#a3be8c;">        uniform float u_X;  // the value of &#39;x&#39; back in JavaScript (updated every frame)
+</span><span style="color:#a3be8c;">
+</span><span style="color:#a3be8c;">        varying highp vec2 v_TextureCoord;
+</span><span style="color:#a3be8c;">
+</span><span style="color:#a3be8c;">        void main() {
+</span><span style="color:#a3be8c;">          vec4 color = texture2D(u_Source, v_TextureCoord);
+</span><span style="color:#a3be8c;">          gl_FragColor = vec4(u_X / color.rgb, color.a);
+</span><span style="color:#a3be8c;">        }
+</span><span style="color:#a3be8c;">      </span><span>`</span><span style="color:#eff1f5;">,
+</span><span style="color:#eff1f5;">      uniforms: {
+</span><span style="color:#eff1f5;">        x: </span><span>&#39;</span><span style="color:#a3be8c;">1f</span><span>&#39;
+</span><span style="color:#eff1f5;">      }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.x </span><span>= </span><span style="color:#bf616a;">x
+</span><span style="color:#eff1f5;">    })
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
 <p>Note that each uniform is set to the result of calling <code>val</code> on the
 corresponding property; these properties are dynamic.</p>
 <h1 id="audio-manipulation">Audio Manipulation</h1>
@@ -159,11 +167,11 @@ of a layer or movie using the web audio API. Every audio layer has an
 <code>audioNode</code> property, and the movie has an <code>actx</code> (&quot;audio context&quot;) property. By
 default, each <code>audioNode</code> is connected to <code>actx.destination</code>, but you can also connect to an
 intermediary node that connects to <code>actx.destination</code>:</p>
-<pre data-lang="js" class="language-js "><code class="language-js" data-lang="js">&#x2F;&#x2F; Disconnect layer from actx.destination
-audioLayer.audioNode.disconnect(movie.actx.destination)
-&#x2F;&#x2F; Rewire
-audioLayer.audioNode.connect(someAudioNode).connect(movie.actx.destination)
-</code></pre>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// Disconnect layer from actx.destination
+</span><span style="color:#bf616a;">audioLayer</span><span>.</span><span style="color:#bf616a;">audioNode</span><span>.</span><span style="color:#96b5b4;">disconnect</span><span>(</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#bf616a;">actx</span><span>.</span><span style="color:#bf616a;">destination</span><span>)
+</span><span style="color:#65737e;">// Rewire
+</span><span style="color:#bf616a;">audioLayer</span><span>.</span><span style="color:#bf616a;">audioNode</span><span>.</span><span style="color:#8fa1b3;">connect</span><span>(</span><span style="color:#bf616a;">someAudioNode</span><span>).</span><span style="color:#8fa1b3;">connect</span><span>(</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#bf616a;">actx</span><span>.</span><span style="color:#bf616a;">destination</span><span>)
+</span></code></pre>
 
 
         </div>
