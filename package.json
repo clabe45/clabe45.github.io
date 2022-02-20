@@ -22,6 +22,7 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "scripts": {
+    "setup": "git submodule update --init --recursive",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "lint": "npx eslint src && npx stylelint src",
