@@ -163,42 +163,42 @@
 <li>Export to a blob or file</li>
 </ul>
 <h1 id="installation">Installation</h1>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install vidar
+<pre style="background-color:#fafafa;color:#80cbc4;"><code><span>npm install vidar
 </span></code></pre>
 <h1 id="usage">Usage</h1>
 <p>Include it with</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>&lt;</span><span style="color:#bf616a;">script src</span><span>=&quot;</span><span style="color:#a3be8c;">node_modules/vidar/dist/vidar-iife.js</span><span>&quot;&gt;&lt;/script&gt;
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">&lt;</span><span>script src</span><span style="color:#39adb5;">=&quot;</span><span style="color:#91b859;">node_modules/vidar/dist/vidar-iife.js</span><span style="color:#39adb5;">&quot;&gt;</span><span>&lt;/script&gt;
 </span></code></pre>
 <p>Let's look at an example:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">movie </span><span>= new vd.Movie({ canvas: </span><span style="color:#bf616a;">outputCanvas </span><span>})
-</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer </span><span>= new vd.layer.Video({ startTime: </span><span style="color:#d08770;">0</span><span>, source: </span><span style="color:#bf616a;">videoElement </span><span>})  </span><span style="color:#65737e;">// the layer starts at 0s
-</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#8fa1b3;">addLayer</span><span>(</span><span style="color:#bf616a;">layer</span><span>)
-</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#8fa1b3;">record</span><span>({ frameRate: </span><span style="color:#d08770;">24 </span><span>})  </span><span style="color:#65737e;">// or just `play` if you don&#39;t need to save it
-</span><span>    .</span><span style="color:#96b5b4;">then</span><span>(</span><span style="color:#bf616a;">blob </span><span style="color:#b48ead;">=&gt; </span><span>...)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>movie </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>Movie(</span><span style="color:#39adb5;">{ </span><span>canvas</span><span style="color:#39adb5;">: </span><span>outputCanvas </span><span style="color:#39adb5;">}</span><span>)
+</span><span style="font-style:italic;color:#7c4dff;">var </span><span>layer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Video(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>videoElement </span><span style="color:#39adb5;">}</span><span>)  </span><span style="font-style:italic;color:#ccd7da;">// the layer starts at 0s
+</span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addLayer</span><span>(layer)
+</span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">record</span><span>(</span><span style="color:#39adb5;">{ </span><span>frameRate</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">24 </span><span style="color:#39adb5;">}</span><span>)  </span><span style="font-style:italic;color:#ccd7da;">// or just `play` if you don&#39;t need to save it
+</span><span>    </span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">then</span><span>(</span><span style="color:#f76d47;">blob </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span style="color:#39adb5;">...</span><span>)
 </span></code></pre>
 <p>This renders <code>videoElement</code> to a blob at 24 fps. This blob can then be
 downloaded as a video file.</p>
 <p>Effects can transform the output of a layer or movie:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer </span><span>= new vd.layer.Video({ startTime: </span><span style="color:#d08770;">0</span><span>, source: </span><span style="color:#bf616a;">videoElement </span><span>})
-</span><span>    .</span><span style="color:#8fa1b3;">addEffect</span><span>(new vd.effect.Brightness({ brightness: +</span><span style="color:#d08770;">100 </span><span>}))
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>layer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Video(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>videoElement </span><span style="color:#39adb5;">}</span><span>)
+</span><span>    </span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addEffect</span><span>(</span><span style="color:#39adb5;">new </span><span>vd</span><span style="color:#39adb5;">.</span><span>effect</span><span style="color:#39adb5;">.</span><span>Brightness(</span><span style="color:#39adb5;">{ </span><span>brightness</span><span style="color:#39adb5;">: +</span><span style="color:#f76d47;">100 </span><span style="color:#39adb5;">}</span><span>))
 </span></code></pre>
 <h1 id="using-in-node">Using in Node</h1>
 <p>To use Vidar in Node, use the <a href="https://github.com/clabe45/vidar-node">wrapper</a>:</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm i vidar-node
+<pre style="background-color:#fafafa;color:#80cbc4;"><code><span>npm i vidar-node
 </span></code></pre>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">vidarNode </span><span>= </span><span style="color:#96b5b4;">require</span><span>(&#39;</span><span style="color:#a3be8c;">vidar-node</span><span>&#39;)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>vidarNode </span><span style="color:#39adb5;">= </span><span style="color:#6182b8;">require</span><span>(</span><span style="color:#39adb5;">&#39;</span><span style="color:#91b859;">vidar-node</span><span style="color:#39adb5;">&#39;</span><span>)
 </span><span>
-</span><span style="color:#8fa1b3;">vidarNode</span><span>(() </span><span style="color:#b48ead;">=&gt; </span><span>{
-</span><span>  </span><span style="color:#65737e;">// You can access inputs as html elements and pass them to Vidar as usual.
-</span><span>  </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">image </span><span>= document.</span><span style="color:#96b5b4;">getElementById</span><span>(&#39;</span><span style="color:#a3be8c;">input1</span><span>&#39;) </span><span style="color:#65737e;">// &lt;img&gt; element
+</span><span style="color:#6182b8;">vidarNode</span><span>(</span><span style="color:#39adb5;">() </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span style="color:#39adb5;">{
+</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// You can access inputs as html elements and pass them to Vidar as usual.
+</span><span>  </span><span style="font-style:italic;color:#7c4dff;">var </span><span>image </span><span style="color:#39adb5;">= </span><span style="color:#6182b8;">document</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">getElementById</span><span>(</span><span style="color:#39adb5;">&#39;</span><span style="color:#91b859;">input1</span><span style="color:#39adb5;">&#39;</span><span>) </span><span style="font-style:italic;color:#ccd7da;">// &lt;img&gt; element
 </span><span>
-</span><span>  </span><span style="color:#65737e;">// Use vidar normally ...
+</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// Use vidar normally ...
 </span><span>
-</span><span>  </span><span style="color:#bf616a;">movie
-</span><span>    .</span><span style="color:#8fa1b3;">exportRaw</span><span>()
-</span><span>    .</span><span style="color:#96b5b4;">then</span><span>(window.</span><span style="color:#bf616a;">done</span><span>)
-</span><span style="color:#65737e;">// Tell Vidar Node what inputs to load with { id: path }
-</span><span>}, { input1: &#39;</span><span style="color:#a3be8c;">image.png</span><span>&#39; }, &#39;</span><span style="color:#a3be8c;">output.mp4</span><span>&#39;)
+</span><span>  movie
+</span><span>    </span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">exportRaw</span><span>()
+</span><span>    </span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">then</span><span>(window</span><span style="color:#39adb5;">.</span><span>done)
+</span><span style="font-style:italic;color:#ccd7da;">// Tell Vidar Node what inputs to load with { id: path }
+</span><span style="color:#39adb5;">}, { </span><span>input1</span><span style="color:#39adb5;">: &#39;</span><span style="color:#91b859;">image.png</span><span style="color:#39adb5;">&#39; }, &#39;</span><span style="color:#91b859;">output.mp4</span><span style="color:#39adb5;">&#39;</span><span>)
 </span></code></pre>
 <p><code>vidarNode()</code> takes an optional Puppeteer page argument, so you can run
 multiple Vidar scripts on the same movie (useful for servers). See <a href="https://github.com/clabe45/vidar-node#documentation">the

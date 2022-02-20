@@ -137,17 +137,17 @@ extra steps are required to use the framework in your TypeScript project.</p>
 <p><a href="../../docs/api/classes/movie.html#record"><code>Movie#record</code></a> now accepts a <code>duration</code> option that controls how long to record
 for. By setting the movie's <code>startTime</code> and then recording with a duration, you
 can record a part of the movie:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// Record from 5s to 8s
-</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#bf616a;">startTime </span><span>= </span><span style="color:#d08770;">5
-</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#8fa1b3;">record</span><span>({ frameRate: </span><span style="color:#d08770;">29</span><span>, duration: </span><span style="color:#d08770;">3 </span><span>})
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#ccd7da;">// Record from 5s to 8s
+</span><span>movie</span><span style="color:#39adb5;">.</span><span>startTime </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">5
+</span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">record</span><span>(</span><span style="color:#39adb5;">{ </span><span>frameRate</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">29</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3 </span><span style="color:#39adb5;">}</span><span>)
 </span></code></pre>
 <h1 id="new-keyframe-syntax">New Keyframe Syntax</h1>
 <p>You can now set the interpolation for a specific point in a keyframe set.</p>
 <p><strong>Before:</strong></p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>{ time1: </span><span style="color:#bf616a;">value1</span><span>, time2: </span><span style="color:#bf616a;">value2 </span><span>}
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">{ </span><span>time1</span><span style="color:#39adb5;">: </span><span>value1</span><span style="color:#39adb5;">, </span><span>time2</span><span style="color:#39adb5;">: </span><span>value2 </span><span style="color:#39adb5;">}
 </span></code></pre>
 <p><strong>After:</strong></p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>new vd.KeyFrame([</span><span style="color:#bf616a;">time1</span><span>, </span><span style="color:#bf616a;">value1</span><span>, </span><span style="color:#bf616a;">interpolationBetween1And2</span><span>], [</span><span style="color:#bf616a;">time2</span><span>, </span><span style="color:#bf616a;">value2</span><span>])
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">new </span><span>vd</span><span style="color:#39adb5;">.</span><span>KeyFrame([time1</span><span style="color:#39adb5;">, </span><span>value1</span><span style="color:#39adb5;">, </span><span>interpolationBetween1And2]</span><span style="color:#39adb5;">, </span><span>[time2</span><span style="color:#39adb5;">, </span><span>value2])
 </span></code></pre>
 <p>The interpolation item is optional.</p>
 <p><em>See also: <a href="../../docs/dynamic-properties">Dynamic Properties</a></em></p>

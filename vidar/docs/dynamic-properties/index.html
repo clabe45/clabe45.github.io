@@ -116,23 +116,23 @@
 <p>Most values in Vidar are <em>dynamic</em>, meaning they can either be constant values,
 key frames or functions. These properties have the type <code>Dynamic&lt;T&gt;</code>, which is
 defined as</p>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#bf616a;">T </span><span>| </span><span style="color:#bf616a;">KeyFrame</span><span>&lt;</span><span style="color:#bf616a;">T</span><span>&gt; | ((</span><span style="color:#bf616a;">element</span><span>: VidarObject, </span><span style="color:#bf616a;">time</span><span>: number) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">T</span><span>)
+<pre data-lang="ts" style="background-color:#fafafa;color:#80cbc4;" class="language-ts "><code class="language-ts" data-lang="ts"><span>T </span><span style="color:#39adb5;">| </span><span>KeyFrame</span><span style="color:#39adb5;">&lt;</span><span>T</span><span style="color:#39adb5;">&gt; | </span><span>(</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">element</span><span style="color:#39adb5;">: </span><span>VidarObject</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">time</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number</span><span style="color:#39adb5;">) </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span>T)
 </span></code></pre>
 <p>which means <em>constant value</em>, <em>key frame set</em>, or <em>function</em>.</p>
 <h1 id="constant-values">Constant Values</h1>
 <p>Constant values are expressions that are treated literally, i.e.:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#bf616a;">movie</span><span>.background = &#39;</span><span style="color:#a3be8c;">blue</span><span>&#39;
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span>movie</span><span style="color:#39adb5;">.</span><span>background </span><span style="color:#39adb5;">= &#39;</span><span style="color:#91b859;">blue</span><span style="color:#39adb5;">&#39;
 </span></code></pre>
 <p>Here, the movie's background color will always be blue (that is, until it is
 reassigned).</p>
 <h1 id="key-frames">Key Frames</h1>
 <p>Key frame sets contain different values for different times. Its syntax is:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>new vd.KeyFrame([</span><span style="color:#bf616a;">time1</span><span>, </span><span style="color:#bf616a;">val1</span><span>, </span><span style="color:#bf616a;">interp1</span><span>], [</span><span style="color:#bf616a;">time2</span><span>, </span><span style="color:#bf616a;">val2</span><span>, </span><span style="color:#bf616a;">interp2</span><span>], ...)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">new </span><span>vd</span><span style="color:#39adb5;">.</span><span>KeyFrame([time1</span><span style="color:#39adb5;">, </span><span>val1</span><span style="color:#39adb5;">, </span><span>interp1]</span><span style="color:#39adb5;">, </span><span>[time2</span><span style="color:#39adb5;">, </span><span>val2</span><span style="color:#39adb5;">, </span><span>interp2]</span><span style="color:#39adb5;">, ...</span><span>)
 </span></code></pre>
 <p>At <code>time1</code>, it will evaluate to <code>val1</code>, at <code>time2</code> it will <code>val2</code>, and in
 between it will be interpolated by <code>interp1</code>. The interpolation functions
 default to <code>vd.linearInterp</code>, but you can also define your own.</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#bf616a;">layer</span><span>.</span><span style="color:#bf616a;">opacity </span><span>= new vd.KeyFrame([</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">1</span><span>], [</span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">0</span><span>])
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span>layer</span><span style="color:#39adb5;">.</span><span>opacity </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>KeyFrame([</span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">1</span><span>]</span><span style="color:#39adb5;">, </span><span>[</span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">0</span><span>])
 </span></code></pre>
 <p>The layer's opacity will start at <code>1</code> and gradually decrease until to <code>0</code> at 3
 seconds.</p>
@@ -145,26 +145,26 @@ seconds.</p>
 <p>Only numbers and objects are accepted by these functions. For all other types,
 the first value is used and the second value is ignored.</p>
 <p>You can also define your own interpolation functions. They must take the form:</p>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span>(</span><span style="color:#bf616a;">val1</span><span>: number | object, </span><span style="color:#bf616a;">val2</span><span>: number | object, </span><span style="color:#bf616a;">t</span><span>: number, </span><span style="color:#bf616a;">objectKeys</span><span>?: string[]) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">number </span><span>| </span><span style="color:#bf616a;">object
+<pre data-lang="ts" style="background-color:#fafafa;color:#80cbc4;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#39adb5;">(</span><span style="color:#f76d47;">val1</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number </span><span style="color:#39adb5;">| </span><span style="color:#ffb62c;">object</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">val2</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number </span><span style="color:#39adb5;">| </span><span style="color:#ffb62c;">object</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">t</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">objectKeys</span><span style="color:#39adb5;">?: </span><span style="color:#ffb62c;">string</span><span>[]</span><span style="color:#39adb5;">) </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span>number </span><span style="color:#39adb5;">| </span><span>object
 </span></code></pre>
 <p>where <code>objectKeys</code> contains the names of the object properties to interpolate
 (<code>undefined</code> means &quot;all properties&quot;).</p>
 <h1 id="functions">Functions</h1>
 <p>You can also pass a function that returns a value per-frame. It must take the
 following form:</p>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span>&lt;T&gt;(</span><span style="color:#bf616a;">element</span><span>: VidarObject, </span><span style="color:#bf616a;">time</span><span>: number) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">T
+<pre data-lang="ts" style="background-color:#fafafa;color:#80cbc4;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#39adb5;">&lt;</span><span>T</span><span style="color:#39adb5;">&gt;(</span><span style="color:#f76d47;">element</span><span style="color:#39adb5;">: </span><span>VidarObject</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">time</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number</span><span style="color:#39adb5;">) </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span>T
 </span></code></pre>
 <p>Example:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// Make a new visual layer that lasts forever
-</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">layer </span><span>= new VisualLayer({ startTime: </span><span style="color:#d08770;">0</span><span>, duration: </span><span style="color:#d08770;">Infinity </span><span>})
-</span><span style="color:#65737e;">// Give it a new random background color each frame
-</span><span style="color:#bf616a;">layer</span><span>.background = () </span><span style="color:#b48ead;">=&gt; </span><span>new vd.Color(Math.</span><span style="color:#96b5b4;">random</span><span>(), Math.</span><span style="color:#96b5b4;">random</span><span>(), Math.</span><span style="color:#96b5b4;">random</span><span>())
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#ccd7da;">// Make a new visual layer that lasts forever
+</span><span style="font-style:italic;color:#7c4dff;">var </span><span>layer </span><span style="color:#39adb5;">= new </span><span>VisualLayer(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">Infinity </span><span style="color:#39adb5;">}</span><span>)
+</span><span style="font-style:italic;color:#ccd7da;">// Give it a new random background color each frame
+</span><span>layer</span><span style="color:#39adb5;">.</span><span>background </span><span style="color:#39adb5;">= () </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span style="color:#39adb5;">new </span><span>vd</span><span style="color:#39adb5;">.</span><span>Color(</span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">random</span><span>()</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">random</span><span>()</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">random</span><span>())
 </span></code></pre>
 <h1 id="val"><code>val</code></h1>
 <p>If you're making a custom layer or effect, you'll need to evaluate dynamic
 properties to get the value for the current frame. Use
 <a href="../api/index.html#val"><code>vd.val()</code></a> to do this.</p>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">val</span><span>(</span><span style="color:#bf616a;">element</span><span>: VidarObject, </span><span style="color:#bf616a;">path</span><span>: string, </span><span style="color:#bf616a;">time</span><span>: number): any
+<pre data-lang="ts" style="background-color:#fafafa;color:#80cbc4;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="font-style:italic;color:#7c4dff;">function </span><span style="color:#6182b8;">val</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">element</span><span style="color:#39adb5;">: </span><span>VidarObject</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">path</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">string</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">time</span><span style="color:#39adb5;">: </span><span style="color:#ffb62c;">number</span><span style="color:#39adb5;">): </span><span style="color:#ffb62c;">any
 </span></code></pre>
 
 

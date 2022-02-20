@@ -96,25 +96,25 @@
 new value. They are useful for applying custom logic to the output of a key
 frame set or function at a given time.</p>
 <h1 id="usage">Usage</h1>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomLayer </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.layer.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">options</span><span>) </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">)
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo </span><span>= </span><span style="color:#bf616a;">options</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">foo
-</span><span style="color:#eff1f5;">  }
-</span><span style="color:#eff1f5;">}
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">CustomLayer </span><span style="color:#7c4dff;">extends </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Base </span><span style="color:#39adb5;">{
+</span><span>  </span><span style="font-style:italic;color:#7c4dff;">constructor</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">options</span><span style="color:#39adb5;">) {
+</span><span>    </span><span style="font-style:italic;color:#e53935;">super</span><span>(options)
+</span><span>    </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>foo </span><span style="color:#39adb5;">= </span><span>options</span><span style="color:#39adb5;">.</span><span>foo
+</span><span>  </span><span style="color:#39adb5;">}
+</span><span style="color:#39adb5;">}
 </span><span>
-</span><span style="color:#ebcb8b;">CustomLayer</span><span>.prototype.</span><span style="color:#bf616a;">propertyFilters </span><span>= {
-</span><span>  </span><span style="color:#65737e;">// Inherit superclass&#39;s property filters
-</span><span>  ...</span><span style="color:#bf616a;">vd</span><span>.</span><span style="color:#bf616a;">layer</span><span>.</span><span style="color:#bf616a;">Base</span><span>.</span><span style="color:#bf616a;">propertyFilters</span><span>,
-</span><span>  </span><span style="color:#65737e;">// Define `foo` property filter
-</span><span>  </span><span style="color:#8fa1b3;">foo</span><span>: </span><span style="color:#bf616a;">foo </span><span style="color:#b48ead;">=&gt; </span><span>Math.</span><span style="color:#96b5b4;">max</span><span>(</span><span style="color:#d08770;">0</span><span>, Math.</span><span style="color:#96b5b4;">min</span><span>(</span><span style="color:#bf616a;">foo</span><span>, </span><span style="color:#d08770;">1</span><span>)) </span><span style="color:#65737e;">// clamp between 0 and 1
-</span><span>}
+</span><span style="color:#ffb62c;">CustomLayer</span><span style="color:#39adb5;">.</span><span>prototype</span><span style="color:#39adb5;">.</span><span>propertyFilters </span><span style="color:#39adb5;">= {
+</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// Inherit superclass&#39;s property filters
+</span><span>  </span><span style="color:#39adb5;">...</span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Base</span><span style="color:#39adb5;">.</span><span>propertyFilters</span><span style="color:#39adb5;">,
+</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// Define `foo` property filter
+</span><span>  </span><span style="color:#6182b8;">foo</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">foo </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">max</span><span>(</span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">min</span><span>(foo</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">1</span><span>)) </span><span style="font-style:italic;color:#ccd7da;">// clamp between 0 and 1
+</span><span style="color:#39adb5;">}
 </span></code></pre>
 <p>Now, you can evaluate the value as usual, and <code>val</code> will apply the property
 filter (after evaluating the key frame or function):</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">layer </span><span>= new CustomLayer({ startTime: </span><span style="color:#d08770;">0</span><span>, duration: </span><span style="color:#d08770;">3</span><span>, foo: </span><span style="color:#d08770;">2 </span><span>})
-</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">layer</span><span>.</span><span style="color:#bf616a;">foo</span><span>)  </span><span style="color:#65737e;">// prints &#39;2&#39;, no property filter applied
-</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">vd</span><span>.</span><span style="color:#8fa1b3;">val</span><span>(</span><span style="color:#bf616a;">layer</span><span>, &#39;</span><span style="color:#a3be8c;">foo</span><span>&#39;, </span><span style="color:#bf616a;">layer</span><span>.</span><span style="color:#bf616a;">currentTime</span><span>))  </span><span style="color:#65737e;">// prints &#39;1&#39;, property filter applied
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">const </span><span>layer </span><span style="color:#39adb5;">= new </span><span>CustomLayer(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span>foo</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">2 </span><span style="color:#39adb5;">}</span><span>)
+</span><span style="color:#ffb62c;">console</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">log</span><span>(layer</span><span style="color:#39adb5;">.</span><span>foo)  </span><span style="font-style:italic;color:#ccd7da;">// prints &#39;2&#39;, no property filter applied
+</span><span style="color:#ffb62c;">console</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">log</span><span>(vd</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">val</span><span>(layer</span><span style="color:#39adb5;">, &#39;</span><span style="color:#91b859;">foo</span><span style="color:#39adb5;">&#39;, </span><span>layer</span><span style="color:#39adb5;">.</span><span>currentTime))  </span><span style="font-style:italic;color:#ccd7da;">// prints &#39;1&#39;, property filter applied
 </span></code></pre>
 
 

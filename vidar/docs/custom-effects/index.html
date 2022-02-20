@@ -107,23 +107,23 @@ your own. Note that the term 'effects' refers to 'visual effects' only. Audio
 can be manipulated with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio API</a> and the <code>audioNode</code> property of an
 <a href="../api/classes/layer.audio.html"><code>Audio</code></a> layer, as shown below.</p>
 <h1 id="simple-visual-effect">Simple Visual Effect</h1>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Base </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">color</span><span>) </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.color </span><span>= </span><span style="color:#bf616a;">color
-</span><span style="color:#eff1f5;">  }
-</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">  </span><span style="color:#65737e;">/**
-</span><span style="color:#65737e;">   * </span><span style="color:#b48ead;">@param </span><span style="color:#65737e;">{(vd.Movie | vd.layer.Visual)} </span><span style="color:#bf616a;">target</span><span style="color:#65737e;"> - what to apply the effect to
-</span><span style="color:#65737e;">   */
-</span><span style="color:#eff1f5;">  </span><span style="color:#8fa1b3;">apply</span><span>(</span><span style="color:#bf616a;">target</span><span>) </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// &#39;cctx&#39; stands for &#39;canvas context&#39;; it&#39;s the 2d rendering context of the
-</span><span style="color:#eff1f5;">    </span><span style="color:#65737e;">// target&#39;s `canvas`
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">cctx</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">fillStyle </span><span>= </span><span style="color:#bf616a;">vd</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">val</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">, </span><span>&#39;</span><span style="color:#a3be8c;">color</span><span>&#39;</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">currentTime</span><span style="color:#eff1f5;">)
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">cctx</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">fillRect</span><span style="color:#eff1f5;">(
-</span><span style="color:#eff1f5;">      </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">canvas</span><span style="color:#eff1f5;">.width </span><span>/ </span><span style="color:#d08770;">2</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">canvas</span><span style="color:#eff1f5;">.height </span><span>/ </span><span style="color:#d08770;">2
-</span><span style="color:#eff1f5;">    )
-</span><span style="color:#eff1f5;">  }
-</span><span style="color:#eff1f5;">}
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">Effect </span><span style="color:#7c4dff;">extends </span><span>vd</span><span style="color:#39adb5;">.</span><span>effect</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Base </span><span style="color:#39adb5;">{
+</span><span>  </span><span style="font-style:italic;color:#7c4dff;">constructor</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">color</span><span style="color:#39adb5;">) {
+</span><span>    </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>color </span><span style="color:#39adb5;">= </span><span>color
+</span><span>  </span><span style="color:#39adb5;">}
+</span><span>
+</span><span>  </span><span style="font-style:italic;color:#ccd7da;">/**
+</span><span style="font-style:italic;color:#ccd7da;">   * </span><span style="font-style:italic;color:#39adb5;">@</span><span style="font-style:italic;color:#7c4dff;">param </span><span style="font-style:italic;color:#39adb5;">{</span><span style="font-style:italic;color:#ccd7da;">(vd.Movie | vd.layer.Visual)</span><span style="font-style:italic;color:#39adb5;">} </span><span style="font-style:italic;color:#80cbc4;">target</span><span style="font-style:italic;color:#ccd7da;"> - what to apply the effect to
+</span><span style="font-style:italic;color:#ccd7da;">   */
+</span><span>  </span><span style="color:#6182b8;">apply</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">target</span><span style="color:#39adb5;">) {
+</span><span style="color:#39adb5;">    </span><span style="font-style:italic;color:#ccd7da;">// &#39;cctx&#39; stands for &#39;canvas context&#39;; it&#39;s the 2d rendering context of the
+</span><span style="color:#39adb5;">    </span><span style="font-style:italic;color:#ccd7da;">// target&#39;s `canvas`
+</span><span>    target</span><span style="color:#39adb5;">.</span><span>cctx</span><span style="color:#39adb5;">.</span><span>fillStyle </span><span style="color:#39adb5;">= </span><span>vd</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">val</span><span>(</span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">, &#39;</span><span style="color:#91b859;">color</span><span style="color:#39adb5;">&#39;, </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>currentTime)
+</span><span>    target</span><span style="color:#39adb5;">.</span><span>cctx</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">fillRect</span><span>(
+</span><span>      </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>target</span><span style="color:#39adb5;">.</span><span>canvas</span><span style="color:#39adb5;">.</span><span>width </span><span style="color:#39adb5;">/ </span><span style="color:#f76d47;">2</span><span style="color:#39adb5;">, </span><span>target</span><span style="color:#39adb5;">.</span><span>canvas</span><span style="color:#39adb5;">.</span><span>height </span><span style="color:#39adb5;">/ </span><span style="color:#f76d47;">2
+</span><span>    )
+</span><span>  </span><span style="color:#39adb5;">}
+</span><span style="color:#39adb5;">}
 </span></code></pre>
 <p>This draws a rectangle over <code>target</code>, which can either be a movie or a visual
 layer. <a href="../api/index.html#val"><code>vd.val()</code></a> evaluates <code>this.color</code> at the current
@@ -134,30 +134,30 @@ an effect that maps each pixel to a new value using the GPU. The following
 example sets each color's red, green and blue channels to <code>x</code> divided by the
 value of the channel before the effect is applied. The fragment shader source
 code is written in GLSL.</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Effect </span><span style="color:#b48ead;">extends </span><span style="color:#eff1f5;">vd.effect.</span><span style="color:#a3be8c;">Shader </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">x </span><span>= </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#eff1f5;">{
-</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">({
-</span><span style="color:#eff1f5;">      fragmentSource: </span><span>`
-</span><span style="color:#a3be8c;">        precision mediump float;
-</span><span style="color:#a3be8c;">
-</span><span style="color:#a3be8c;">        uniform sampler2D u_Source;  // the original texture (updated every frame)
-</span><span style="color:#a3be8c;">        uniform float u_X;  // the value of &#39;x&#39; back in JavaScript (updated every frame)
-</span><span style="color:#a3be8c;">
-</span><span style="color:#a3be8c;">        varying highp vec2 v_TextureCoord;
-</span><span style="color:#a3be8c;">
-</span><span style="color:#a3be8c;">        void main() {
-</span><span style="color:#a3be8c;">          vec4 color = texture2D(u_Source, v_TextureCoord);
-</span><span style="color:#a3be8c;">          gl_FragColor = vec4(u_X / color.rgb, color.a);
-</span><span style="color:#a3be8c;">        }
-</span><span style="color:#a3be8c;">      </span><span>`</span><span style="color:#eff1f5;">,
-</span><span style="color:#eff1f5;">      uniforms: {
-</span><span style="color:#eff1f5;">        x: </span><span>&#39;</span><span style="color:#a3be8c;">1f</span><span>&#39;
-</span><span style="color:#eff1f5;">      }
-</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">      </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.x </span><span>= </span><span style="color:#bf616a;">x
-</span><span style="color:#eff1f5;">    })
-</span><span style="color:#eff1f5;">  }
-</span><span style="color:#eff1f5;">}
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">Effect </span><span style="color:#7c4dff;">extends </span><span>vd</span><span style="color:#39adb5;">.</span><span>effect</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Shader </span><span style="color:#39adb5;">{
+</span><span>  </span><span style="font-style:italic;color:#7c4dff;">constructor</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">x </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">1</span><span style="color:#39adb5;">) {
+</span><span>    </span><span style="font-style:italic;color:#e53935;">super</span><span>(</span><span style="color:#39adb5;">{
+</span><span>      fragmentSource</span><span style="color:#39adb5;">: `
+</span><span style="color:#91b859;">        precision mediump float;
+</span><span style="color:#91b859;">
+</span><span style="color:#91b859;">        uniform sampler2D u_Source;  // the original texture (updated every frame)
+</span><span style="color:#91b859;">        uniform float u_X;  // the value of &#39;x&#39; back in JavaScript (updated every frame)
+</span><span style="color:#91b859;">
+</span><span style="color:#91b859;">        varying highp vec2 v_TextureCoord;
+</span><span style="color:#91b859;">
+</span><span style="color:#91b859;">        void main() {
+</span><span style="color:#91b859;">          vec4 color = texture2D(u_Source, v_TextureCoord);
+</span><span style="color:#91b859;">          gl_FragColor = vec4(u_X / color.rgb, color.a);
+</span><span style="color:#91b859;">        }
+</span><span style="color:#91b859;">      </span><span style="color:#39adb5;">`,
+</span><span>      uniforms</span><span style="color:#39adb5;">: {
+</span><span>        x</span><span style="color:#39adb5;">: &#39;</span><span style="color:#91b859;">1f</span><span style="color:#39adb5;">&#39;
+</span><span>      </span><span style="color:#39adb5;">}
+</span><span>
+</span><span>      </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>x </span><span style="color:#39adb5;">= </span><span>x
+</span><span>    </span><span style="color:#39adb5;">}</span><span>)
+</span><span>  </span><span style="color:#39adb5;">}
+</span><span style="color:#39adb5;">}
 </span></code></pre>
 <p>Note that each uniform is set to the result of calling <code>val</code> on the
 corresponding property; these properties are dynamic.</p>
@@ -167,10 +167,10 @@ of a layer or movie using the web audio API. Every audio layer has an
 <code>audioNode</code> property, and the movie has an <code>actx</code> (&quot;audio context&quot;) property. By
 default, each <code>audioNode</code> is connected to <code>actx.destination</code>, but you can also connect to an
 intermediary node that connects to <code>actx.destination</code>:</p>
-<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// Disconnect layer from actx.destination
-</span><span style="color:#bf616a;">audioLayer</span><span>.</span><span style="color:#bf616a;">audioNode</span><span>.</span><span style="color:#96b5b4;">disconnect</span><span>(</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#bf616a;">actx</span><span>.</span><span style="color:#bf616a;">destination</span><span>)
-</span><span style="color:#65737e;">// Rewire
-</span><span style="color:#bf616a;">audioLayer</span><span>.</span><span style="color:#bf616a;">audioNode</span><span>.</span><span style="color:#8fa1b3;">connect</span><span>(</span><span style="color:#bf616a;">someAudioNode</span><span>).</span><span style="color:#8fa1b3;">connect</span><span>(</span><span style="color:#bf616a;">movie</span><span>.</span><span style="color:#bf616a;">actx</span><span>.</span><span style="color:#bf616a;">destination</span><span>)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#ccd7da;">// Disconnect layer from actx.destination
+</span><span>audioLayer</span><span style="color:#39adb5;">.</span><span>audioNode</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">disconnect</span><span>(movie</span><span style="color:#39adb5;">.</span><span>actx</span><span style="color:#39adb5;">.</span><span>destination)
+</span><span style="font-style:italic;color:#ccd7da;">// Rewire
+</span><span>audioLayer</span><span style="color:#39adb5;">.</span><span>audioNode</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">connect</span><span>(someAudioNode)</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">connect</span><span>(movie</span><span style="color:#39adb5;">.</span><span>actx</span><span style="color:#39adb5;">.</span><span>destination)
 </span></code></pre>
 
 
