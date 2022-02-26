@@ -16,7 +16,7 @@ const injectRedirect = page => {
 }
 
 const main = () => {
-  const vidarDir = path.join(__dirname, '..', 'vidar-site', 'public')
+  const vidarDir = path.join(__dirname, '..', 'etro-js.github.io', 'public')
   walkSync(vidarDir)
     .filter(page => page.endsWith('.html'))
     .forEach(page => injectRedirect(path.join(vidarDir, page)))
