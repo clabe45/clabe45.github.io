@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "lint": "npx eslint src && npx stylelint src",
     "update": "git submodule foreach git pull origin master",
-    "build": "npm run update && react-scripts build && cd vidar-site && npm i && npm run build && cp -r public ../build/vidar && git restore package-lock.json",
+    "build": "npm run update && react-scripts build && cd vidar-site && npm i && npm run build && cp -r public ../build/vidar && git restore package-lock.json && cd .. && node vidar-redirect/inject-redirects.js",
     "prepublish": "npm run build",
     "publish": "gh-pages -d build",
     "eject": "react-scripts eject"
@@ -58,6 +58,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.2",
-    "eslint-plugin-react-hooks": "^2.5.1"
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "walk-sync": "^3.0.0"
   }
 }
