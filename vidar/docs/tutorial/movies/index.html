@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <title>Movies | Vidar - edit videos with JavaScript </title>
+    <title>Movies | Etro - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    
     <style>
     :root {
         --front-color: #d7fffc;
@@ -25,15 +19,15 @@
     }
 </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/vidar/juice.css">
+    <link rel="stylesheet" href="https://etrojs.dev/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
-<link rel="stylesheet" type="text/css" href="/vidar/style.css" />
-<link rel="stylesheet" type="text/css" href="/vidar/juice-modified.css" />
-<link rel="shortcut icon" type="image/x-icon" href="/vidar/logo.svg" />
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/juice-modified.css">
+<link rel="shortcut icon" type="image/x-icon" href="/logo.svg">
 
 </head>
 
@@ -42,26 +36,26 @@
 <header class="box-shadow">
     
 
-<a href="&#x2F;vidar&#x2F;">
+<a href="https://etrojs.dev/">
     <div class="logo">
-        <img src="/vidar/logo.svg" alt="logo">
-        Vidar
+        <img src="https://etrojs.dev/logo.svg" alt="logo">
+        Etro
     </div>
 </a>
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/docs/">Docs</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/roadmap/">Roadmap</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/changelog/">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/blog/">Blog</a>
     
     
         
-        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;clabe45&#x2F;vidar">Github</a>
+        <a class="nav-item subtitle-text" href="https://github.com/etro-js/etro">Github</a>
         
     
 </nav>
@@ -79,16 +73,16 @@
             
 <div class="heading-text"></div>
 <div class="heading-text">Movies</div>
-<p>The <a href="/vidar/docs/api/classes/Movie.html"><code>vd.Movie</code></a> class
+<p>The <a href="/docs/api/classes/Movie.html"><code>etro.Movie</code></a> class
 is used to render layers and effects into a single video blob. When creating a
 movie, a canvas to render to is required:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>canvas </span><span style="color:#39adb5;">= </span><span style="color:#6182b8;">document</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">createElement</span><span>(</span><span style="color:#39adb5;">&#39;</span><span style="color:#91b859;">canvas</span><span style="color:#39adb5;">&#39;</span><span>)
-</span><span style="font-style:italic;color:#7c4dff;">var </span><span>movie </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>Movie(</span><span style="color:#39adb5;">{</span><span> canvas )</span><span style="color:#39adb5;">}</span><span>)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>canvas </span><span style="color:#39adb5;">= </span><span style="color:#6182b8;">document</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">createElement</span><span>(</span><span style="color:#39adb5;">'</span><span style="color:#91b859;">canvas</span><span style="color:#39adb5;">'</span><span>)
+</span><span style="font-style:italic;color:#7c4dff;">var </span><span>movie </span><span style="color:#39adb5;">= new </span><span>etro</span><span style="color:#39adb5;">.</span><span>Movie(</span><span style="color:#39adb5;">{</span><span> canvas )</span><span style="color:#39adb5;">}</span><span>)
 </span></code></pre>
 <p>From here, you can either set the <code>width</code> and <code>height</code> on the canvas or the
 movie to adjust the dimensions:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span>movie</span><span style="color:#39adb5;">.</span><span>width </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">200  </span><span style="font-style:italic;color:#ccd7da;">// also sets the canvas&#39;s width to 200
-</span><span>movie</span><span style="color:#39adb5;">.</span><span>height </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">200  </span><span style="font-style:italic;color:#ccd7da;">// also sets the canvas&#39;s height to 200
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span>movie</span><span style="color:#39adb5;">.</span><span>width </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">200  </span><span style="font-style:italic;color:#ccd7da;">// also sets the canvas's width to 200
+</span><span>movie</span><span style="color:#39adb5;">.</span><span>height </span><span style="color:#39adb5;">= </span><span style="color:#f76d47;">200  </span><span style="font-style:italic;color:#ccd7da;">// also sets the canvas's height to 200
 </span></code></pre>
 <p>Now we have a 200x200 movie, but there are no layers so nothing will be
 rendered. In the <a href="layers">next section</a>, we'll add a video clip to the movie.</p>
@@ -96,18 +90,19 @@ rendered. In the <a href="layers">next section</a>, we'll add a video clip to th
 
         </div>
 
-        
-        
     </main>
 
     
-<!-- <footer>
+<footer>
     <small class="subtext">
-        <a href="https://huhu.io">Huhu.io</a> © 2020
+        <em>
+            Etro was previously known as Vidar, but it was renamed to avoid
+            confusion with an existing software product.
+        </em>
     </small>
-</footer> -->
+</footer>
 
-</body>
+
 <script>
     function highlightNav(heading) {
         let pathname = location.pathname;
@@ -143,4 +138,12 @@ rendered. In the <a href="layers">next section</a>, we'll add a video clip to th
     }
 </script>
 
-</html>
+
+<script>window.addEventListener('load', function () {
+  const page = window.location.toString().substring(
+    'https://calebsacks.me/vidar/'.length
+  );
+
+  window.location.replace(`https://etrojs.dev/${page}`);
+});
+</script></body></html>

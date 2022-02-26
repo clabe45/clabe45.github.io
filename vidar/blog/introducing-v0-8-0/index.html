@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <title>Introducing the Eighth Update | Vidar - edit videos with JavaScript </title>
+    <title>Introducing the Eighth Update | Etro - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    
     <style>
     :root {
         --front-color: #d7fffc;
@@ -25,15 +19,15 @@
     }
 </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/vidar/juice.css">
+    <link rel="stylesheet" href="https://etrojs.dev/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
-<link rel="stylesheet" type="text/css" href="/vidar/style.css" />
-<link rel="stylesheet" type="text/css" href="/vidar/juice-modified.css" />
-<link rel="shortcut icon" type="image/x-icon" href="/vidar/logo.svg" />
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/juice-modified.css">
+<link rel="shortcut icon" type="image/x-icon" href="/logo.svg">
 
 </head>
 
@@ -42,26 +36,26 @@
 <header class="box-shadow">
     
 
-<a href="&#x2F;vidar&#x2F;">
+<a href="https://etrojs.dev/">
     <div class="logo">
-        <img src="/vidar/logo.svg" alt="logo">
-        Vidar
+        <img src="https://etrojs.dev/logo.svg" alt="logo">
+        Etro
     </div>
 </a>
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/docs/">Docs</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/roadmap/">Roadmap</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/changelog/">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/blog/">Blog</a>
     
     
         
-        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;clabe45&#x2F;vidar">Github</a>
+        <a class="nav-item subtitle-text" href="https://github.com/etro-js/etro">Github</a>
         
     
 </nav>
@@ -79,37 +73,37 @@
     <div class="toc-sticky">
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#typescript-support">TypeScript Support</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#typescript-support">TypeScript Support</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#support-for-more-browsers">Support for More Browsers</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#support-for-more-browsers">Support for More Browsers</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#recording-a-subsection">Recording a Subsection</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#recording-a-subsection">Recording a Subsection</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#new-keyframe-syntax">New Keyframe Syntax</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#new-keyframe-syntax">New Keyframe Syntax</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#unsubscribing-from-events">Unsubscribing from Events</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#unsubscribing-from-events">Unsubscribing from Events</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#bugfixes">Bugfixes</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#bugfixes">Bugfixes</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/blog/introducing-v0-8-0/#breaking-changes">Breaking Changes</a>
+            <a class="subtext" href="https://etrojs.dev/blog/introducing-v0-8-0/#breaking-changes">Breaking Changes</a>
         </div>
         <!--  -->
         
@@ -123,16 +117,16 @@
 <div class="heading-text"></div>
 <div class="heading-text">Introducing the Eighth Update</div>
 <p><em>By Caleb Sacks - April 3, 2021</em></p>
-<p>The <a href="https://github.com/clabe45/vidar/releases/tag/v0.8">Eighth Update</a> is here! In fact, this is the eighth update that has ever
+<p>The <a href="https://github.com/etro-js/etro/releases/tag/v0.8">Eighth Update</a> is here! In fact, this is the eighth update that has ever
 been released. We'll go over the most interesting changes here, but please check
 out the <a href="../../changelog">changelog</a> to see the entire list!</p>
 <h1 id="typescript-support">TypeScript Support</h1>
-<p>After version 0.7.0 was released, Vidar was ported to TypeScript. This means up-to-date
+<p>After version 0.7.0 was released, Etro was ported to TypeScript. This means up-to-date
 type declaration files for TypeScript projects, as well as remaining
 compatibility with pure JavaScript projects (plus better documentation). No
 extra steps are required to use the framework in your TypeScript project.</p>
 <h1 id="support-for-more-browsers">Support for More Browsers</h1>
-<p>Vidar now uses a polyfill for the web audio API so more browsers can use it.</p>
+<p>Etro now uses a polyfill for the web audio API so more browsers can use it.</p>
 <h1 id="recording-a-subsection">Recording a Subsection</h1>
 <p><a href="../../docs/api/classes/movie.html#record"><code>Movie#record</code></a> now accepts a <code>duration</code> option that controls how long to record
 for. By setting the movie's <code>startTime</code> and then recording with a duration, you
@@ -147,12 +141,12 @@ can record a part of the movie:</p>
 <pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">{ </span><span>time1</span><span style="color:#39adb5;">: </span><span>value1</span><span style="color:#39adb5;">, </span><span>time2</span><span style="color:#39adb5;">: </span><span>value2 </span><span style="color:#39adb5;">}
 </span></code></pre>
 <p><strong>After:</strong></p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">new </span><span>vd</span><span style="color:#39adb5;">.</span><span>KeyFrame([time1</span><span style="color:#39adb5;">, </span><span>value1</span><span style="color:#39adb5;">, </span><span>interpolationBetween1And2]</span><span style="color:#39adb5;">, </span><span>[time2</span><span style="color:#39adb5;">, </span><span>value2])
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#39adb5;">new </span><span>etro</span><span style="color:#39adb5;">.</span><span>KeyFrame([time1</span><span style="color:#39adb5;">, </span><span>value1</span><span style="color:#39adb5;">, </span><span>interpolationBetween1And2]</span><span style="color:#39adb5;">, </span><span>[time2</span><span style="color:#39adb5;">, </span><span>value2])
 </span></code></pre>
 <p>The interpolation item is optional.</p>
 <p><em>See also: <a href="../../docs/dynamic-properties">Dynamic Properties</a></em></p>
 <h1 id="unsubscribing-from-events">Unsubscribing from Events</h1>
-<p>There is now a <code>vd.event.unsubscribe</code> to remove event listeners.</p>
+<p>There is now a <code>etro.event.unsubscribe</code> to remove event listeners.</p>
 <h1 id="bugfixes">Bugfixes</h1>
 <p>A bunch of bugs were fixed. See the <a href="../../changelog">changelog</a>.</p>
 <h1 id="breaking-changes">Breaking Changes</h1>
@@ -161,18 +155,19 @@ can record a part of the movie:</p>
 
         </div>
 
-        
-        
     </main>
 
     
-<!-- <footer>
+<footer>
     <small class="subtext">
-        <a href="https://huhu.io">Huhu.io</a> © 2020
+        <em>
+            Etro was previously known as Vidar, but it was renamed to avoid
+            confusion with an existing software product.
+        </em>
     </small>
-</footer> -->
+</footer>
 
-</body>
+
 <script>
     function highlightNav(heading) {
         let pathname = location.pathname;
@@ -208,4 +203,12 @@ can record a part of the movie:</p>
     }
 </script>
 
-</html>
+
+<script>window.addEventListener('load', function () {
+  const page = window.location.toString().substring(
+    'https://calebsacks.me/vidar/'.length
+  );
+
+  window.location.replace(`https://etrojs.dev/${page}`);
+});
+</script></body></html>

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <title>Layers | Vidar - edit videos with JavaScript </title>
+    <title>Layers | Etro - edit videos with JavaScript </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    
     <style>
     :root {
         --front-color: #d7fffc;
@@ -25,15 +19,15 @@
     }
 </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/vidar/juice.css">
+    <link rel="stylesheet" href="https://etrojs.dev/juice.css">
     
 <!-- Juice references /normalize.css, which doesn't work, so we reference ./normalics.css here -->
-<link rel="stylesheet" type="text/css" href="/vidar/style.css" />
-<link rel="stylesheet" type="text/css" href="/vidar/juice-modified.css" />
-<link rel="shortcut icon" type="image/x-icon" href="/vidar/logo.svg" />
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/juice-modified.css">
+<link rel="shortcut icon" type="image/x-icon" href="/logo.svg">
 
 </head>
 
@@ -42,26 +36,26 @@
 <header class="box-shadow">
     
 
-<a href="&#x2F;vidar&#x2F;">
+<a href="https://etrojs.dev/">
     <div class="logo">
-        <img src="/vidar/logo.svg" alt="logo">
-        Vidar
+        <img src="https://etrojs.dev/logo.svg" alt="logo">
+        Etro
     </div>
 </a>
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;blog&#x2F;">Blog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/docs/">Docs</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;changelog&#x2F;">Changelog</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/roadmap/">Roadmap</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;docs&#x2F;">Docs</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/changelog/">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;vidar&#x2F;roadmap&#x2F;">Roadmap</a>
+    <a class="nav-item subtitle-text" href="https://etrojs.dev/blog/">Blog</a>
     
     
         
-        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;clabe45&#x2F;vidar">Github</a>
+        <a class="nav-item subtitle-text" href="https://github.com/etro-js/etro">Github</a>
         
     
 </nav>
@@ -79,32 +73,32 @@
     <div class="toc-sticky">
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#overview">Overview</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#overview">Overview</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#audio">Audio</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#audio">Audio</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#images">Images</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#images">Images</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#text">Text</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#text">Text</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#videos">Videos</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#videos">Videos</a>
         </div>
         <!--  -->
         
         <div class="toc-item">
-            <a class="subtext" href="/vidar/docs/tutorial/layers/#custom-layers">Custom Layers</a>
+            <a class="subtext" href="https://etrojs.dev/docs/tutorial/layers/#custom-layers">Custom Layers</a>
         </div>
         <!--  -->
         
@@ -119,11 +113,11 @@
 <div class="heading-text">Layers</div>
 <h1 id="overview">Overview</h1>
 <p>A layer (or clip) is a single piece of content with audio and/or video output.
-Vidar comes with several layers builtin. You can also write your own layers
-with JavaScript (see <a href="/vidar/docs/tutorial/layers/#custom-layers">Custom Layers</a>).</p>
+Etro comes with several layers builtin. You can also write your own layers
+with JavaScript (see <a href="https://etrojs.dev/docs/tutorial/layers/#custom-layers">Custom Layers</a>).</p>
 <h1 id="audio">Audio</h1>
 <p>To use an <code>&lt;audio/&gt;</code> element in a movie:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>audioLayer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Audio(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>audioElement </span><span style="color:#39adb5;">}</span><span>)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>audioLayer </span><span style="color:#39adb5;">= new </span><span>etro</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Audio(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>audioElement </span><span style="color:#39adb5;">}</span><span>)
 </span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addLayer</span><span>(audioLayer)
 </span></code></pre>
 <p>Optional arguments:</p>
@@ -136,7 +130,7 @@ with JavaScript (see <a href="/vidar/docs/tutorial/layers/#custom-layers">Custom
 </ul>
 <h1 id="images">Images</h1>
 <p>To use an <code>&lt;img/&gt;</code> element in a movie:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>imageLayer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Image(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>img </span><span style="color:#39adb5;">}</span><span>)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>imageLayer </span><span style="color:#39adb5;">= new </span><span>etro</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Image(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>img </span><span style="color:#39adb5;">}</span><span>)
 </span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addLayer</span><span>(imageLayer)
 </span></code></pre>
 <p>Optional arguments:</p>
@@ -157,7 +151,7 @@ the source image within the layer</li>
 <h1 id="text">Text</h1>
 <p>To add text to a movie:</p>
 <pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span style="color:#6182b8;">fn </span><span style="color:#39adb5;">= () </span><span style="font-style:italic;color:#7c4dff;">=&gt; </span><span style="color:#39adb5;">`${</span><span style="color:#f76d47;">Math</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">random</span><span style="color:#91b859;">()</span><span style="color:#39adb5;">}`  </span><span style="font-style:italic;color:#ccd7da;">// Choose a random number every frame
-</span><span style="font-style:italic;color:#7c4dff;">var </span><span>textLayer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Text(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span>text</span><span style="color:#39adb5;">: </span><span>fn </span><span style="color:#39adb5;">}</span><span>)
+</span><span style="font-style:italic;color:#7c4dff;">var </span><span>textLayer </span><span style="color:#39adb5;">= new </span><span>etro</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Text(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>duration</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">3</span><span style="color:#39adb5;">, </span><span>text</span><span style="color:#39adb5;">: </span><span>fn </span><span style="color:#39adb5;">}</span><span>)
 </span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addLayer</span><span>(textLayer)
 </span></code></pre>
 <p>Optional arguments:</p>
@@ -175,13 +169,13 @@ the source image within the layer</li>
 <li><code>color</code> - CSS color for the text</li>
 <li><code>textX</code>, <code>textY</code> - Text position within layer</li>
 <li><code>maxWidth</code> (in pixels)</li>
-<li><code>textAlign</code> - Horizontal align (&quot;left&quot; || &quot;right&quot; || &quot;center&quot; || &quot;start&quot; || &quot;end&quot;)</li>
-<li><code>textBaseline</code> - Vertical align (&quot;top&quot; || &quot;hanging&quot; || &quot;middle&quot; || &quot;alphabetic&quot; || &quot;ideographic&quot; || &quot;bottom&quot;)</li>
+<li><code>textAlign</code> - Horizontal align ("left" || "right" || "center" || "start" || "end")</li>
+<li><code>textBaseline</code> - Vertical align ("top" || "hanging" || "middle" || "alphabetic" || "ideographic" || "bottom")</li>
 <li><code>textDirection</code></li>
 </ul>
 <h1 id="videos">Videos</h1>
 <p>To add a <code>&lt;video/&gt;</code> element to a movie:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>videoLayer </span><span style="color:#39adb5;">= new </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Video(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>videoElement </span><span style="color:#39adb5;">}</span><span>)
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">var </span><span>videoLayer </span><span style="color:#39adb5;">= new </span><span>etro</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span>Video(</span><span style="color:#39adb5;">{ </span><span>startTime</span><span style="color:#39adb5;">: </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span>source</span><span style="color:#39adb5;">: </span><span>videoElement </span><span style="color:#39adb5;">}</span><span>)
 </span><span>movie</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">addLayer</span><span>(videoLayer)
 </span></code></pre>
 <p>Optional arguments:</p>
@@ -211,19 +205,19 @@ the source image within the layer</li>
 </ul>
 <h1 id="custom-layers">Custom Layers</h1>
 <p>You can subclass any layer to create your own:</p>
-<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">MyLayer </span><span style="color:#7c4dff;">extends </span><span>vd</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Visual </span><span style="color:#39adb5;">{
+<pre data-lang="js" style="background-color:#fafafa;color:#80cbc4;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#7c4dff;">class </span><span style="color:#ffb62c;">MyLayer </span><span style="color:#7c4dff;">extends </span><span>etro</span><span style="color:#39adb5;">.</span><span>layer</span><span style="color:#39adb5;">.</span><span style="color:#91b859;">Visual </span><span style="color:#39adb5;">{
 </span><span>  </span><span style="font-style:italic;color:#7c4dff;">constructor</span><span style="color:#39adb5;">(</span><span style="color:#f76d47;">options</span><span style="color:#39adb5;">) {
 </span><span>    </span><span style="font-style:italic;color:#e53935;">super</span><span>(options)
 </span><span>
 </span><span>    </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>foo </span><span style="color:#39adb5;">= </span><span>options</span><span style="color:#39adb5;">.</span><span>foo </span><span style="color:#39adb5;">|| </span><span style="color:#f76d47;">false
 </span><span>  </span><span style="color:#39adb5;">}
 </span><span>
-</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// doRender is a special method for visual layers. If you&#39;re not subclassing a visual layer, rename this to `render`.
+</span><span style="color:#39adb5;">  </span><span style="font-style:italic;color:#ccd7da;">// doRender is a special method for visual layers. If you're not subclassing a visual layer, rename this to `render`.
 </span><span>  </span><span style="color:#6182b8;">doRender</span><span style="color:#39adb5;">() {
 </span><span>    </span><span style="font-style:italic;color:#e53935;">super</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">doRender</span><span>()
 </span><span>
 </span><span style="color:#39adb5;">    </span><span style="font-style:italic;color:#ccd7da;">// Evaluate the foo property at the current frame (to support dynamic properties)
-</span><span>    </span><span style="font-style:italic;color:#7c4dff;">if </span><span>(vd</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">val</span><span>(</span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">, &#39;</span><span style="color:#91b859;">foo</span><span style="color:#39adb5;">&#39;, </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>currentTime)) </span><span style="color:#39adb5;">{
+</span><span>    </span><span style="font-style:italic;color:#7c4dff;">if </span><span>(etro</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">val</span><span>(</span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">, '</span><span style="color:#91b859;">foo</span><span style="color:#39adb5;">', </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>currentTime)) </span><span style="color:#39adb5;">{
 </span><span style="color:#39adb5;">      </span><span style="font-style:italic;color:#ccd7da;">// cctx (canvas context) is the 2d rendering context for this layer
 </span><span>      </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>cctx</span><span style="color:#39adb5;">.</span><span style="color:#6182b8;">fillRect</span><span>(</span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span style="color:#f76d47;">0</span><span style="color:#39adb5;">, </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>width</span><span style="color:#39adb5;">, </span><span style="font-style:italic;color:#e53935;">this</span><span style="color:#39adb5;">.</span><span>height)
 </span><span>    </span><span style="color:#39adb5;">}
@@ -234,18 +228,19 @@ the source image within the layer</li>
 
         </div>
 
-        
-        
     </main>
 
     
-<!-- <footer>
+<footer>
     <small class="subtext">
-        <a href="https://huhu.io">Huhu.io</a> © 2020
+        <em>
+            Etro was previously known as Vidar, but it was renamed to avoid
+            confusion with an existing software product.
+        </em>
     </small>
-</footer> -->
+</footer>
 
-</body>
+
 <script>
     function highlightNav(heading) {
         let pathname = location.pathname;
@@ -281,4 +276,12 @@ the source image within the layer</li>
     }
 </script>
 
-</html>
+
+<script>window.addEventListener('load', function () {
+  const page = window.location.toString().substring(
+    'https://calebsacks.me/vidar/'.length
+  );
+
+  window.location.replace(`https://etrojs.dev/${page}`);
+});
+</script></body></html>
