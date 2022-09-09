@@ -33,13 +33,13 @@ class App extends Component {
                                 </h3>
                                 <div>
                                     {
-                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'opengl']
+                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'openai', 'protobufs']
                                             .map((name, i) => <Skill name={name} strength="advanced" />)
                                     }
                                 </div>
                                 <div>
                                     {
-                                        ['java', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions']
+                                        ['java', 'opengl', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions', 'puppeteer']
                                             .map((name, i) => <Skill name={name} strength="proficient" />)
                                     }
                                 </div>
