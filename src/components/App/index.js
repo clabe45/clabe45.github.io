@@ -52,18 +52,21 @@ class App extends Component {
                                     <Row className="project-row">
                                         <Col md={{ span: 4 }}>
                                             <Project
+                                              work
                                               name="swe intern - youtube tv"
                                               description="Added opt-in button for show and sports channel notifications"
                                               />
                                         </Col>
                                         <Col md={{ span: 4 }}>
                                             <Project
+                                              work
                                               name="swe intern - markel corp"
                                               description="Supported agile price estimation team across the stack"
                                               />
                                         </Col>
                                         <Col md={{ span: 4 }}>
                                             <Project
+                                              work
                                               name="sys admin - clark university"
                                               description="Manage high-performance computing cluster"
                                               />

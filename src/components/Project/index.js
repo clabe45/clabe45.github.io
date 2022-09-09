@@ -26,8 +26,9 @@ class Project extends Component {
     }
 
     render() {
+        const typeClass = this.props.work ? 'work' : 'personal'
         return (
-            <Card as="a" href={this.props.url} className="project">
+            <Card as="a" href={this.props.url} className={`project project-${typeClass}`}>
                 <Card.Body>
                     <Card.Title>{this.props.name}</Card.Title>
                     <Card.Text>{this.state.description}</Card.Text>

@@ -26,10 +26,6 @@ code {
     monospace;
 }
 
-a {
-  color: rgb(255, 154, 154) !important;
-}
-
 a:focus {
   outline: none;
 }

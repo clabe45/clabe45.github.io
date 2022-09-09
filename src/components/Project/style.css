@@ -15,3 +15,11 @@
 .project .card-text {
   color: white !important;
 }
+
+.project-work {
+  color: rgb(154, 255, 199) !important;
+}
+
+.project-personal {
+  color: rgb(255, 208, 154) !important;
+}
