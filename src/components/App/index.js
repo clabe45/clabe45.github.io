@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { Box, Tools } from 'react-bootstrap-icons'
+import { Briefcase, Heart, Tools } from 'react-bootstrap-icons'
 import Social from '../Social'
 import Source from '../Source'
 import Project from '../Project'
@@ -46,7 +46,34 @@ class App extends Component {
                             </div>
                             <div className="home-section">
                                 <h3 className="home-section-title">
-                                    <Box /> Projects
+                                    <Briefcase /> Experience
+                                </h3>
+                                <div>
+                                    <Row className="project-row">
+                                        <Col md={{ span: 4 }}>
+                                            <Project
+                                              name="swe intern - youtube tv"
+                                              description="Added opt-in button for show and sports channel notifications"
+                                              />
+                                        </Col>
+                                        <Col md={{ span: 4 }}>
+                                            <Project
+                                              name="swe intern - markel corp"
+                                              description="Supported agile price estimation team across the stack"
+                                              />
+                                        </Col>
+                                        <Col md={{ span: 4 }}>
+                                            <Project
+                                              name="sys admin - clark university"
+                                              description="Manage high-performance computing cluster"
+                                              />
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </div>
+                            <div className="home-section">
+                                <h3 className="home-section-title">
+                                    <Heart /> Personal Projects
                                 </h3>
                                 <div>
                                     <Row className="project-row">
@@ -76,8 +103,8 @@ class App extends Component {
                                                 />
                                         </Col>
                                     </Row>
-                                </div>
-                            </div >
+                                </div >
+                            </div>
                         </Container>
                     </div>
                 </div>
