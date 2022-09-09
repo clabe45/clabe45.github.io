@@ -50,15 +50,29 @@ class App extends Component {
                                 </h3>
                                 <div>
                                     <Row className="project-row">
-                                        <Col md={{ span: 4, offset: 2 }}>
-                                            <Project host="github" owner="clabe45" name="vidar" url="/vidar" />
+                                        <Col md={{ span: 4 }}>
+                                            <Project
+                                              host="github"
+                                              owner="clabe45"
+                                              name="shulkr"
+                                              url="https://github.com/clabe45/shulkr"
+                                              />
                                         </Col>
-                                        <Col md={{ span: 4, offset: 0}}>
+                                        <Col md={{ span: 4 }}>
+                                            <Project
+                                              host="github"
+                                              owner="clabe45"
+                                              name="etro"
+                                              url="https://etrojs.dev"
+                                              description="TypeScript video-processing framework"
+                                              />
+                                        </Col>
+                                        <Col md={{ span: 4 }}>
                                             <Project
                                                 host="itch"
-                                                name="morakk"
-                                                description="A unity survival game that takes place on a planet only inhabited by robots"
-                                                url="https://erstelgames.itch.io/morakk"
+                                                name="protosim"
+                                                description="Time-travel stealth game"
+                                                url="https://erstelgames.itch.io/protosim"
                                                 />
                                         </Col>
                                     </Row>

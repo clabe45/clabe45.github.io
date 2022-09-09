@@ -12,17 +12,16 @@ class Project extends Component {
     }
 
     componentDidMount() {
-        if (this.props.host === 'github') {
+        if (this.props.description) {
+            this.setState({ description: this.props.description })
+        } else if (this.props.host === 'github') {
             fetch(`https://api.github.com/repos/${this.props.owner}/${this.props.name}`)
                 .then(resp => resp.json())
                 .then(resp => {
                     this.setState({ description: resp.description })
                 })
         } else {
-            if (this.props.description)
-                this.setState({ description: this.props.description })
-            else
-                throw new Error('must provide a description for projects that are not hosted on github')
+            throw new Error('must provide a description for projects that are not hosted on github')
         }
     }
 
