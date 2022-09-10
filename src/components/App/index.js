@@ -22,7 +22,7 @@ class App extends Component {
                             </h1>
                             <h2 className="home-section-subtitle">
                                 <em>
-                                    I'm a full stack developer. I love creating <strong>sites</strong>, <strong>apps</strong>, <strong>games</strong> and <strong>command lines tools</strong>, especially those related to automation and media processing.
+                                    I'm a full stack developer. I love creating <strong>sites</strong>, <strong>apps</strong>, <strong>games</strong> and <strong>developer tools</strong>, especially those related to automation and media.
                                 </em>
                             </h2>
                         </Container>
