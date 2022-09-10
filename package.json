@@ -27,7 +27,7 @@
     "reset": "git submodule deinit -f . && npm run setup",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "lint": "npx stylelint src",
+    "lint": "npx stylelint --fix src",
     "build-etro": "npm --prefix etro-js.github.io i && npm --prefix etro-js.github.io run build && git --git-dir etro-js.github.io/etro/.git checkout v0.8.5 && node vidar-redirect/inject-redirects.js && cp -r etro-js.github.io/public build/vidar",
     "build": "npm run update && rm -rf build && react-scripts build && npm run build-etro && npm run reset",
     "prepublish": "npm run build",
