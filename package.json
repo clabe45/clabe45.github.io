@@ -49,6 +49,9 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "cheerio": "^1.0.0-rc.10",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.8.1",
     "walk-sync": "^3.0.0"
   }
 }
