@@ -1,3 +1,3 @@
 [submodule "etro-js.github.io"]
 	path = etro-js.github.io
-	url = git@github.com:etro-js/etro-js.github.io
+	url = https://github.com/etro-js/etro-js.github.io.git
