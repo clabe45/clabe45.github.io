@@ -17,12 +17,14 @@ class App extends Component {
                 <div className="text-center ">
                     <div className="mx-0 home-section home-intro">
                         <Container>
-                            <h3 className="home-section-title">
-                                Hello, my name is Caleb Sacks
-                            </h3>
-                            <em className="home-section-subtitle">
-                                I am a full stack developer. I love to create games, multimedia tools and any other software that enhances people's lives
-                            </em>
+                            <h1 className="home-section-title">
+                                Hello, I'm Caleb
+                            </h1>
+                            <h2 className="home-section-subtitle">
+                                <em>
+                                    I'm a full stack developer. I love creating <strong>sites</strong>, <strong>apps</strong>, <strong>games</strong> and <strong>command lines tools</strong>, especially those related to automation and media processing.
+                                </em>
+                            </h2>
                         </Container>
                     </div>
                     <div className="home-after-intro">
