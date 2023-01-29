@@ -70,7 +70,7 @@ class App extends Component {
                                             <Project
                                               work
                                               name="sysadmin - clark university"
-                                              description="Manage high-performance computing cluster"
+                                              description="Manage computer science department website and HPCC"
                                               />
                                         </Col>
                                     </Row>
