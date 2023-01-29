@@ -88,17 +88,17 @@ class App extends Component {
                                             <Project
                                               host="github"
                                               owner="clabe45"
-                                              name="shulkr"
-                                              url="https://github.com/clabe45/shulkr"
+                                              name="etro"
+                                              url="https://etrojs.dev"
+                                              description="TypeScript video-processing framework"
                                               />
                                         </Col>
                                         <Col md={{ span: 4 }}>
                                             <Project
                                               host="github"
                                               owner="clabe45"
-                                              name="etro"
-                                              url="https://etrojs.dev"
-                                              description="TypeScript video-processing framework"
+                                              name="shulkr"
+                                              url="https://github.com/clabe45/shulkr"
                                               />
                                         </Col>
                                         <Col md={{ span: 4 }}>
