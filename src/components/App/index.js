@@ -18,12 +18,14 @@ class App extends Component {
                     <div className="mx-0 home-section home-intro">
                         <Container>
                             <h1 className="home-section-title">
-                                Hello, I'm Caleb
+                                Hi, I'm Caleb
                             </h1>
                             <h2 className="home-section-subtitle">
-                                <em>
-                                    I'm a full stack developer. I love creating <strong>sites</strong>, <strong>apps</strong>, <strong>games</strong> and <strong>developer tools</strong>, especially those related to automation and media.
-                                </em>
+                                <p>
+                                    <em>
+                                        I'm a full stack developer - I like creating <strong>apps</strong>, <strong>developer tools</strong>, <strong>sites</strong> and <strong>games</strong> related to media, automation and AI
+                                    </em>
+                                </p>
                             </h2>
                         </Container>
                     </div>
