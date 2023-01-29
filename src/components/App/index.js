@@ -69,7 +69,7 @@ class App extends Component {
                                         <Col md={{ span: 4 }}>
                                             <Project
                                               work
-                                              name="sys admin - clark university"
+                                              name="sysadmin - clark university"
                                               description="Manage high-performance computing cluster"
                                               />
                                         </Col>
