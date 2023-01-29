@@ -33,23 +33,6 @@ class App extends Component {
                         <Container>
                             <div className="home-section">
                                 <h3 className="home-section-title">
-                                    <Tools /> Skills
-                                </h3>
-                                <div>
-                                    {
-                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'openai', 'protobufs']
-                                            .map((name, i) => <Skill name={name} strength="advanced" />)
-                                    }
-                                </div>
-                                <div>
-                                    {
-                                        ['java', 'opengl', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions', 'puppeteer']
-                                            .map((name, i) => <Skill name={name} strength="proficient" />)
-                                    }
-                                </div>
-                            </div>
-                            <div className="home-section">
-                                <h3 className="home-section-title">
                                     <Briefcase /> Experience
                                 </h3>
                                 <div>
@@ -76,6 +59,23 @@ class App extends Component {
                                               />
                                         </Col>
                                     </Row>
+                                </div>
+                            </div>
+                            <div className="home-section">
+                                <h3 className="home-section-title">
+                                    <Tools /> Skills
+                                </h3>
+                                <div>
+                                    {
+                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'openai', 'protobufs']
+                                            .map((name, i) => <Skill name={name} strength="advanced" />)
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        ['java', 'opengl', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions', 'puppeteer']
+                                            .map((name, i) => <Skill name={name} strength="proficient" />)
+                                    }
                                 </div>
                             </div>
                             <div className="home-section">
