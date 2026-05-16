@@ -4,18 +4,14 @@ import './style.css'
 
 class Skill extends Component {
     getTag() {
-        if (this.props.strength === 'advanced')
-            return 'h4'
-        if (this.props.strength === 'proficient')
-            return 'h5'
-        return 'span'
+        return 'h4'
     }
 
     render() {
         const Tag = this.getTag()
 
         return (
-            <Tag className={`skill skill-${this.props.strength}`}>
+            <Tag className="skill">
                 <Badge>{this.props.name}</Badge>
             </Tag>
         )

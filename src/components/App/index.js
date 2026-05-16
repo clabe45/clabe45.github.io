@@ -18,15 +18,14 @@ class App extends Component {
                     <div className="mx-0 home-section home-intro">
                         <Container>
                             <h1 className="home-section-title">
-                                Hi, I'm Caleb
+                                Caleb Sacks
                             </h1>
                             <h2 className="home-section-subtitle">
-                                <p>
-                                    <em>
-                                        I'm a full stack developer - I like creating <strong>apps</strong>, <strong>developer tools</strong>, <strong>sites</strong> and <strong>games</strong> related to media, automation and AI
-                                    </em>
-                                </p>
+                                software engineer @ google (2023-present)
                             </h2>
+                            <p>
+                                clark university alum (2019-2023)
+                            </p>
                         </Container>
                     </div>
                     <div className="home-after-intro">
@@ -36,6 +35,15 @@ class App extends Component {
                                     <Briefcase /> Experience
                                 </h3>
                                 <div>
+                                    <Row className="project-row">
+                                        <Col md={{ span: 4, offset: 4 }}>
+                                            <Project
+                                              work
+                                              name="swe - google"
+                                              description="Supporting internal promo platform for youtube"
+                                              />
+                                        </Col>
+                                    </Row>
                                     <Row className="project-row">
                                         <Col md={{ span: 4 }}>
                                             <Project
@@ -55,7 +63,7 @@ class App extends Component {
                                             <Project
                                               work
                                               name="sysadmin - clark university"
-                                              description="Manage computer science department website and HPCC"
+                                              description="Managed computer science department website and hpcc"
                                               />
                                         </Col>
                                     </Row>
@@ -67,14 +75,64 @@ class App extends Component {
                                 </h3>
                                 <div>
                                     {
-                                        ['git', 'linux', 'typescript', 'python', 'react', 'angular', 'node', 'c/++', 'c#', 'unity3d', 'openai', 'protobufs']
-                                            .map((name, i) => <Skill name={name} strength="advanced" />)
-                                    }
-                                </div>
-                                <div>
-                                    {
-                                        ['java', 'opengl', 'glsl', 'web audio api', 'socket.io', 'sql', 'express', 'github actions', 'puppeteer']
-                                            .map((name, i) => <Skill name={name} strength="proficient" />)
+                                        [
+                                            '3d rendering',
+                                            'agent skills',
+                                            'agent-to-agent interaction',
+                                            'agents',
+                                            'angular',
+                                            'api design',
+                                            'caddy',
+                                            'c#',
+                                            'c++',
+                                            'ci/cd',
+                                            'code readability',
+                                            'containerization',
+                                            'context engineering',
+                                            'cross-team collaboration',
+                                            'data migration',
+                                            'discord bots',
+                                            'docker',
+                                            'docker compose',
+                                            'express.js',
+                                            'fastmcp',
+                                            'fullstack web development',
+                                            'git',
+                                            'github actions',
+                                            'glsl',
+                                            'hardware acceleration',
+                                            'java',
+                                            'karma',
+                                            'linux',
+                                            'litellm',
+                                            'llm security',
+                                            'llms',
+                                            'mcp',
+                                            'next.js',
+                                            'nodejs',
+                                            'openai api',
+                                            'opengl',
+                                            'performance optimization',
+                                            'postgres',
+                                            'project management',
+                                            'prompt engineering',
+                                            'protobufs',
+                                            'puppeteer',
+                                            'python',
+                                            'react',
+                                            'selenium',
+                                            'slurm',
+                                            'socket.io',
+                                            'sql',
+                                            'svelte',
+                                            'system design',
+                                            'technical documentation',
+                                            'typescript',
+                                            'unity3d',
+                                            'webgl',
+                                            'webrtc'
+                                        ]
+                                            .map(name => <Skill key={name} name={name} />)
                                     }
                                 </div>
                             </div>
